@@ -1,1 +1,43 @@
 @meta charset="utf-8";
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'lucida sans console', sans-serif;
+}
+
+#wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)), url("https://images.unsplash.com/photo-1536152470836-b943b246224c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9dcd3e95702c1f012dfb4f97d81fdde6&auto=format&fit=crop&w=1278&q=80") no-repeat center center fixed;
+    background-size: cover;
+}
+
+#wrapper > header {
+    background-color: goldenrod;
+    color: purple;
+    padding: 1em;
+    border-radius: 10px;
+}
+
+
+.main > div {
+    background-color: red;
+    color: white;
+    padding: 1em;
+    border-radius: 10px;
+}
