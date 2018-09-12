@@ -23,7 +23,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)), url("https://images.unsplash.com/photo-1536152470836-b943b246224c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9dcd3e95702c1f012dfb4f97d81fdde6&auto=format&fit=crop&w=1278&q=80") no-repeat center center fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)), url("/img/1.jpeg") no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -32,12 +32,41 @@ body {
     color: purple;
     padding: 1em;
     border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+#wrapper > header > a {
+    text-decoration: none;
+}
+
+#wrapper > header:hover {
+    color: black;
+    background-color: aquamarine;
 }
 
 
-.main > div {
+.main > .comingSoon {
     background-color: red;
     color: white;
     padding: 1em;
     border-radius: 10px;
+    margin-top: 1em;
+}
+
+.social {
+    width: auto;
+    color: white;
+    margin-top: 1em;
+}
+
+.social a {
+    width: auto;
+    color: white;
+}
+
+.social > .socialIcons {
+     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
 }
