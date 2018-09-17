@@ -12,10 +12,10 @@ html {
 body {
     padding: 0;
     margin: 0;
-    font-family: 'lucida sans console', sans-serif;
+    font-family: 'lucida console', sans-serif;
 }
 
-#wrapper {
+main {
     height: 100%;
     width: 100%;
     display: flex;
@@ -27,26 +27,42 @@ body {
     background-size: cover;
 }
 
-#wrapper > header {
+main > header {
     background-color: goldenrod;
-    color: purple;
     padding: 1em;
     border-radius: 10px;
     transition: all 0.2s ease-in-out;
+    text-align: center;
 }
 
-#wrapper > header > a {
+main > header > h1 {
+    margin: 5px 0;
+}
+
+main > .msg > .comingSoon {
+    transition: all 0.2s ease-in-out;
+    padding: 1em;
+}
+
+main > .msg > .comingSoon > h1:nth-child(1) {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+main > .msg > .comingSoon > h1 > a {
     text-decoration: none;
+    color: white;
+    margin-bottom: 5px;
+    transition: all 0.2s ease-in-out;
 }
 
-#wrapper > header:hover {
+main > .msg > .comingSoon > h1 > a:hover {
     color: black;
-    background-color: aquamarine;
 }
 
 
-.main > .comingSoon {
-    background-color: red;
+.msg > .comingSoon {
+    background-color: orchid;
     color: white;
     padding: 1em;
     border-radius: 10px;
@@ -59,14 +75,19 @@ body {
     margin-top: 1em;
 }
 
-.social a {
-    width: auto;
-    color: white;
-}
-
 .social > .socialIcons {
-     width: 100%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     margin-top: 1em;
+}
+
+.social > .socialIcons > a {
+    color: white;
+    transition: 0.2s all ease-in-out;
+    width: auto;
+}
+
+.social > .socialIcons > a:hover {
+    color: orchid;
 }
