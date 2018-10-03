@@ -1,0 +1,107 @@
+html {
+    box-sizing: border-box;
+    font-family: 'lucida console', sans-serif;
+    min-height: 100%;
+    font-size: 16px;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to top, rgba(255, 255, 255, .2), transparent), url("https://images.unsplash.com/photo-1528728935509-22fb14722a30?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ff7a6ea0e48954973a5296db5988d9c0&auto=format&fit=crop&w=1260&q=80") no-repeat center center fixed;
+    background-size: cover;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    color: whitesmoke;
+}
+
+header {
+    height: 5rem;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    z-index: 999;
+}
+
+header nav {
+    flex: 1 1 100%;
+}
+
+header nav .nav {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header nav .nav div {
+    display: flex;
+    justify-content: space-around;
+}
+
+header nav .nav .name {
+    flex: 0 0 30%;
+}
+
+header nav .nav .project {
+    flex: 0 0 40%;
+    align-items: center;
+}
+
+section:first-of-type {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+section .carousel {
+    width: 100%;
+    height: 20rem;
+    margin: 0 auto;
+    background: url("https://images.unsplash.com/photo-1537943198869-4c0391287eb3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a35081c8567526cf537977ae5cb0e3de&auto=format&fit=crop&w=1300&q=80") no-repeat 25% 25%;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 5rem;
+}
+
+section .carousel h1 {
+    color: white;
+    font-size: 50px;
+}
+
+section .widgets,
+section .social {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 50%;
+    justify-content: center;
+    position: relative;
+    top: 5rem;
+}
+
+section .widgets h1 {
+    color: white;
+    flex: 1 1 100%;
+    text-align: center;
+    padding: 1rem;
+}
