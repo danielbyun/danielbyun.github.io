@@ -5,7 +5,7 @@ let wavesurfer = WaveSurfer.create({
     scrollParent: true
 });
 
-wavesurfer.load("https://soundcloud.com/byunsta/tom-misch-inspired-beat");
+wavesurfer.load("https://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3");
 
 let playBtn = document.getElementById("play");
 
