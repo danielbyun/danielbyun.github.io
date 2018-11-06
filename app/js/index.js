@@ -2,13 +2,15 @@
 let wavesurfer = WaveSurfer.create({
     container: "#waveform",
     // The color can be either a simple CSS color or a Canvas gradient
-    waveColor: 'plum',
-    progressColor: 'hsla(200, 100%, 30%, 0.5)',
+    waveColor: 'hsla(328, 100%, 85%, 1)',
+    progressColor: 'hsla(200, 100%, 30%, 1)',
+    cursorColor: '#efefef',
     splitChannels: false,
     height: 350,
     responsive: 10,
     barHeight: 99,
-    barWidth: 3
+    barWidth: 3,
+    normalize: true
 });
 
 // load audio file
@@ -18,8 +20,18 @@ wavesurfer.load("audioFiles/blackbird.wav");
 let playBtn = document.getElementById("play");
 let resetBtn = document.getElementById("reset");
 
+// play || pause button while playing
+function playheadBtnColorPlaying() {
+    playBtn.style.color = "hsla(200, 100%, 30%, 1)";
+}
+
+// reset play || pause button back to original color
+function playheadBtnColorReset() {
+    playBtn.style.color = "#efefef";
+}
+
 // beats array
-let beats = ["audioFiles/blackbird.wav", "audioFiles/beat_mix1.mp3"];
+let beats = ["audioFiles/blackbird.wav", "audioFiles/beat.mp3", "audioFiles/tom misch type beat.wav"];
 
 // unordered list that will list out the beats
 let beatsList = document.getElementById("beats");
@@ -44,11 +56,17 @@ for (let i = 0; i < beats.length; i++ ){
 playBtn.addEventListener("click", togglePlay);
 function play() {
     wavesurfer.play();
+
+    // play button style when playing
+    playheadBtnColorPlaying();
 }
 
 // wavesurfer pause function
 function pause() {
     wavesurfer.pause();
+
+    // play button style when paused
+    playheadBtnColorReset();
 }
 
 // wavesurfer play // pause function that toggles
@@ -60,19 +78,21 @@ function togglePlay() {
     }
 }
 
+// when finished
+wavesurfer.on('finish', function() {
+    // change the playback button back to white
+    playheadBtnColorReset();
+});
+
 // reset playhead
 resetBtn.addEventListener("click", function() {
     wavesurfer.stop();
+    playheadBtnColorReset();
 });
 
 let beat = document.getElementsByTagName("source");
-if (beat.length) {
-}
 
 for (let i = 0; i < beats.length; i++) {
-    // console.log(beat);
-    // console.log(beatSrc);
-
     // get the src from the beats object
     let beatSrc = beat[i].attributes.src.nodeValue;
 
@@ -83,5 +103,8 @@ for (let i = 0; i < beats.length; i++) {
     function playBeat() {
         // console.log(`beat: ${i + 1} clicked, the src is ${beatSrc}`);
         wavesurfer.load(`${beatSrc}`);
+
+        // reset play button color
+        playheadBtnColorReset();
     }
 }

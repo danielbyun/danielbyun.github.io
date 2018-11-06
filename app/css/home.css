@@ -10,8 +10,11 @@ html, body {
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url("https://source.unsplash.com/daily") no-repeat center center fixed;
-  background-size: cover; }
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url("https://source.unsplash.com/featured/?music") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; }
 
 *, *:before, *:after {
   box-sizing: inherit; }
@@ -19,7 +22,7 @@ body {
 header {
   position: fixed;
   width: 100%;
-  height: 5rem;
+  height: 4rem;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -43,6 +46,7 @@ header {
         display: none; }
       header nav .nav .name {
         display: flex;
+        justify-content: center;
         align-items: center;
         flex: 0 0 30%;
         height: 100%; }
@@ -55,10 +59,11 @@ header {
 
 main {
   width: 100%;
-  height: 100%;
   display: flex;
+  flex: 0 0 auto;
   align-items: center;
-  justify-content: space-evenly; }
+  justify-content: space-evenly;
+  height: 100%; }
   main .canvas {
     display: flex;
     flex: 0 0 85%;
@@ -87,8 +92,6 @@ main {
       margin: 0 1rem; }
       main .canvas .waveform h1 {
         padding: 10px; }
-      main .canvas .waveform #waveform {
-        border: 1px solid plum; }
       main .canvas .waveform .playhead {
         display: flex;
         justify-content: center; }
@@ -97,27 +100,30 @@ main {
           margin: 10px;
           background-color: transparent;
           border: none;
-          cursor: pointer; }
+          cursor: pointer;
+          outline: 0; }
           main .canvas .waveform .playhead button:first-of-type {
-            color: #efefef; }
+            color: #efefef;
+            transition: all 0.1s ease-in-out; }
           main .canvas .waveform .playhead button:last-of-type {
             color: red; }
 
+footer {
+  display: none; }
+
 @media only screen and (max-device-width: 800px) {
-  header nav .nav {
-    display: flex;
-    flex: 0 0 100%; }
-    header nav .nav .menuIcon {
-      display: block;
-      color: white;
-      flex: 0 0 10%;
-      cursor: pointer; }
-    header nav .nav .name {
+  header {
+    display: block;
+    position: absolute; }
+    header nav .nav {
       display: flex;
-      flex: 0 0 45%;
-      align-items: center; }
-    header nav .nav .project {
-      display: none; }
+      flex: 0 0 100%; }
+      header nav .nav .name {
+        display: flex;
+        flex: 0 0 50%;
+        align-items: center; }
+      header nav .nav .project {
+        display: none; }
 
   main .canvas {
     display: flex;
@@ -127,11 +133,55 @@ main {
     main .canvas .playlist {
       width: 100%; }
   main .waveform {
-    width: 100%; } }
+    width: 100%;
+    position: relative;
+    top: 20px; } }
 @media only screen and (min-device-width: 320px) and (max-device-width: 415px) {
   main {
-    border: 1px solid red;
+    font-size: 14px;
+    width: 100%;
+    flex: 0 0 calc(100vh - 4rem);
     position: relative;
-    top: 5rem; } }
+    top: 25px; }
+    main #waveform {
+      position: relative;
+      top: 15px; }
+
+  footer {
+    width: 100%;
+    height: 4rem;
+    margin: auto auto 0 auto;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
+    z-index: 999;
+    flex-shrink: 0; }
+    footer nav {
+      flex: 1 1 100%;
+      height: 100%; }
+      footer nav a {
+        text-decoration: none;
+        transition: all 0.2s ease-in-out;
+        color: whitesmoke; }
+      footer nav .nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto; }
+        footer nav .nav .menuIcon {
+          display: none; }
+        footer nav .nav .name {
+          display: flex;
+          align-items: center;
+          flex: 0 0 30%;
+          height: 100%; }
+        footer nav .nav .project {
+          display: flex;
+          justify-content: space-evenly;
+          flex: 0 0 100%;
+          align-items: center;
+          height: 100%; } }
 
 /*# sourceMappingURL=home.css.map */

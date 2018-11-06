@@ -1,137 +1,107 @@
 html {
-    box-sizing: border-box;
-    min-height: 100%;
-    font-size: 16px;
-}
+  box-sizing: border-box;
+  min-height: 100%;
+  font-size: 16px; }
 
 html, body {
-    height: 100%;
-}
+  height: 100%; }
 
 body {
-    padding: 0;
-    margin: 0;
-    font-family: 'lucida console', sans-serif;
-}
+  padding: 0;
+  margin: 0;
+  font-family: 'lucida console', sans-serif; }
 
 a {
-    text-decoration: none;
-    transition: all 0.2s ease-in-out;
-    color: whitesmoke;
-}
-
-a:hover {
-}
-
-main {
-    height: 100%;
-    width: 100%;;
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)), url("../img/1.jpeg") no-repeat center center fixed;
-    background-size: cover;
-}
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  color: whitesmoke; }
 
 header {
-    height: 5rem;
-    display: flex;
-    position: fixed;
-    width: 100%;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    z-index: 999;
-}
-
-header nav {
+  position: fixed;
+  width: 100%;
+  height: 5rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
+  z-index: 999; }
+  header nav {
     flex: 1 1 100%;
-}
+    height: 100%; }
+    header nav a {
+      text-decoration: none;
+      transition: all 0.2s ease-in-out;
+      color: whitesmoke; }
+    header nav .nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto; }
+      header nav .nav .menuIcon {
+        display: none; }
+      header nav .nav .name {
+        display: flex;
+        align-items: center;
+        flex: 0 0 30%;
+        height: 100%; }
+      header nav .nav .project {
+        display: flex;
+        justify-content: space-between;
+        flex: 0 0 40%;
+        align-items: center;
+        height: 100%; }
 
-header nav .nav {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    margin: 0 auto;
-}
-
-header nav .nav div {
-    display: flex;
-    justify-content: space-around;
-}
-
-header nav .nav .name {
-    flex: 0 0 30%;
-}
-
-header nav .nav .project {
-    flex: 0 0 40%;
-    align-items: center;
-}
-
-main section {
+main {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)), url("../img/1.jpeg") no-repeat center center fixed;
+  background-size: cover; }
+  main section {
     position: relative;
     top: 5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
-}
-
-main .msg .comingSoon {
+    border: 1px solid red; }
+  main .msg .comingSoon {
     transition: all 0.2s ease-in-out;
     padding: 1rem;
-}
-
-main .msg .comingSoon h1:nth-child(1) {
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-main .msg .comingSoon h1 a {
-    text-decoration: none;
-    color: white;
-    margin-bottom: 5px;
-    transition: all 0.2s ease-in-out;
-}
-
-main .msg .comingSoon h1 a:hover {
-    color: black;
-}
-
-
-.msg .comingSoon {
     background-color: orchid;
     color: white;
-    padding: 1em;
     border-radius: 10px;
-    margin-top: 1em;
-}
+    margin-top: 1em; }
+    main .msg .comingSoon h1:nth-child(1) {
+      text-align: center;
+      margin-bottom: 1rem; }
+    main .msg .comingSoon h1 a {
+      text-decoration: none;
+      color: white;
+      margin-bottom: 5px;
+      transition: all 0.2s ease-in-out; }
+      main .msg .comingSoon h1 a:hover {
+        color: black; }
 
 .social {
-    width: auto;
-    color: white;
-    margin-top: 1em;
-    flex-wrap: wrap;
-}
-
-.social p {
+  width: auto;
+  color: white;
+  margin-top: 1em;
+  flex-wrap: wrap; }
+  .social p {
     flex-basis: 100%;
-    text-align: center;
-}
-
-.social .socialIcons {
+    text-align: center; }
+  .social .socialIcons {
     flex: 0 0 25%;
     display: flex;
     justify-content: space-between;
-    margin-top: 1em;
-}
+    margin-top: 1em; }
+    .social .socialIcons a {
+      color: white;
+      transition: 0.2s all ease-in-out;
+      width: auto; }
+      .social .socialIcons a:hover {
+        color: orchid; }
 
-.social .socialIcons a {
-    color: white;
-    transition: 0.2s all ease-in-out;
-    width: auto;
-}
-
-.social .socialIcons a:hover {
-    color: orchid;
-}
+/*# sourceMappingURL=about.css.map */
