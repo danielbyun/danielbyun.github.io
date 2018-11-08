@@ -52,7 +52,6 @@ header {
       }
       .name {
         display: flex;
-        justify-content: center;
         align-items: center;
         flex: 0 0 30%;
         height: 100%;
@@ -127,7 +126,7 @@ main {
             transition: all 0.1s ease-in-out;
           }
           &:last-of-type {
-            color: red;
+            color: #efefef;
           }
         }
       }

@@ -26,3 +26,6 @@ ul, li, ol {
     margin: 0;
 }
 
+html, body {
+    overflow: auto;
+}

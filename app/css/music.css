@@ -1,15 +1,13 @@
 html {
   box-sizing: border-box;
   font-family: 'lucida console', sans-serif;
-  min-height: 100%;
-  font-size: 16px; }
-
-html, body {
-  height: 100%; }
+  font-size: 16px;
+  min-height: 100%; }
 
 body {
   padding: 0;
   margin: 0;
+  height: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url("https://source.unsplash.com/featured/?music") no-repeat center center fixed;
   background-size: cover; }
 
@@ -24,7 +22,7 @@ a {
 header {
   position: fixed;
   width: 100%;
-  height: 5rem;
+  height: 4rem;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -58,14 +56,13 @@ header {
         align-items: center;
         height: 100%; }
 
-section:first-of-type {
+main section:first-of-type {
   position: relative;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center; }
-
-section .carousel {
+main section .carousel {
   width: 100%;
   height: 20rem;
   margin: 0 auto;
@@ -76,24 +73,20 @@ section .carousel {
   align-items: center;
   position: relative;
   top: 5rem; }
-
-section .carousel h1 {
-  color: white;
-  font-size: 50px; }
-
-section .widgets,
-section .social {
+  main section .carousel h1 {
+    color: white;
+    font-size: 50px; }
+main section .widgets {
   display: flex;
   flex-wrap: wrap;
   flex: 0 0 50%;
   justify-content: center;
   position: relative;
   top: 5rem; }
-
-section .widgets h1 {
-  color: white;
-  flex: 1 1 100%;
-  text-align: center;
-  padding: 1rem; }
+  main section .widgets h1 {
+    color: white;
+    flex: 1 1 100%;
+    text-align: center;
+    padding: 1rem; }
 
 /*# sourceMappingURL=music.css.map */

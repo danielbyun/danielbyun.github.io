@@ -11,6 +11,7 @@ let wavesurfer = WaveSurfer.create({
     barHeight: 99,
     barWidth: 3,
     normalize: true
+    // backend: "MediaElement"
 });
 
 // load audio file
@@ -23,6 +24,7 @@ let resetBtn = document.getElementById("reset");
 // play || pause button while playing
 function playheadBtnColorPlaying() {
     playBtn.style.color = "hsla(200, 100%, 30%, 1)";
+    resetBtn.style.color = "red";
 }
 
 // reset play || pause button back to original color
@@ -88,6 +90,7 @@ wavesurfer.on('finish', function() {
 resetBtn.addEventListener("click", function() {
     wavesurfer.stop();
     playheadBtnColorReset();
+    resetBtn.style.color = "#efefef";
 });
 
 let beat = document.getElementsByTagName("source");
