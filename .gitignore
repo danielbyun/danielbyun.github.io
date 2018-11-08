@@ -1,0 +1,8 @@
+# Ignore the API.js that has sensitive info
+app/js/api.js
+
+# Ignore node_modules (duh)
+node_modules
+
+# ignore IDEA workspace
+.idea

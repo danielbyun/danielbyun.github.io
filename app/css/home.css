@@ -10,7 +10,7 @@ html, body {
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url("https://source.unsplash.com/featured/?music") no-repeat center center fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url("../img/index.jpg") no-repeat center center fixed;
   background-size: cover;
   display: flex;
   flex-direction: column;

@@ -9,28 +9,29 @@ $(document).ready(function() {
 
     let accessToken = "BQAun_H45W-WmzONqdlT7vcypmYUlY49JX3vhVgnJtypfRXcX7nHnoKJWhdNpowwL7qVjVh59H9AxUKJBGPQQ3qy-HTOkAXTz2Xt3T8I60wjGNXr7ybmHHTQRgO0qIcKCqu4pOUBLg2zVqFI2aKwrpoUQXQWcdMoYdVp&refresh_token=AQCh54EOYpIcgsTkgBoUEXPLW60QqrbUJGCHuQwMSA3Mi2C-kQDoDjTAZDx5H7MpkBAbZPohiE0VJOAnitZy7z9oqvknnX-ky2fNmofAIEWH99Mpllsa9iHLNCacLQL28E8LTw";
 
-//     let url = `${spotifyUrl}${spotifyClientId}`;
-//
-//     // $.getJSON(spotifyUrl, function(data) {
-//     //     console.log(data);
-//     // });
-//
-//      $("#drawBtn").click(function() {
-//          $.ajax({
-//              type: "GET",
-//              url: spotifyUrl + "0C0XlULifJtAgn6ZNCW2eu",
-//              id: "0C0XlULifJtAgn6ZNCW2eu",
-//              market:"es",
-//              async: true,
-//              dataType: "json",
-//              headers: {'Authorization': 'Bearer' + authToken},
-//          }).done(function(data) {
-//              console.log(data);
-//          })
-//      })
-//
-//
+    // let url = `${spotifyUrl}${spotifyClientId}`;
+    //
+    // // $.getJSON(spotifyUrl, function(data) {
+    // //     console.log(data);
+    // // });
+    //
+    //  $("#drawBtn").click(function() {
+    //      $.ajax({
+    //          type: "GET",
+    //          url: spotifyUrl + "0C0XlULifJtAgn6ZNCW2eu",
+    //          id: "0C0XlULifJtAgn6ZNCW2eu",
+    //          market:"es",
+    //          async: true,
+    //          dataType: "json",
+    //          headers: {'Authorization': 'Bearer' + authToken},
+    //      }).done(function(data) {
+    //          console.log(data);
+    //      })
+    //  })
+    //
+
 });
+
 
 // load the http library
 // let http = require("http");

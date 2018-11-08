@@ -39,7 +39,7 @@ let beats = ["audioFiles/blackbird.wav", "audioFiles/beat.mp3", "audioFiles/tom 
 let beatsList = document.getElementById("beats");
 
 // loop through the beats array to list out the beats onto the index page
-for (let i = 0; i < beats.length; i++ ){
+for (let i = 0; i < beats.length; i++) {
 
     // create child tags that will live inside the ul (beatsList)
     let createBeatsList = document.createElement("source");
@@ -56,6 +56,7 @@ for (let i = 0; i < beats.length; i++ ){
 
 // play && pause button toggle
 playBtn.addEventListener("click", togglePlay);
+
 function play() {
     wavesurfer.play();
 
@@ -81,13 +82,13 @@ function togglePlay() {
 }
 
 // when finished
-wavesurfer.on('finish', function() {
+wavesurfer.on('finish', function () {
     // change the playback button back to white
     playheadBtnColorReset();
 });
 
 // reset playhead
-resetBtn.addEventListener("click", function() {
+resetBtn.addEventListener("click", function () {
     wavesurfer.stop();
     playheadBtnColorReset();
     resetBtn.style.color = "#efefef";

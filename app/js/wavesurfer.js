@@ -1,7 +1,2142 @@
-/*!
- * wavesurfer.js 2.1.0 (Mon Oct 01 2018 11:34:49 GMT+0200 (Central European Summer Time))
- * https://github.com/katspaugh/wavesurfer.js
- * @license BSD-3-Clause
- */
-!function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define("WaveSurfer",[],t):"object"==typeof exports?exports.WaveSurfer=t():e.WaveSurfer=t()}(window,function(){return function(r){var n={};function i(e){if(n[e])return n[e].exports;var t=n[e]={i:e,l:!1,exports:{}};return r[e].call(t.exports,t,t.exports,i),t.l=!0,t.exports}return i.m=r,i.c=n,i.d=function(e,t,r){i.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},i.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.t=function(t,e){if(1&e&&(t=i(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var r=Object.create(null);if(i.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var n in t)i.d(r,n,function(e){return t[e]}.bind(null,n));return r},i.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return i.d(t,"a",t),t},i.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},i.p="",i(i.s=4)}([function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),Object.defineProperty(t,"ajax",{enumerable:!0,get:function(){return n.default}}),Object.defineProperty(t,"getId",{enumerable:!0,get:function(){return i.default}}),Object.defineProperty(t,"max",{enumerable:!0,get:function(){return a.default}}),Object.defineProperty(t,"min",{enumerable:!0,get:function(){return s.default}}),Object.defineProperty(t,"Observer",{enumerable:!0,get:function(){return o.default}}),Object.defineProperty(t,"extend",{enumerable:!0,get:function(){return u.default}}),Object.defineProperty(t,"style",{enumerable:!0,get:function(){return l.default}}),Object.defineProperty(t,"requestAnimationFrame",{enumerable:!0,get:function(){return c.default}}),Object.defineProperty(t,"frame",{enumerable:!0,get:function(){return h.default}}),Object.defineProperty(t,"debounce",{enumerable:!0,get:function(){return f.default}}),Object.defineProperty(t,"preventClick",{enumerable:!0,get:function(){return d.default}});var n=p(r(5)),i=p(r(6)),a=p(r(7)),s=p(r(8)),o=p(r(1)),u=p(r(9)),l=p(r(10)),c=p(r(2)),h=p(r(11)),f=p(r(12)),d=p(r(13));function p(e){return e&&e.__esModule?e:{default:e}}},function(e,t,r){"use strict";function i(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var n=function(){function e(){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),this.handlers=null}var t,r,n;return t=e,(r=[{key:"on",value:function(e,t){var r=this;this.handlers||(this.handlers={});var n=this.handlers[e];return n||(n=this.handlers[e]=[]),n.push(t),{name:e,callback:t,un:function(e,t){return r.un(e,t)}}}},{key:"un",value:function(e,t){if(this.handlers){var r,n=this.handlers[e];if(n)if(t)for(r=n.length-1;0<=r;r--)n[r]==t&&n.splice(r,1);else n.length=0}}},{key:"unAll",value:function(){this.handlers=null}},{key:"once",value:function(i,a){var s=this;return this.on(i,function e(){for(var t=arguments.length,r=new Array(t),n=0;n<t;n++)r[n]=arguments[n];a.apply(s,r),setTimeout(function(){s.un(i,e)},0)})}},{key:"fireEvent",value:function(e){for(var t=arguments.length,r=new Array(1<t?t-1:0),n=1;n<t;n++)r[n-1]=arguments[n];if(this.handlers){var i=this.handlers[e];i&&i.forEach(function(e){e.apply(void 0,r)})}}}])&&i(t.prototype,r),n&&i(t,n),e}();t.default=n,e.exports=t.default},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var n=(window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||function(e,t){return setTimeout(e,1e3/60)}).bind(window);t.default=n,e.exports=t.default},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var n=function(e){{if(e&&e.__esModule)return e;var t={};if(null!=e)for(var r in e)if(Object.prototype.hasOwnProperty.call(e,r)){var n=Object.defineProperty&&Object.getOwnPropertyDescriptor?Object.getOwnPropertyDescriptor(e,r):{};n.get||n.set?Object.defineProperty(t,r,n):t[r]=e[r]}return t.default=e,t}}(r(0));function i(e){return(i="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function a(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}function s(e,t){return!t||"object"!==i(t)&&"function"!=typeof t?function(e){if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}(e):t}function o(e){return(o=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function u(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function l(e,t,r){return t&&u(e.prototype,t),r&&u(e,r),e}function c(e,t){return(c=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}var h="playing",f="paused",d="finished",p=function(e){function i(e){var t,r,n;return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,i),(n=s(this,o(i).call(this))).audioContext=null,n.offlineAudioContext=null,n.stateBehaviors=(a(t={},h,{init:function(){this.addOnAudioProcess()},getPlayedPercents:function(){var e=this.getDuration();return this.getCurrentTime()/e||0},getCurrentTime:function(){return this.startPosition+this.getPlayedTime()}}),a(t,f,{init:function(){this.removeOnAudioProcess()},getPlayedPercents:function(){var e=this.getDuration();return this.getCurrentTime()/e||0},getCurrentTime:function(){return this.startPosition}}),a(t,d,{init:function(){this.removeOnAudioProcess(),this.fireEvent("finish")},getPlayedPercents:function(){return 1},getCurrentTime:function(){return this.getDuration()}}),t),n.params=e,n.ac=e.audioContext||n.getAudioContext(),n.lastPlay=n.ac.currentTime,n.startPosition=0,n.scheduledPause=null,n.states=(a(r={},h,Object.create(n.stateBehaviors[h])),a(r,f,Object.create(n.stateBehaviors[f])),a(r,d,Object.create(n.stateBehaviors[d])),r),n.analyser=null,n.buffer=null,n.filters=[],n.gainNode=null,n.mergedPeaks=null,n.offlineAc=null,n.peaks=null,n.playbackRate=1,n.analyser=null,n.scriptNode=null,n.source=null,n.splitPeaks=[],n.state=null,n.explicitDuration=null,n}return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&c(e,t)}(i,n.Observer),l(i,[{key:"supportsWebAudio",value:function(){return!(!window.AudioContext&&!window.webkitAudioContext)}},{key:"getAudioContext",value:function(){return window.WaveSurferAudioContext||(window.WaveSurferAudioContext=new(window.AudioContext||window.webkitAudioContext)),window.WaveSurferAudioContext}},{key:"getOfflineAudioContext",value:function(e){return window.WaveSurferOfflineAudioContext||(window.WaveSurferOfflineAudioContext=new(window.OfflineAudioContext||window.webkitOfflineAudioContext)(1,2,e)),window.WaveSurferOfflineAudioContext}}]),l(i,[{key:"init",value:function(){this.createVolumeNode(),this.createScriptNode(),this.createAnalyserNode(),this.setState(f),this.setPlaybackRate(this.params.audioRate),this.setLength(0)}},{key:"disconnectFilters",value:function(){this.filters&&(this.filters.forEach(function(e){e&&e.disconnect()}),this.filters=null,this.analyser.connect(this.gainNode))}},{key:"setState",value:function(e){this.state!==this.states[e]&&(this.state=this.states[e],this.state.init.call(this))}},{key:"setFilter",value:function(){for(var e=arguments.length,t=new Array(e),r=0;r<e;r++)t[r]=arguments[r];this.setFilters(t)}},{key:"setFilters",value:function(e){this.disconnectFilters(),e&&e.length&&(this.filters=e,this.analyser.disconnect(),e.reduce(function(e,t){return e.connect(t),t},this.analyser).connect(this.gainNode))}},{key:"createScriptNode",value:function(){this.params.audioScriptProcessor?this.scriptNode=this.params.audioScriptProcessor:this.ac.createScriptProcessor?this.scriptNode=this.ac.createScriptProcessor(i.scriptBufferSize):this.scriptNode=this.ac.createJavaScriptNode(i.scriptBufferSize),this.scriptNode.connect(this.ac.destination)}},{key:"addOnAudioProcess",value:function(){var t=this;this.scriptNode.onaudioprocess=function(){var e=t.getCurrentTime();e>=t.getDuration()?(t.setState(d),t.fireEvent("pause")):e>=t.scheduledPause?t.pause():t.state===t.states[h]&&t.fireEvent("audioprocess",e)}}},{key:"removeOnAudioProcess",value:function(){this.scriptNode.onaudioprocess=null}},{key:"createAnalyserNode",value:function(){this.analyser=this.ac.createAnalyser(),this.analyser.connect(this.gainNode)}},{key:"createVolumeNode",value:function(){this.ac.createGain?this.gainNode=this.ac.createGain():this.gainNode=this.ac.createGainNode(),this.gainNode.connect(this.ac.destination)}},{key:"setSinkId",value:function(e){if(e){var t=new window.Audio;if(!t.setSinkId)return Promise.reject(new Error("setSinkId is not supported in your browser"));t.autoplay=!0;var r=this.ac.createMediaStreamDestination();return this.gainNode.disconnect(),this.gainNode.connect(r),t.srcObject=r.stream,t.setSinkId(e)}return Promise.reject(new Error("Invalid deviceId: "+e))}},{key:"setVolume",value:function(e){this.gainNode.gain.setValueAtTime(e,this.ac.currentTime)}},{key:"getVolume",value:function(){return this.gainNode.gain.value}},{key:"decodeArrayBuffer",value:function(e,t,r){this.offlineAc||(this.offlineAc=this.getOfflineAudioContext(this.ac&&this.ac.sampleRate?this.ac.sampleRate:44100)),this.offlineAc.decodeAudioData(e,function(e){return t(e)},r)}},{key:"setPeaks",value:function(e,t){this.explicitDuration=t,this.peaks=e}},{key:"setLength",value:function(e){if(!this.mergedPeaks||e!=2*this.mergedPeaks.length-1+2){this.splitPeaks=[],this.mergedPeaks=[];var t,r=this.buffer?this.buffer.numberOfChannels:1;for(t=0;t<r;t++)this.splitPeaks[t]=[],this.splitPeaks[t][2*(e-1)]=0,this.splitPeaks[t][2*(e-1)+1]=0;this.mergedPeaks[2*(e-1)]=0,this.mergedPeaks[2*(e-1)+1]=0}}},{key:"getPeaks",value:function(e,t,r){if(this.peaks)return this.peaks;if(t=t||0,r=r||e-1,this.setLength(e),!this.buffer.length){var n=this.createBuffer(1,4096,this.sampleRate);this.buffer=n.buffer}var i,a=this.buffer.length/e,s=~~(a/10)||1,o=this.buffer.numberOfChannels;for(i=0;i<o;i++){var u=this.splitPeaks[i],l=this.buffer.getChannelData(i),c=void 0;for(c=t;c<=r;c++){var h=~~(c*a),f=~~(h+a),d=0,p=0,v=void 0;for(v=h;v<f;v+=s){var y=l[v];p<y&&(p=y),y<d&&(d=y)}u[2*c]=p,u[2*c+1]=d,(0==i||p>this.mergedPeaks[2*c])&&(this.mergedPeaks[2*c]=p),(0==i||d<this.mergedPeaks[2*c+1])&&(this.mergedPeaks[2*c+1]=d)}}return this.params.splitChannels?this.splitPeaks:this.mergedPeaks}},{key:"getPlayedPercents",value:function(){return this.state.getPlayedPercents.call(this)}},{key:"disconnectSource",value:function(){this.source&&this.source.disconnect()}},{key:"destroy",value:function(){this.isPaused()||this.pause(),this.unAll(),this.buffer=null,this.disconnectFilters(),this.disconnectSource(),this.gainNode.disconnect(),this.scriptNode.disconnect(),this.analyser.disconnect(),this.params.closeAudioContext&&("function"==typeof this.ac.close&&"closed"!=this.ac.state&&this.ac.close(),this.ac=null,this.params.audioContext?this.params.audioContext=null:window.WaveSurferAudioContext=null,window.WaveSurferOfflineAudioContext=null)}},{key:"load",value:function(e){this.startPosition=0,this.lastPlay=this.ac.currentTime,this.buffer=e,this.createSource()}},{key:"createSource",value:function(){this.disconnectSource(),this.source=this.ac.createBufferSource(),this.source.start=this.source.start||this.source.noteGrainOn,this.source.stop=this.source.stop||this.source.noteOff,this.source.playbackRate.setValueAtTime(this.playbackRate,this.ac.currentTime),this.source.buffer=this.buffer,this.source.connect(this.analyser)}},{key:"isPaused",value:function(){return this.state!==this.states[h]}},{key:"getDuration",value:function(){return this.buffer?this.buffer.duration:this.explicitDuration?this.explicitDuration:0}},{key:"seekTo",value:function(e,t){if(this.buffer)return(this.scheduledPause=null)==e&&(e=this.getCurrentTime())>=this.getDuration()&&(e=0),null==t&&(t=this.getDuration()),this.startPosition=e,this.lastPlay=this.ac.currentTime,this.state===this.states[d]&&this.setState(f),{start:e,end:t}}},{key:"getPlayedTime",value:function(){return(this.ac.currentTime-this.lastPlay)*this.playbackRate}},{key:"play",value:function(e,t){if(this.buffer){this.createSource();var r=this.seekTo(e,t);e=r.start,t=r.end,this.scheduledPause=t,this.source.start(0,e,t-e),"suspended"==this.ac.state&&this.ac.resume&&this.ac.resume(),this.setState(h),this.fireEvent("play")}}},{key:"pause",value:function(){this.scheduledPause=null,this.startPosition+=this.getPlayedTime(),this.source&&this.source.stop(0),this.setState(f),this.fireEvent("pause")}},{key:"getCurrentTime",value:function(){return this.state.getCurrentTime.call(this)}},{key:"getPlaybackRate",value:function(){return this.playbackRate}},{key:"setPlaybackRate",value:function(e){e=e||1,this.isPaused()?this.playbackRate=e:(this.pause(),this.playbackRate=e,this.play())}}]),i}();(t.default=p).scriptBufferSize=256,e.exports=t.default},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var i=function(e){{if(e&&e.__esModule)return e;var t={};if(null!=e)for(var r in e)if(Object.prototype.hasOwnProperty.call(e,r)){var n=Object.defineProperty&&Object.getOwnPropertyDescriptor?Object.getOwnPropertyDescriptor(e,r):{};n.get||n.set?Object.defineProperty(t,r,n):t[r]=e[r]}return t.default=e,t}}(r(0)),a=n(r(14)),s=n(r(3)),o=n(r(16)),u=n(r(17));function n(e){return e&&e.__esModule?e:{default:e}}function l(e){return(l="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function c(e,t){return!t||"object"!==l(t)&&"function"!=typeof t?d(e):t}function h(e){return(h=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function f(e,t){return(f=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function d(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function p(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function v(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function y(e,t,r){return t&&v(e.prototype,t),r&&v(e,r),e}var m=function(e){function n(e){var t;if(p(this,n),(t=c(this,h(n).call(this))).defaultParams={audioContext:null,audioRate:1,autoCenter:!0,backend:"WebAudio",barHeight:1,barGap:null,container:null,cursorColor:"#333",cursorWidth:1,dragSelection:!0,fillParent:!0,forceDecode:!1,height:128,hideScrollbar:!1,interact:!0,loopSelection:!0,maxCanvasWidth:4e3,mediaContainer:null,mediaControls:!1,mediaType:"audio",minPxPerSec:20,normalize:!1,partialRender:!1,pixelRatio:window.devicePixelRatio||screen.deviceXDPI/screen.logicalXDPI,plugins:[],progressColor:"#555",removeMediaElementOnDestroy:!0,renderer:a.default,responsive:!1,scrollParent:!1,skipLength:2,splitChannels:!1,waveColor:"#999",xhr:{}},t.backends={MediaElement:o.default,WebAudio:s.default},t.util=i,t.params=i.extend({},t.defaultParams,e),t.container="string"==typeof e.container?document.querySelector(t.params.container):t.params.container,!t.container)throw new Error("Container element not found");if(null==t.params.mediaContainer?t.mediaContainer=t.container:"string"==typeof t.params.mediaContainer?t.mediaContainer=document.querySelector(t.params.mediaContainer):t.mediaContainer=t.params.mediaContainer,!t.mediaContainer)throw new Error("Media Container element not found");if(t.params.maxCanvasWidth<=1)throw new Error("maxCanvasWidth must be greater than 1");if(t.params.maxCanvasWidth%2==1)throw new Error("maxCanvasWidth must be an even number");if(t.savedVolume=0,t.isMuted=!1,t.tmpEvents=[],t.currentAjax=null,t.arraybuffer=null,t.drawer=null,t.backend=null,t.peakCache=null,"function"!=typeof t.params.renderer)throw new Error("Renderer parameter is invalid");t.Drawer=t.params.renderer,t.Backend=t.backends[t.params.backend],t.initialisedPluginList={},t.isDestroyed=!1,t.isReady=!1;var r=0;return t._onResize=i.debounce(function(){r==t.drawer.wrapper.clientWidth||t.params.scrollParent||(r=t.drawer.wrapper.clientWidth,t.drawer.fireEvent("redraw"))},"number"==typeof t.params.responsive?t.params.responsive:100),c(t,d(d(t)))}return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&f(e,t)}(n,i.Observer),y(n,null,[{key:"create",value:function(e){return new n(e).init()}}]),y(n,[{key:"init",value:function(){return this.registerPlugins(this.params.plugins),this.createDrawer(),this.createBackend(),this.createPeakCache(),this}},{key:"registerPlugins",value:function(e){var t=this;return e.forEach(function(e){return t.addPlugin(e)}),e.forEach(function(e){e.deferInit||t.initPlugin(e.name)}),this.fireEvent("plugins-registered",e),this}},{key:"addPlugin",value:function(t){var r=this;if(!t.name)throw new Error("Plugin does not have a name!");if(!t.instance)throw new Error("Plugin ".concat(t.name," does not have an instance property!"));t.staticProps&&Object.keys(t.staticProps).forEach(function(e){r[e]=t.staticProps[e]});var n=t.instance;return Object.getOwnPropertyNames(i.Observer.prototype).forEach(function(e){n.prototype[e]=i.Observer.prototype[e]}),this[t.name]=new n(t.params||{},this),this.fireEvent("plugin-added",t.name),this}},{key:"initPlugin",value:function(e){if(!this[e])throw new Error("Plugin ".concat(e," has not been added yet!"));return this.initialisedPluginList[e]&&this.destroyPlugin(e),this[e].init(),this.initialisedPluginList[e]=!0,this.fireEvent("plugin-initialised",e),this}},{key:"destroyPlugin",value:function(e){if(!this[e])throw new Error("Plugin ".concat(e," has not been added yet and cannot be destroyed!"));if(!this.initialisedPluginList[e])throw new Error("Plugin ".concat(e," is not active and cannot be destroyed!"));if("function"!=typeof this[e].destroy)throw new Error("Plugin ".concat(e," does not have a destroy function!"));return this[e].destroy(),delete this.initialisedPluginList[e],this.fireEvent("plugin-destroyed",e),this}},{key:"destroyAllPlugins",value:function(){var t=this;Object.keys(this.initialisedPluginList).forEach(function(e){return t.destroyPlugin(e)})}},{key:"createDrawer",value:function(){var r=this;this.drawer=new this.Drawer(this.container,this.params),this.drawer.init(),this.fireEvent("drawer-created",this.drawer),!1!==this.params.responsive&&(window.addEventListener("resize",this._onResize,!0),window.addEventListener("orientationchange",this._onResize,!0)),this.drawer.on("redraw",function(){r.drawBuffer(),r.drawer.progress(r.backend.getPlayedPercents())}),this.drawer.on("click",function(e,t){setTimeout(function(){return r.seekTo(t)},0)}),this.drawer.on("scroll",function(e){r.params.partialRender&&r.drawBuffer(),r.fireEvent("scroll",e)})}},{key:"createBackend",value:function(){var t=this;this.backend&&this.backend.destroy(),"AudioElement"==this.params.backend&&(this.params.backend="MediaElement"),"WebAudio"!=this.params.backend||this.Backend.prototype.supportsWebAudio.call(null)||(this.params.backend="MediaElement"),this.backend=new this.Backend(this.params),this.backend.init(),this.fireEvent("backend-created",this.backend),this.backend.on("finish",function(){return t.fireEvent("finish")}),this.backend.on("play",function(){return t.fireEvent("play")}),this.backend.on("pause",function(){return t.fireEvent("pause")}),this.backend.on("audioprocess",function(e){t.drawer.progress(t.backend.getPlayedPercents()),t.fireEvent("audioprocess",e)})}},{key:"createPeakCache",value:function(){this.params.partialRender&&(this.peakCache=new u.default)}},{key:"getDuration",value:function(){return this.backend.getDuration()}},{key:"getCurrentTime",value:function(){return this.backend.getCurrentTime()}},{key:"setCurrentTime",value:function(e){e>=this.getDuration()?this.seekTo(1):this.seekTo(e/this.getDuration())}},{key:"play",value:function(e,t){var r=this;return this.fireEvent("interaction",function(){return r.play(e,t)}),this.backend.play(e,t)}},{key:"pause",value:function(){if(!this.backend.isPaused())return this.backend.pause()}},{key:"playPause",value:function(){return this.backend.isPaused()?this.play():this.pause()}},{key:"isPlaying",value:function(){return!this.backend.isPaused()}},{key:"skipBackward",value:function(e){this.skip(-e||-this.params.skipLength)}},{key:"skipForward",value:function(e){this.skip(e||this.params.skipLength)}},{key:"skip",value:function(e){var t=this.getDuration()||1,r=this.getCurrentTime()||0;r=Math.max(0,Math.min(t,r+(e||0))),this.seekAndCenter(r/t)}},{key:"seekAndCenter",value:function(e){this.seekTo(e),this.drawer.recenter(e)}},{key:"seekTo",value:function(e){var t=this;if("number"!=typeof e||!isFinite(e)||e<0||1<e)return console.error("Error calling wavesurfer.seekTo, parameter must be a number between 0 and 1!");this.fireEvent("interaction",function(){return t.seekTo(e)});var r=this.backend.isPaused();r||this.backend.pause();var n=this.params.scrollParent;this.params.scrollParent=!1,this.backend.seekTo(e*this.getDuration()),this.drawer.progress(e),r||this.backend.play(),this.params.scrollParent=n,this.fireEvent("seek",e)}},{key:"stop",value:function(){this.pause(),this.seekTo(0),this.drawer.progress(0)}},{key:"setSinkId",value:function(e){return this.backend.setSinkId(e)}},{key:"setVolume",value:function(e){this.backend.setVolume(e),this.fireEvent("volume",e)}},{key:"getVolume",value:function(){return this.backend.getVolume()}},{key:"setPlaybackRate",value:function(e){this.backend.setPlaybackRate(e)}},{key:"getPlaybackRate",value:function(){return this.backend.getPlaybackRate()}},{key:"toggleMute",value:function(){this.setMute(!this.isMuted)}},{key:"setMute",value:function(e){e!==this.isMuted&&(e?(this.savedVolume=this.backend.getVolume(),this.backend.setVolume(0),this.isMuted=!0,this.fireEvent("volume",0)):(this.backend.setVolume(this.savedVolume),this.isMuted=!1,this.fireEvent("volume",this.savedVolume))),this.fireEvent("mute",this.isMuted)}},{key:"getMute",value:function(){return this.isMuted}},{key:"isReady",value:function(){return this.isReady}},{key:"getFilters",value:function(){return this.backend.filters||[]}},{key:"toggleScroll",value:function(){this.params.scrollParent=!this.params.scrollParent,this.drawBuffer()}},{key:"toggleInteraction",value:function(){this.params.interact=!this.params.interact}},{key:"getWaveColor",value:function(){return this.params.waveColor}},{key:"setWaveColor",value:function(e){this.params.waveColor=e,this.drawBuffer()}},{key:"getProgressColor",value:function(){return this.params.progressColor}},{key:"setProgressColor",value:function(e){this.params.progressColor=e,this.drawBuffer()}},{key:"getCursorColor",value:function(){return this.params.cursorColor}},{key:"setCursorColor",value:function(e){this.params.cursorColor=e,this.drawer.updateCursor()}},{key:"getHeight",value:function(){return this.params.height}},{key:"setHeight",value:function(e){this.params.height=e,this.drawer.setHeight(e*this.params.pixelRatio),this.drawBuffer()}},{key:"drawBuffer",value:function(){var e,t=Math.round(this.getDuration()*this.params.minPxPerSec*this.params.pixelRatio),r=this.drawer.getWidth(),n=t,i=this.drawer.getScrollX(),a=Math.max(i+r,n);if(this.params.fillParent&&(!this.params.scrollParent||t<r)&&(i=0,a=n=r),this.params.partialRender){var s,o=this.peakCache.addRangeToPeakCache(n,i,a);for(s=0;s<o.length;s++)e=this.backend.getPeaks(n,o[s][0],o[s][1]),this.drawer.drawPeaks(e,n,o[s][0],o[s][1])}else e=this.backend.getPeaks(n,i,a),this.drawer.drawPeaks(e,n,i,a);this.fireEvent("redraw",e,n)}},{key:"zoom",value:function(e){this.params.scrollParent=e?(this.params.minPxPerSec=e,!0):(this.params.minPxPerSec=this.defaultParams.minPxPerSec,!1),this.drawBuffer(),this.drawer.progress(this.backend.getPlayedPercents()),this.drawer.recenter(this.getCurrentTime()/this.getDuration()),this.fireEvent("zoom",e)}},{key:"loadArrayBuffer",value:function(e){var t=this;this.decodeArrayBuffer(e,function(e){t.isDestroyed||t.loadDecodedBuffer(e)})}},{key:"loadDecodedBuffer",value:function(e){this.backend.load(e),this.drawBuffer(),this.fireEvent("ready"),this.isReady=!0}},{key:"loadBlob",value:function(e){var t=this,r=new FileReader;r.addEventListener("progress",function(e){return t.onProgress(e)}),r.addEventListener("load",function(e){return t.loadArrayBuffer(e.target.result)}),r.addEventListener("error",function(){return t.fireEvent("error","Error reading file")}),r.readAsArrayBuffer(e),this.empty()}},{key:"load",value:function(e,t,r,n){if(this.empty(),r){var i={"Preload is not 'auto', 'none' or 'metadata'":-1===["auto","metadata","none"].indexOf(r),"Peaks are not provided":!t,"Backend is not of type MediaElement":"MediaElement"!==this.params.backend,"Url is not of type string":"string"!=typeof e},a=Object.keys(i).filter(function(e){return i[e]});a.length&&(console.warn("Preload parameter of wavesurfer.load will be ignored because:\n\t- "+a.join("\n\t- ")),r=null)}switch(this.params.backend){case"WebAudio":return this.loadBuffer(e,t,n);case"MediaElement":return this.loadMediaElement(e,t,r,n)}}},{key:"loadBuffer",value:function(t,e,r){var n=this,i=function(e){return e&&n.tmpEvents.push(n.once("ready",e)),n.getArrayBuffer(t,function(e){return n.loadArrayBuffer(e)})};if(!e)return i();this.backend.setPeaks(e,r),this.drawBuffer(),this.tmpEvents.push(this.once("interaction",i))}},{key:"loadMediaElement",value:function(e,t,r,n){var i=this,a=e;if("string"==typeof e)this.backend.load(a,this.mediaContainer,t,r);else{var s=e;this.backend.loadElt(s,t),a=s.src}this.tmpEvents.push(this.backend.once("canplay",function(){i.drawBuffer(),i.fireEvent("ready"),i.isReady=!0}),this.backend.once("error",function(e){return i.fireEvent("error",e)})),t&&this.backend.setPeaks(t,n),t&&!this.params.forceDecode||!this.backend.supportsWebAudio()||this.getArrayBuffer(a,function(e){i.decodeArrayBuffer(e,function(e){i.backend.buffer=e,i.backend.setPeaks(null),i.drawBuffer(),i.fireEvent("waveform-ready")})})}},{key:"decodeArrayBuffer",value:function(t,r){var n=this;this.arraybuffer=t,this.backend.decodeArrayBuffer(t,function(e){n.isDestroyed||n.arraybuffer!=t||(r(e),n.arraybuffer=null)},function(){return n.fireEvent("error","Error decoding audiobuffer")})}},{key:"getArrayBuffer",value:function(e,r){var n=this,t=i.ajax({url:e,responseType:"arraybuffer",xhr:this.params.xhr});return this.currentAjax=t,this.tmpEvents.push(t.on("progress",function(e){n.onProgress(e)}),t.on("success",function(e,t){r(e),n.currentAjax=null}),t.on("error",function(e){n.fireEvent("error","XHR error: "+e.target.statusText),n.currentAjax=null})),t}},{key:"onProgress",value:function(e){var t;t=e.lengthComputable?e.loaded/e.total:e.loaded/(e.loaded+1e6),this.fireEvent("loading",Math.round(100*t),e.target)}},{key:"exportPCM",value:function(e,t,r,n){e=e||1024,n=n||0,t=t||1e4,r=r||!1;var i=this.backend.getPeaks(e,n),a=[].map.call(i,function(e){return Math.round(e*t)/t}),s=JSON.stringify(a);return r||window.open("data:application/json;charset=utf-8,"+encodeURIComponent(s)),s}},{key:"exportImage",value:function(e,t){return e||(e="image/png"),t||(t=1),this.drawer.getImage(e,t)}},{key:"cancelAjax",value:function(){this.currentAjax&&(this.currentAjax.xhr.abort(),this.currentAjax=null)}},{key:"clearTmpEvents",value:function(){this.tmpEvents.forEach(function(e){return e.un()})}},{key:"empty",value:function(){this.backend.isPaused()||(this.stop(),this.backend.disconnectSource()),this.isReady=!1,this.cancelAjax(),this.clearTmpEvents(),this.drawer.progress(0),this.drawer.setWidth(0),this.drawer.drawPeaks({length:this.drawer.getWidth()},0)}},{key:"destroy",value:function(){this.destroyAllPlugins(),this.fireEvent("destroy"),this.cancelAjax(),this.clearTmpEvents(),this.unAll(),!1!==this.params.responsive&&(window.removeEventListener("resize",this._onResize,!0),window.removeEventListener("orientationchange",this._onResize,!0)),this.backend.destroy(),this.drawer.destroy(),this.isDestroyed=!0,this.isReady=!1,this.arraybuffer=null}}]),n}();(t.default=m).VERSION="2.1.0",m.util=i,e.exports=t.default},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=function(e){var t=new i.default,r=new XMLHttpRequest,n=!1;r.open(e.method||"GET",e.url,!0),r.responseType=e.responseType||"json",e.xhr&&(e.xhr.requestHeaders&&e.xhr.requestHeaders.forEach(function(e){r.setRequestHeader(e.key,e.value)}),e.xhr.withCredentials&&(r.withCredentials=!0));return r.addEventListener("progress",function(e){t.fireEvent("progress",e),e.lengthComputable&&e.loaded==e.total&&(n=!0)}),r.addEventListener("load",function(e){n||t.fireEvent("progress",e),t.fireEvent("load",e),200==r.status||206==r.status?t.fireEvent("success",r.response,e):t.fireEvent("error",e)}),r.addEventListener("error",function(e){return t.fireEvent("error",e)}),r.send(),t.xhr=r,t};var n,i=(n=r(1))&&n.__esModule?n:{default:n};e.exports=t.default},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=function(){return"wavesurfer_"+Math.random().toString(32).substring(2)},e.exports=t.default},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=function(t){var r=-1/0;return Object.keys(t).forEach(function(e){t[e]>r&&(r=t[e])}),r},e.exports=t.default},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=function(t){var r=Number(1/0);return Object.keys(t).forEach(function(e){t[e]<r&&(r=t[e])}),r},e.exports=t.default},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=function(r){for(var e=arguments.length,t=new Array(1<e?e-1:0),n=1;n<e;n++)t[n-1]=arguments[n];return t.forEach(function(t){Object.keys(t).forEach(function(e){r[e]=t[e]})}),r},e.exports=t.default},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=function(t,r){return Object.keys(r).forEach(function(e){t.style[e]!==r[e]&&(t.style[e]=r[e])}),t},e.exports=t.default},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=function(n){return function(){for(var e=arguments.length,t=new Array(e),r=0;r<e;r++)t[r]=arguments[r];return(0,i.default)(function(){return n.apply(void 0,t)})}};var n,i=(n=r(2))&&n.__esModule?n:{default:n};e.exports=t.default},function(e,t){function r(t,r,n){var i,a,s,o,u;function l(){var e=Date.now()-o;e<r&&0<=e?i=setTimeout(l,r-e):(i=null,n||(u=t.apply(s,a),s=a=null))}null==r&&(r=100);var e=function(){s=this,a=arguments,o=Date.now();var e=n&&!i;return i||(i=setTimeout(l,r)),e&&(u=t.apply(s,a),s=a=null),u};return e.clear=function(){i&&(clearTimeout(i),i=null)},e.flush=function(){i&&(u=t.apply(s,a),s=a=null,clearTimeout(i),i=null)},e}r.debounce=r,e.exports=r},function(e,t,r){"use strict";function n(e){e.stopPropagation(),document.body.removeEventListener("click",n,!0)}Object.defineProperty(t,"__esModule",{value:!0}),t.default=function(e){document.body.addEventListener("click",n,!0)},e.exports=t.default},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var n,a=(n=r(15))&&n.__esModule?n:{default:n},f=function(e){{if(e&&e.__esModule)return e;var t={};if(null!=e)for(var r in e)if(Object.prototype.hasOwnProperty.call(e,r)){var n=Object.defineProperty&&Object.getOwnPropertyDescriptor?Object.getOwnPropertyDescriptor(e,r):{};n.get||n.set?Object.defineProperty(t,r,n):t[r]=e[r]}return t.default=e,t}}(r(0));function i(e){return(i="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function s(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function o(e,t){return!t||"object"!==i(t)&&"function"!=typeof t?function(e){if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}(e):t}function u(e){return(u=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function l(e,t){return(l=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}var c=function(e){function n(e,t){var r;return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,n),(r=o(this,u(n).call(this,e,t))).maxCanvasWidth=t.maxCanvasWidth,r.maxCanvasElementWidth=Math.round(t.maxCanvasWidth/t.pixelRatio),r.hasProgressCanvas=t.waveColor!=t.progressColor,r.halfPixel=.5/t.pixelRatio,r.canvases=[],r.progressWave=null,r}var t,r,i;return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&l(e,t)}(n,a.default),t=n,(r=[{key:"init",value:function(){this.createWrapper(),this.createElements()}},{key:"createElements",value:function(){this.progressWave=this.wrapper.appendChild(this.style(document.createElement("wave"),{position:"absolute",zIndex:3,left:0,top:0,bottom:0,overflow:"hidden",width:"0",display:"none",boxSizing:"border-box",borderRightStyle:"solid",pointerEvents:"none"})),this.addCanvas(),this.updateCursor()}},{key:"updateCursor",value:function(){this.style(this.progressWave,{borderRightWidth:this.params.cursorWidth+"px",borderRightColor:this.params.cursorColor})}},{key:"updateSize",value:function(){for(var n=this,e=Math.round(this.width/this.params.pixelRatio),t=Math.ceil(e/this.maxCanvasElementWidth);this.canvases.length<t;)this.addCanvas();for(;this.canvases.length>t;)this.removeCanvas();this.canvases.forEach(function(e,t){var r=n.maxCanvasWidth+2*Math.ceil(n.params.pixelRatio/2);t==n.canvases.length-1&&(r=n.width-n.maxCanvasWidth*(n.canvases.length-1)),n.updateDimensions(e,r,n.height),n.clearWaveForEntry(e)})}},{key:"addCanvas",value:function(){var e={},t=this.maxCanvasElementWidth*this.canvases.length;e.wave=this.wrapper.appendChild(this.style(document.createElement("canvas"),{position:"absolute",zIndex:2,left:t+"px",top:0,bottom:0,height:"100%",pointerEvents:"none"})),e.waveCtx=e.wave.getContext("2d"),this.hasProgressCanvas&&(e.progress=this.progressWave.appendChild(this.style(document.createElement("canvas"),{position:"absolute",left:t+"px",top:0,bottom:0,height:"100%"})),e.progressCtx=e.progress.getContext("2d")),this.canvases.push(e)}},{key:"removeCanvas",value:function(){var e=this.canvases.pop();e.wave.parentElement.removeChild(e.wave),this.hasProgressCanvas&&e.progress.parentElement.removeChild(e.progress)}},{key:"updateDimensions",value:function(e,t,r){var n=Math.round(t/this.params.pixelRatio),i=Math.round(this.width/this.params.pixelRatio);e.start=e.waveCtx.canvas.offsetLeft/i||0,e.end=e.start+n/i,e.waveCtx.canvas.width=t,e.waveCtx.canvas.height=r,this.style(e.waveCtx.canvas,{width:n+"px"}),this.style(this.progressWave,{display:"block"}),this.hasProgressCanvas&&(e.progressCtx.canvas.width=t,e.progressCtx.canvas.height=r,this.style(e.progressCtx.canvas,{width:n+"px"}))}},{key:"clearWave",value:function(){var t=this;this.canvases.forEach(function(e){return t.clearWaveForEntry(e)})}},{key:"clearWaveForEntry",value:function(e){e.waveCtx.clearRect(0,0,e.waveCtx.canvas.width,e.waveCtx.canvas.height),this.hasProgressCanvas&&e.progressCtx.clearRect(0,0,e.progressCtx.canvas.width,e.progressCtx.canvas.height)}},{key:"drawBars",value:function(e,t,v,y){var m=this;return this.prepareDraw(e,t,v,y,function(e){var t=e.absmax,r=e.hasMinVals,n=(e.height,e.offsetY),i=e.halfH,a=e.peaks;if(void 0!==v){var s,o=r?2:1,u=a.length/o,l=m.params.barWidth*m.params.pixelRatio,c=l+(null===m.params.barGap?Math.max(m.params.pixelRatio,~~(l/2)):Math.max(m.params.pixelRatio,m.params.barGap*m.params.pixelRatio)),h=u/m.width,f=y;for(s=v;s<f;s+=c){var d=a[Math.floor(s*h*o)]||0,p=Math.round(d/t*i);m.fillRect(s+m.halfPixel,i-p+n,l+m.halfPixel,2*p)}}})}},{key:"drawWave",value:function(e,t,l,c){var h=this;return this.prepareDraw(e,t,l,c,function(e){var t=e.absmax,r=e.hasMinVals,n=(e.height,e.offsetY),i=e.halfH,a=e.peaks;if(!r){var s,o=[],u=a.length;for(s=0;s<u;s++)o[2*s]=a[s],o[2*s+1]=-a[s];a=o}void 0!==l&&h.drawLine(a,t,i,n,l,c),h.fillRect(0,i+n-h.halfPixel,h.width,h.halfPixel)})}},{key:"drawLine",value:function(t,r,n,i,a,s){var o=this;this.canvases.forEach(function(e){o.setFillStyles(e),o.drawLineToContext(e,e.waveCtx,t,r,n,i,a,s),o.drawLineToContext(e,e.progressCtx,t,r,n,i,a,s)})}},{key:"drawLineToContext",value:function(e,t,r,n,i,a,s,o){if(t){var u=r.length/2,l=this.params.fillParent&&this.width!=u?this.width/u:1,c=Math.round(u*e.start),h=Math.round(u*e.end)+1;if(!(o<c||h<s)){var f,d,p=Math.min(c,s),v=Math.max(h,o);for(t.beginPath(),t.moveTo((p-c)*l+this.halfPixel,i+a),f=p;f<v;f++){var y=r[2*f]||0,m=Math.round(y/n*i);t.lineTo((f-c)*l+this.halfPixel,i-m+a)}for(d=v-1;p<=d;d--){var b=r[2*d+1]||0,g=Math.round(b/n*i);t.lineTo((d-c)*l+this.halfPixel,i-g+a)}t.closePath(),t.fill()}}}},{key:"fillRect",value:function(e,t,r,n){var i,a=Math.floor(e/this.maxCanvasWidth),s=Math.min(Math.ceil((e+r)/this.maxCanvasWidth)+1,this.canvases.length);for(i=a;i<s;i++){var o=this.canvases[i],u=i*this.maxCanvasWidth,l={x1:Math.max(e,i*this.maxCanvasWidth),y1:t,x2:Math.min(e+r,i*this.maxCanvasWidth+o.waveCtx.canvas.width),y2:t+n};l.x1<l.x2&&(this.setFillStyles(o),this.fillRectToContext(o.waveCtx,l.x1-u,l.y1,l.x2-l.x1,l.y2-l.y1),this.fillRectToContext(o.progressCtx,l.x1-u,l.y1,l.x2-l.x1,l.y2-l.y1))}}},{key:"prepareDraw",value:function(s,o,u,l,c){var h=this;return f.frame(function(){if(s[0]instanceof Array){var e=s;if(h.params.splitChannels)return h.setHeight(e.length*h.params.height*h.params.pixelRatio),e.forEach(function(e,t){return h.prepareDraw(e,t,u,l,c)});s=e[0]}var t=1/h.params.barHeight;if(h.params.normalize){var r=f.max(s),n=f.min(s);t=r<-n?-n:r}var i=[].some.call(s,function(e){return e<0}),a=h.params.height*h.params.pixelRatio;return c({absmax:t,hasMinVals:i,height:a,offsetY:a*o||0,halfH:a/2,peaks:s})})()}},{key:"fillRectToContext",value:function(e,t,r,n,i){e&&e.fillRect(t,r,n,i)}},{key:"setFillStyles",value:function(e){e.waveCtx.fillStyle=this.params.waveColor,this.hasProgressCanvas&&(e.progressCtx.fillStyle=this.params.progressColor)}},{key:"getImage",value:function(t,r){var e=this.canvases.map(function(e){return e.wave.toDataURL(t,r)});return 1<e.length?e:e[0]}},{key:"updateProgress",value:function(e){this.style(this.progressWave,{width:e+"px"})}}])&&s(t.prototype,r),i&&s(t,i),n}();t.default=c,e.exports=t.default},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var a=function(e){{if(e&&e.__esModule)return e;var t={};if(null!=e)for(var r in e)if(Object.prototype.hasOwnProperty.call(e,r)){var n=Object.defineProperty&&Object.getOwnPropertyDescriptor?Object.getOwnPropertyDescriptor(e,r):{};n.get||n.set?Object.defineProperty(t,r,n):t[r]=e[r]}return t.default=e,t}}(r(0));function n(e){return(n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function s(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function o(e,t){return!t||"object"!==n(t)&&"function"!=typeof t?function(e){if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}(e):t}function u(e){return(u=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function l(e,t){return(l=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}var i=function(e){function n(e,t){var r;return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,n),(r=o(this,u(n).call(this))).container=e,r.params=t,r.width=0,r.height=t.height*r.params.pixelRatio,r.lastPos=0,r.wrapper=null,r}var t,r,i;return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&l(e,t)}(n,a.Observer),t=n,(r=[{key:"style",value:function(e,t){return a.style(e,t)}},{key:"createWrapper",value:function(){this.wrapper=this.container.appendChild(document.createElement("wave")),this.style(this.wrapper,{display:"block",position:"relative",userSelect:"none",webkitUserSelect:"none",height:this.params.height+"px"}),(this.params.fillParent||this.params.scrollParent)&&this.style(this.wrapper,{width:"100%",overflowX:this.params.hideScrollbar?"hidden":"auto",overflowY:"hidden"}),this.setupWrapperEvents()}},{key:"handleEvent",value:function(e,t){!t&&e.preventDefault();var r,n=e.targetTouches?e.targetTouches[0].clientX:e.clientX,i=this.wrapper.getBoundingClientRect(),a=this.width,s=this.getWidth();return!this.params.fillParent&&a<s?1<(r=(n-i.left)*(this.params.pixelRatio/a)||0)&&(r=1):r=(n-i.left+this.wrapper.scrollLeft)/this.wrapper.scrollWidth||0,r}},{key:"setupWrapperEvents",value:function(){var n=this;this.wrapper.addEventListener("click",function(e){var t=n.wrapper.offsetHeight-n.wrapper.clientHeight;if(0!=t){var r=n.wrapper.getBoundingClientRect();if(e.clientY>=r.bottom-t)return}n.params.interact&&n.fireEvent("click",e,n.handleEvent(e))}),this.wrapper.addEventListener("scroll",function(e){return n.fireEvent("scroll",e)})}},{key:"drawPeaks",value:function(e,t,r,n){this.setWidth(t)||this.clearWave(),this.params.barWidth?this.drawBars(e,0,r,n):this.drawWave(e,0,r,n)}},{key:"resetScroll",value:function(){null!==this.wrapper&&(this.wrapper.scrollLeft=0)}},{key:"recenter",value:function(e){var t=this.wrapper.scrollWidth*e;this.recenterOnPosition(t,!0)}},{key:"recenterOnPosition",value:function(e,t){var r=this.wrapper.scrollLeft,n=~~(this.wrapper.clientWidth/2),i=this.wrapper.scrollWidth-this.wrapper.clientWidth,a=e-n,s=a-r;if(0!=i){if(!t&&-n<=s&&s<n){a=r+(s=Math.max(-5,Math.min(5,s)))}(a=Math.max(0,Math.min(i,a)))!=r&&(this.wrapper.scrollLeft=a)}}},{key:"getScrollX",value:function(){var e=this.params.pixelRatio,t=Math.round(this.wrapper.scrollLeft*e);if(this.params.scrollParent){var r=~~(this.wrapper.scrollWidth*e-this.getWidth());t=Math.min(r,Math.max(0,t))}return t}},{key:"getWidth",value:function(){return Math.round(this.container.clientWidth*this.params.pixelRatio)}},{key:"setWidth",value:function(e){return this.width!=e&&(this.width=e,this.params.fillParent||this.params.scrollParent?this.style(this.wrapper,{width:""}):this.style(this.wrapper,{width:~~(this.width/this.params.pixelRatio)+"px"}),this.updateSize(),!0)}},{key:"setHeight",value:function(e){return e!=this.height&&(this.height=e,this.style(this.wrapper,{height:~~(this.height/this.params.pixelRatio)+"px"}),this.updateSize(),!0)}},{key:"progress",value:function(e){var t=1/this.params.pixelRatio,r=Math.round(e*this.width)*t;if(r<this.lastPos||r-this.lastPos>=t){if(this.lastPos=r,this.params.scrollParent&&this.params.autoCenter){var n=~~(this.wrapper.scrollWidth*e);this.recenterOnPosition(n)}this.updateProgress(r)}}},{key:"destroy",value:function(){this.unAll(),this.wrapper&&(this.wrapper.parentNode==this.container&&this.container.removeChild(this.wrapper),this.wrapper=null)}},{key:"updateCursor",value:function(){}},{key:"updateSize",value:function(){}},{key:"drawBars",value:function(e,t,r,n){}},{key:"drawWave",value:function(e,t,r,n){}},{key:"clearWave",value:function(){}},{key:"updateProgress",value:function(e){}}])&&s(t.prototype,r),i&&s(t,i),n}();t.default=i,e.exports=t.default},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var n,a=(n=r(3))&&n.__esModule?n:{default:n};!function(e){{if(e&&e.__esModule)return;var t={};if(null!=e)for(var r in e)if(Object.prototype.hasOwnProperty.call(e,r)){var n=Object.defineProperty&&Object.getOwnPropertyDescriptor?Object.getOwnPropertyDescriptor(e,r):{};n.get||n.set?Object.defineProperty(t,r,n):t[r]=e[r]}t.default=e}}(r(0));function i(e){return(i="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function s(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function o(e,t){return!t||"object"!==i(t)&&"function"!=typeof t?function(e){if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}(e):t}function u(e,t,r){return(u="undefined"!=typeof Reflect&&Reflect.get?Reflect.get:function(e,t,r){var n=function(e,t){for(;!Object.prototype.hasOwnProperty.call(e,t)&&null!==(e=l(e)););return e}(e,t);if(n){var i=Object.getOwnPropertyDescriptor(n,t);return i.get?i.get.call(r):i.value}})(e,t,r||e)}function l(e){return(l=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function c(e,t){return(c=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}var h=function(e){function n(e){var t;return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,n),(t=o(this,l(n).call(this,e))).params=e,t.media={currentTime:0,duration:0,paused:!0,playbackRate:1,play:function(){},pause:function(){},volume:0},t.mediaType=e.mediaType.toLowerCase(),t.elementPosition=e.elementPosition,t.peaks=null,t.playbackRate=1,t.volume=1,t.buffer=null,t.onPlayEnd=null,t}var t,r,i;return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&c(e,t)}(n,a.default),t=n,(r=[{key:"init",value:function(){this.setPlaybackRate(this.params.audioRate),this.createTimer()}},{key:"createTimer",value:function(){var t=this;this.on("play",function e(){t.isPaused()||(t.fireEvent("audioprocess",t.getCurrentTime()),(window.requestAnimationFrame||window.webkitRequestAnimationFrame)(e))}),this.on("pause",function(){t.fireEvent("audioprocess",t.getCurrentTime())})}},{key:"load",value:function(e,t,r,n){var i=document.createElement(this.mediaType);i.controls=this.params.mediaControls,i.autoplay=this.params.autoplay||!1,i.preload=null==n?"auto":n,i.src=e,i.style.width="100%";var a=t.querySelector(this.mediaType);a&&t.removeChild(a),t.appendChild(i),this._load(i,r)}},{key:"loadElt",value:function(e,t){e.controls=this.params.mediaControls,e.autoplay=this.params.autoplay||!1,this._load(e,t)}},{key:"_load",value:function(e,t){var r=this;"function"==typeof e.load&&e.load(),e.addEventListener("error",function(){r.fireEvent("error","Error loading media element")}),e.addEventListener("canplay",function(){r.fireEvent("canplay")}),e.addEventListener("ended",function(){r.fireEvent("finish")}),e.addEventListener("play",function(){r.fireEvent("play")}),e.addEventListener("pause",function(){r.fireEvent("pause")}),this.media=e,this.peaks=t,this.onPlayEnd=null,this.buffer=null,this.setPlaybackRate(this.playbackRate),this.setVolume(this.volume)}},{key:"isPaused",value:function(){return!this.media||this.media.paused}},{key:"getDuration",value:function(){if(this.explicitDuration)return this.explicitDuration;var e=(this.buffer||this.media).duration;return 1/0<=e&&(e=this.media.seekable.end(0)),e}},{key:"getCurrentTime",value:function(){return this.media&&this.media.currentTime}},{key:"getPlayedPercents",value:function(){return this.getCurrentTime()/this.getDuration()||0}},{key:"getPlaybackRate",value:function(){return this.playbackRate||this.media.playbackRate}},{key:"setPlaybackRate",value:function(e){this.playbackRate=e||1,this.media.playbackRate=this.playbackRate}},{key:"seekTo",value:function(e){null!=e&&(this.media.currentTime=e),this.clearPlayEnd()}},{key:"play",value:function(e,t){this.seekTo(e);var r=this.media.play();return t&&this.setPlayEnd(t),r}},{key:"pause",value:function(){var e;return this.media&&(e=this.media.pause()),this.clearPlayEnd(),e}},{key:"setPlayEnd",value:function(t){var r=this;this._onPlayEnd=function(e){t<=e&&(r.pause(),r.seekTo(t))},this.on("audioprocess",this._onPlayEnd)}},{key:"clearPlayEnd",value:function(){this._onPlayEnd&&(this.un("audioprocess",this._onPlayEnd),this._onPlayEnd=null)}},{key:"getPeaks",value:function(e,t,r){return this.buffer?u(l(n.prototype),"getPeaks",this).call(this,e,t,r):this.peaks||[]}},{key:"setSinkId",value:function(e){return e?this.media.setSinkId?this.media.setSinkId(e):Promise.reject(new Error("setSinkId is not supported in your browser")):Promise.reject(new Error("Invalid deviceId: "+e))}},{key:"getVolume",value:function(){return this.volume||this.media.volume}},{key:"setVolume",value:function(e){this.volume=e,this.media.volume=this.volume}},{key:"destroy",value:function(){this.pause(),this.unAll(),this.params.removeMediaElementOnDestroy&&this.media&&this.media.parentNode&&this.media.parentNode.removeChild(this.media),this.media=null}}])&&s(t.prototype,r),i&&s(t,i),n}();t.default=h,e.exports=t.default},function(e,t,r){"use strict";function i(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var n=function(){function e(){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),this.clearPeakCache()}var t,r,n;return t=e,(r=[{key:"clearPeakCache",value:function(){this.peakCacheRanges=[],this.peakCacheLength=-1}},{key:"addRangeToPeakCache",value:function(e,t,r){e!=this.peakCacheLength&&(this.clearPeakCache(),this.peakCacheLength=e);for(var n=[],i=0;i<this.peakCacheRanges.length&&this.peakCacheRanges[i]<t;)i++;for(i%2==0&&n.push(t);i<this.peakCacheRanges.length&&this.peakCacheRanges[i]<=r;)n.push(this.peakCacheRanges[i]),i++;i%2==0&&n.push(r),n=n.filter(function(e,t,r){return 0==t?e!=r[t+1]:t==r.length-1?e!=r[t-1]:e!=r[t-1]&&e!=r[t+1]}),this.peakCacheRanges=this.peakCacheRanges.concat(n),this.peakCacheRanges=this.peakCacheRanges.sort(function(e,t){return e-t}).filter(function(e,t,r){return 0==t?e!=r[t+1]:t==r.length-1?e!=r[t-1]:e!=r[t-1]&&e!=r[t+1]});var a=[];for(i=0;i<n.length;i+=2)a.push([n[i],n[i+1]]);return a}},{key:"getCacheRanges",value:function(){var e,t=[];for(e=0;e<this.peakCacheRanges.length;e+=2)t.push([this.peakCacheRanges[e],this.peakCacheRanges[e+1]]);return t}}])&&i(t.prototype,r),n&&i(t,n),e}();t.default=n,e.exports=t.default}])});
-//# sourceMappingURL=wavesurfer.min.js.map
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module unless amdModuleId is set
+        define('wavesurfer', [], function () {
+            return (root['WaveSurfer'] = factory());
+        });
+    } else if (typeof exports === 'object') {
+        // Node. Does not work with strict CommonJS, but
+        // only CommonJS-like environments that support module.exports,
+        // like Node.
+        module.exports = factory();
+    } else {
+        root['WaveSurfer'] = factory();
+    }
+}(this, function () {
+
+    'use strict';
+
+    var WaveSurfer = {
+        defaultParams: {
+            height        : 128,
+            waveColor     : '#999',
+            progressColor : '#555',
+            cursorColor   : '#333',
+            cursorWidth   : 1,
+            skipLength    : 2,
+            minPxPerSec   : 20,
+            pixelRatio    : window.devicePixelRatio || screen.deviceXDPI / screen.logicalXDPI,
+            fillParent    : true,
+            scrollParent  : false,
+            hideScrollbar : false,
+            normalize     : false,
+            audioContext  : null,
+            container     : null,
+            dragSelection : true,
+            loopSelection : true,
+            audioRate     : 1,
+            interact      : true,
+            splitChannels : false,
+            mediaContainer: null,
+            mediaControls : false,
+            renderer      : 'Canvas',
+            backend       : 'WebAudio',
+            mediaType     : 'audio',
+            autoCenter    : true
+        },
+
+        init: function (params) {
+            // Extract relevant parameters (or defaults)
+            this.params = WaveSurfer.util.extend({}, this.defaultParams, params);
+
+            this.container = 'string' == typeof params.container ?
+                document.querySelector(this.params.container) :
+                this.params.container;
+
+            if (!this.container) {
+                throw new Error('Container element not found');
+            }
+
+            if (this.params.mediaContainer == null) {
+                this.mediaContainer = this.container;
+            } else if (typeof this.params.mediaContainer == 'string') {
+                this.mediaContainer = document.querySelector(this.params.mediaContainer);
+            } else {
+                this.mediaContainer = this.params.mediaContainer;
+            }
+
+            if (!this.mediaContainer) {
+                throw new Error('Media Container element not found');
+            }
+
+            // Used to save the current volume when muting so we can
+            // restore once unmuted
+            this.savedVolume = 0;
+
+            // The current muted state
+            this.isMuted = false;
+
+            // Will hold a list of event descriptors that need to be
+            // cancelled on subsequent loads of audio
+            this.tmpEvents = [];
+
+            // Holds any running audio downloads
+            this.currentAjax = null;
+
+            this.createDrawer();
+            this.createBackend();
+
+            this.isDestroyed = false;
+        },
+
+        createDrawer: function () {
+            var my = this;
+
+            this.drawer = Object.create(WaveSurfer.Drawer[this.params.renderer]);
+            this.drawer.init(this.container, this.params);
+
+            this.drawer.on('redraw', function () {
+                my.drawBuffer();
+                my.drawer.progress(my.backend.getPlayedPercents());
+            });
+
+            // Click-to-seek
+            this.drawer.on('click', function (e, progress) {
+                setTimeout(function () {
+                    my.seekTo(progress);
+                }, 0);
+            });
+
+            // Relay the scroll event from the drawer
+            this.drawer.on('scroll', function (e) {
+                my.fireEvent('scroll', e);
+            });
+        },
+
+        createBackend: function () {
+            var my = this;
+
+            if (this.backend) {
+                this.backend.destroy();
+            }
+
+            // Back compat
+            if (this.params.backend == 'AudioElement') {
+                this.params.backend = 'MediaElement';
+            }
+
+            if (this.params.backend == 'WebAudio' && !WaveSurfer.WebAudio.supportsWebAudio()) {
+                this.params.backend = 'MediaElement';
+            }
+
+            this.backend = Object.create(WaveSurfer[this.params.backend]);
+            this.backend.init(this.params);
+
+            this.backend.on('finish', function () { my.fireEvent('finish'); });
+            this.backend.on('play', function () { my.fireEvent('play'); });
+            this.backend.on('pause', function () { my.fireEvent('pause'); });
+
+            this.backend.on('audioprocess', function (time) {
+                my.drawer.progress(my.backend.getPlayedPercents());
+                my.fireEvent('audioprocess', time);
+            });
+        },
+
+        getDuration: function () {
+            return this.backend.getDuration();
+        },
+
+        getCurrentTime: function () {
+            return this.backend.getCurrentTime();
+        },
+
+        play: function (start, end) {
+            this.fireEvent('interaction', this.play.bind(this, start, end));
+            this.backend.play(start, end);
+        },
+
+        pause: function () {
+            this.backend.pause();
+        },
+
+        playPause: function () {
+            this.backend.isPaused() ? this.play() : this.pause();
+        },
+
+        isPlaying: function () {
+            return !this.backend.isPaused();
+        },
+
+        skipBackward: function (seconds) {
+            this.skip(-seconds || -this.params.skipLength);
+        },
+
+        skipForward: function (seconds) {
+            this.skip(seconds || this.params.skipLength);
+        },
+
+        skip: function (offset) {
+            var position = this.getCurrentTime() || 0;
+            var duration = this.getDuration() || 1;
+            position = Math.max(0, Math.min(duration, position + (offset || 0)));
+            this.seekAndCenter(position / duration);
+        },
+
+        seekAndCenter: function (progress) {
+            this.seekTo(progress);
+            this.drawer.recenter(progress);
+        },
+
+        seekTo: function (progress) {
+            this.fireEvent('interaction', this.seekTo.bind(this, progress));
+
+            var paused = this.backend.isPaused();
+            // avoid small scrolls while paused seeking
+            var oldScrollParent = this.params.scrollParent;
+            if (paused) {
+                this.params.scrollParent = false;
+            }
+            this.backend.seekTo(progress * this.getDuration());
+            this.drawer.progress(this.backend.getPlayedPercents());
+
+            if (!paused) {
+                this.backend.pause();
+                this.backend.play();
+            }
+            this.params.scrollParent = oldScrollParent;
+            this.fireEvent('seek', progress);
+        },
+
+        stop: function () {
+            this.pause();
+            this.seekTo(0);
+            this.drawer.progress(0);
+        },
+
+        /**
+         * Set the playback volume.
+         *
+         * @param {Number} newVolume A value between 0 and 1, 0 being no
+         * volume and 1 being full volume.
+         */
+        setVolume: function (newVolume) {
+            this.backend.setVolume(newVolume);
+        },
+
+        /**
+         * Set the playback rate.
+         *
+         * @param {Number} rate A positive number. E.g. 0.5 means half the
+         * normal speed, 2 means double speed and so on.
+         */
+        setPlaybackRate: function (rate) {
+            this.backend.setPlaybackRate(rate);
+        },
+
+        /**
+         * Toggle the volume on and off. It not currenly muted it will
+         * save the current volume value and turn the volume off.
+         * If currently muted then it will restore the volume to the saved
+         * value, and then rest the saved value.
+         */
+        toggleMute: function () {
+            this.setMute(!this.isMuted);
+        },
+
+        setMute: function (mute) {
+            // ignore all muting requests if the audio is already in that state
+            if (mute === this.isMuted) {
+                return;
+            }
+
+            if (mute) {
+                // If currently not muted then save current volume,
+                // turn off the volume and update the mute properties
+                this.savedVolume = this.backend.getVolume();
+                this.backend.setVolume(0);
+                this.isMuted = true;
+            } else {
+                // If currently muted then restore to the saved volume
+                // and update the mute properties
+                this.backend.setVolume(this.savedVolume);
+                this.isMuted = false;
+            }
+        },
+
+        toggleScroll: function () {
+            this.params.scrollParent = !this.params.scrollParent;
+            this.drawBuffer();
+        },
+
+        toggleInteraction: function () {
+            this.params.interact = !this.params.interact;
+        },
+
+        drawBuffer: function () {
+            var nominalWidth = Math.round(
+                this.getDuration() * this.params.minPxPerSec * this.params.pixelRatio
+            );
+            var parentWidth = this.drawer.getWidth();
+            var width = nominalWidth;
+
+            // Fill container
+            if (this.params.fillParent && (!this.params.scrollParent || nominalWidth < parentWidth)) {
+                width = parentWidth;
+            }
+
+            var peaks = this.backend.getPeaks(width);
+            this.drawer.drawPeaks(peaks, width);
+            this.fireEvent('redraw', peaks, width);
+        },
+
+        zoom: function (pxPerSec) {
+            this.params.minPxPerSec = pxPerSec;
+
+            this.params.scrollParent = true;
+
+            this.drawBuffer();
+            this.drawer.progress(this.backend.getPlayedPercents());
+
+            this.drawer.recenter(
+                this.getCurrentTime() / this.getDuration()
+            );
+            this.fireEvent('zoom', pxPerSec);
+        },
+
+        /**
+         * Internal method.
+         */
+        loadArrayBuffer: function (arraybuffer) {
+            this.decodeArrayBuffer(arraybuffer, function (data) {
+                if (!this.isDestroyed) {
+                    this.loadDecodedBuffer(data);
+                }
+            }.bind(this));
+        },
+
+        /**
+         * Directly load an externally decoded AudioBuffer.
+         */
+        loadDecodedBuffer: function (buffer) {
+            this.backend.load(buffer);
+            this.drawBuffer();
+            this.fireEvent('ready');
+        },
+
+        /**
+         * Loads audio data from a Blob or File object.
+         *
+         * @param {Blob|File} blob Audio data.
+         */
+        loadBlob: function (blob) {
+            var my = this;
+            // Create file reader
+            var reader = new FileReader();
+            reader.addEventListener('progress', function (e) {
+                my.onProgress(e);
+            });
+            reader.addEventListener('load', function (e) {
+                my.loadArrayBuffer(e.target.result);
+            });
+            reader.addEventListener('error', function () {
+                my.fireEvent('error', 'Error reading file');
+            });
+            reader.readAsArrayBuffer(blob);
+            this.empty();
+        },
+
+        /**
+         * Loads audio and re-renders the waveform.
+         */
+        load: function (url, peaks, preload) {
+            this.empty();
+
+            switch (this.params.backend) {
+                case 'WebAudio': return this.loadBuffer(url, peaks);
+                case 'MediaElement': return this.loadMediaElement(url, peaks, preload);
+            }
+        },
+
+        /**
+         * Loads audio using Web Audio buffer backend.
+         */
+        loadBuffer: function (url, peaks) {
+            var load = (function (action) {
+                if (action) {
+                    this.tmpEvents.push(this.once('ready', action));
+                }
+                return this.getArrayBuffer(url, this.loadArrayBuffer.bind(this));
+            }).bind(this);
+
+            if (peaks) {
+                this.backend.setPeaks(peaks);
+                this.drawBuffer();
+                this.tmpEvents.push(this.once('interaction', load));
+            } else {
+                return load();
+            }
+        },
+
+        /**
+         *  Either create a media element, or load
+         *  an existing media element.
+         *  @param  {String|HTMLElement} urlOrElt Either a path to a media file,
+         *                                          or an existing HTML5 Audio/Video
+         *                                          Element
+         *  @param  {Array}            [peaks]     Array of peaks. Required to bypass
+         *                                          web audio dependency
+         */
+        loadMediaElement: function (urlOrElt, peaks, preload) {
+            var url = urlOrElt;
+
+            if (typeof urlOrElt === 'string') {
+                this.backend.load(url, this.mediaContainer, peaks, preload);
+            } else {
+                var elt = urlOrElt;
+                this.backend.loadElt(elt, peaks);
+
+                // If peaks are not provided,
+                // url = element.src so we can get peaks with web audio
+                url = elt.src;
+            }
+
+            this.tmpEvents.push(
+                this.backend.once('canplay', (function () {
+                    this.drawBuffer();
+                    this.fireEvent('ready');
+                }).bind(this)),
+
+                this.backend.once('error', (function (err) {
+                    this.fireEvent('error', err);
+                }).bind(this))
+            );
+
+            // If no pre-decoded peaks provided, attempt to download the
+            // audio file and decode it with Web Audio.
+            if (peaks) {
+                this.backend.setPeaks(peaks);
+            } else if (this.backend.supportsWebAudio()) {
+                this.getArrayBuffer(url, (function (arraybuffer) {
+                    this.decodeArrayBuffer(arraybuffer, (function (buffer) {
+                        this.backend.buffer = buffer;
+                        this.drawBuffer();
+                        this.fireEvent('waveform-ready');
+                    }).bind(this));
+                }).bind(this));
+            }
+        },
+
+        decodeArrayBuffer: function (arraybuffer, callback) {
+            this.arraybuffer = arraybuffer;
+
+            this.backend.decodeArrayBuffer(
+                arraybuffer,
+                (function (data) {
+                    // Only use the decoded data if we haven't been destroyed or another decode started in the meantime
+                    if (!this.isDestroyed && this.arraybuffer == arraybuffer) {
+                        callback(data);
+                        this.arraybuffer = null;
+                    }
+                }).bind(this),
+                this.fireEvent.bind(this, 'error', 'Error decoding audiobuffer')
+            );
+        },
+
+        getArrayBuffer: function (url, callback) {
+            var my = this;
+
+            var ajax = WaveSurfer.util.ajax({
+                url: url,
+                responseType: 'arraybuffer'
+            });
+
+            this.currentAjax = ajax;
+
+            this.tmpEvents.push(
+                ajax.on('progress', function (e) {
+                    my.onProgress(e);
+                }),
+                ajax.on('success', function (data, e) {
+                    callback(data);
+                    my.currentAjax = null;
+                }),
+                ajax.on('error', function (e) {
+                    my.fireEvent('error', 'XHR error: ' + e.target.statusText);
+                    my.currentAjax = null;
+                })
+            );
+
+            return ajax;
+        },
+
+        onProgress: function (e) {
+            if (e.lengthComputable) {
+                var percentComplete = e.loaded / e.total;
+            } else {
+                // Approximate progress with an asymptotic
+                // function, and assume downloads in the 1-3 MB range.
+                percentComplete = e.loaded / (e.loaded + 1000000);
+            }
+            this.fireEvent('loading', Math.round(percentComplete * 100), e.target);
+        },
+
+        /**
+         * Exports PCM data into a JSON array and opens in a new window.
+         */
+        exportPCM: function (length, accuracy, noWindow) {
+            length = length || 1024;
+            accuracy = accuracy || 10000;
+            noWindow = noWindow || false;
+            var peaks = this.backend.getPeaks(length, accuracy);
+            var arr = [].map.call(peaks, function (val) {
+                return Math.round(val * accuracy) / accuracy;
+            });
+            var json = JSON.stringify(arr);
+            if (!noWindow) {
+                window.open('data:application/json;charset=utf-8,' +
+                    encodeURIComponent(json));
+            }
+            return json;
+        },
+
+        /**
+         * Save waveform image as data URI.
+         *
+         * The default format is 'image/png'. Other supported types are
+         * 'image/jpeg' and 'image/webp'.
+         */
+        exportImage: function(format, quality) {
+            if (!format) {
+                format = 'image/png';
+            }
+            if (!quality) {
+                quality = 1;
+            }
+
+            return this.drawer.getImage(format, quality);
+        },
+
+        cancelAjax: function () {
+            if (this.currentAjax) {
+                this.currentAjax.xhr.abort();
+                this.currentAjax = null;
+            }
+        },
+
+        clearTmpEvents: function () {
+            this.tmpEvents.forEach(function (e) { e.un(); });
+        },
+
+        /**
+         * Display empty waveform.
+         */
+        empty: function () {
+            if (!this.backend.isPaused()) {
+                this.stop();
+                this.backend.disconnectSource();
+            }
+            this.cancelAjax();
+            this.clearTmpEvents();
+            this.drawer.progress(0);
+            this.drawer.setWidth(0);
+            this.drawer.drawPeaks({ length: this.drawer.getWidth() }, 0);
+        },
+
+        /**
+         * Remove events, elements and disconnect WebAudio nodes.
+         */
+        destroy: function () {
+            this.fireEvent('destroy');
+            this.cancelAjax();
+            this.clearTmpEvents();
+            this.unAll();
+            this.backend.destroy();
+            this.drawer.destroy();
+            this.isDestroyed = true;
+        }
+    };
+
+    WaveSurfer.create = function (params) {
+        var wavesurfer = Object.create(WaveSurfer);
+        wavesurfer.init(params);
+        return wavesurfer;
+    };
+
+    WaveSurfer.util = {
+        extend: function (dest) {
+            var sources = Array.prototype.slice.call(arguments, 1);
+            sources.forEach(function (source) {
+                Object.keys(source).forEach(function (key) {
+                    dest[key] = source[key];
+                });
+            });
+            return dest;
+        },
+
+        min: function(values) {
+            var min = +Infinity;
+            for (var i in values) {
+                if (values[i] < min) {
+                    min = values[i];
+                }
+            }
+
+            return min;
+        },
+
+        max: function(values) {
+            var max = -Infinity;
+            for (var i in values) {
+                if (values[i] > max) {
+                    max = values[i];
+                }
+            }
+
+            return max;
+        },
+
+        getId: function () {
+            return 'wavesurfer_' + Math.random().toString(32).substring(2);
+        },
+
+        ajax: function (options) {
+            var ajax = Object.create(WaveSurfer.Observer);
+            var xhr = new XMLHttpRequest();
+            var fired100 = false;
+
+            xhr.open(options.method || 'GET', options.url, true);
+            xhr.responseType = options.responseType || 'json';
+
+            xhr.addEventListener('progress', function (e) {
+                ajax.fireEvent('progress', e);
+                if (e.lengthComputable && e.loaded == e.total) {
+                    fired100 = true;
+                }
+            });
+
+            xhr.addEventListener('load', function (e) {
+                if (!fired100) {
+                    ajax.fireEvent('progress', e);
+                }
+                ajax.fireEvent('load', e);
+
+                if (200 == xhr.status || 206 == xhr.status) {
+                    ajax.fireEvent('success', xhr.response, e);
+                } else {
+                    ajax.fireEvent('error', e);
+                }
+            });
+
+            xhr.addEventListener('error', function (e) {
+                ajax.fireEvent('error', e);
+            });
+
+            xhr.send();
+            ajax.xhr = xhr;
+            return ajax;
+        }
+    };
+
+    /* Observer */
+    WaveSurfer.Observer = {
+        /**
+         * Attach a handler function for an event.
+         */
+        on: function (event, fn) {
+            if (!this.handlers) { this.handlers = {}; }
+
+            var handlers = this.handlers[event];
+            if (!handlers) {
+                handlers = this.handlers[event] = [];
+            }
+            handlers.push(fn);
+
+            // Return an event descriptor
+            return {
+                name: event,
+                callback: fn,
+                un: this.un.bind(this, event, fn)
+            };
+        },
+
+        /**
+         * Remove an event handler.
+         */
+        un: function (event, fn) {
+            if (!this.handlers) { return; }
+
+            var handlers = this.handlers[event];
+            if (handlers) {
+                if (fn) {
+                    for (var i = handlers.length - 1; i >= 0; i--) {
+                        if (handlers[i] == fn) {
+                            handlers.splice(i, 1);
+                        }
+                    }
+                } else {
+                    handlers.length = 0;
+                }
+            }
+        },
+
+        /**
+         * Remove all event handlers.
+         */
+        unAll: function () {
+            this.handlers = null;
+        },
+
+        /**
+         * Attach a handler to an event. The handler is executed at most once per
+         * event type.
+         */
+        once: function (event, handler) {
+            var my = this;
+            var fn = function () {
+                handler.apply(this, arguments);
+                setTimeout(function () {
+                    my.un(event, fn);
+                }, 0);
+            };
+            return this.on(event, fn);
+        },
+
+        fireEvent: function (event) {
+            if (!this.handlers) { return; }
+            var handlers = this.handlers[event];
+            var args = Array.prototype.slice.call(arguments, 1);
+            handlers && handlers.forEach(function (fn) {
+                fn.apply(null, args);
+            });
+        }
+    };
+
+    /* Make the main WaveSurfer object an observer */
+    WaveSurfer.util.extend(WaveSurfer, WaveSurfer.Observer);
+
+    'use strict';
+
+    WaveSurfer.WebAudio = {
+        scriptBufferSize: 256,
+        PLAYING_STATE: 0,
+        PAUSED_STATE: 1,
+        FINISHED_STATE: 2,
+
+        supportsWebAudio: function () {
+            return !!(window.AudioContext || window.webkitAudioContext);
+        },
+
+        getAudioContext: function () {
+            if (!WaveSurfer.WebAudio.audioContext) {
+                WaveSurfer.WebAudio.audioContext = new (
+                    window.AudioContext || window.webkitAudioContext
+                );
+            }
+            return WaveSurfer.WebAudio.audioContext;
+        },
+
+        getOfflineAudioContext: function (sampleRate) {
+            if (!WaveSurfer.WebAudio.offlineAudioContext) {
+                WaveSurfer.WebAudio.offlineAudioContext = new (
+                    window.OfflineAudioContext || window.webkitOfflineAudioContext
+                )(1, 2, sampleRate);
+            }
+            return WaveSurfer.WebAudio.offlineAudioContext;
+        },
+
+        init: function (params) {
+            this.params = params;
+            this.ac = params.audioContext || this.getAudioContext();
+
+            this.lastPlay = this.ac.currentTime;
+            this.startPosition = 0;
+            this.scheduledPause = null;
+
+            this.states = [
+                Object.create(WaveSurfer.WebAudio.state.playing),
+                Object.create(WaveSurfer.WebAudio.state.paused),
+                Object.create(WaveSurfer.WebAudio.state.finished)
+            ];
+
+            this.createVolumeNode();
+            this.createScriptNode();
+            this.createAnalyserNode();
+
+            this.setState(this.PAUSED_STATE);
+            this.setPlaybackRate(this.params.audioRate);
+        },
+
+        disconnectFilters: function () {
+            if (this.filters) {
+                this.filters.forEach(function (filter) {
+                    filter && filter.disconnect();
+                });
+                this.filters = null;
+                // Reconnect direct path
+                this.analyser.connect(this.gainNode);
+            }
+        },
+
+        setState: function (state) {
+            if (this.state !== this.states[state]) {
+                this.state = this.states[state];
+                this.state.init.call(this);
+            }
+        },
+
+        // Unpacked filters
+        setFilter: function () {
+            this.setFilters([].slice.call(arguments));
+        },
+
+        /**
+         * @param {Array} filters Packed ilters array
+         */
+        setFilters: function (filters) {
+            // Remove existing filters
+            this.disconnectFilters();
+
+            // Insert filters if filter array not empty
+            if (filters && filters.length) {
+                this.filters = filters;
+
+                // Disconnect direct path before inserting filters
+                this.analyser.disconnect();
+
+                // Connect each filter in turn
+                filters.reduce(function (prev, curr) {
+                    prev.connect(curr);
+                    return curr;
+                }, this.analyser).connect(this.gainNode);
+            }
+
+        },
+
+        createScriptNode: function () {
+            if (this.ac.createScriptProcessor) {
+                this.scriptNode = this.ac.createScriptProcessor(this.scriptBufferSize);
+            } else {
+                this.scriptNode = this.ac.createJavaScriptNode(this.scriptBufferSize);
+            }
+
+            this.scriptNode.connect(this.ac.destination);
+        },
+
+        addOnAudioProcess: function () {
+            var my = this;
+
+            this.scriptNode.onaudioprocess = function () {
+                var time = my.getCurrentTime();
+
+                if (time >= my.getDuration()) {
+                    my.setState(my.FINISHED_STATE);
+                    my.fireEvent('pause');
+                } else if (time >= my.scheduledPause) {
+                    my.pause();
+                } else if (my.state === my.states[my.PLAYING_STATE]) {
+                    my.fireEvent('audioprocess', time);
+                }
+            };
+        },
+
+        removeOnAudioProcess: function () {
+            this.scriptNode.onaudioprocess = null;
+        },
+
+        createAnalyserNode: function () {
+            this.analyser = this.ac.createAnalyser();
+            this.analyser.connect(this.gainNode);
+        },
+
+        /**
+         * Create the gain node needed to control the playback volume.
+         */
+        createVolumeNode: function () {
+            // Create gain node using the AudioContext
+            if (this.ac.createGain) {
+                this.gainNode = this.ac.createGain();
+            } else {
+                this.gainNode = this.ac.createGainNode();
+            }
+            // Add the gain node to the graph
+            this.gainNode.connect(this.ac.destination);
+        },
+
+        /**
+         * Set the gain to a new value.
+         *
+         * @param {Number} newGain The new gain, a floating point value
+         * between 0 and 1. 0 being no gain and 1 being maximum gain.
+         */
+        setVolume: function (newGain) {
+            this.gainNode.gain.value = newGain;
+        },
+
+        /**
+         * Get the current gain.
+         *
+         * @returns {Number} The current gain, a floating point value
+         * between 0 and 1. 0 being no gain and 1 being maximum gain.
+         */
+        getVolume: function () {
+            return this.gainNode.gain.value;
+        },
+
+        decodeArrayBuffer: function (arraybuffer, callback, errback) {
+            if (!this.offlineAc) {
+                this.offlineAc = this.getOfflineAudioContext(this.ac ? this.ac.sampleRate : 44100);
+            }
+            this.offlineAc.decodeAudioData(arraybuffer, (function (data) {
+                callback(data);
+            }).bind(this), errback);
+        },
+
+        /**
+         * Set pre-decoded peaks.
+         */
+        setPeaks: function (peaks) {
+            this.peaks = peaks;
+        },
+
+        /**
+         * Compute the max and min value of the waveform when broken into
+         * <length> subranges.
+         * @param {Number} How many subranges to break the waveform into.
+         * @returns {Array} Array of 2*<length> peaks or array of arrays
+         * of peaks consisting of (max, min) values for each subrange.
+         */
+        getPeaks: function (length) {
+            if (this.peaks) { return this.peaks; }
+
+            var sampleSize = this.buffer.length / length;
+            var sampleStep = ~~(sampleSize / 10) || 1;
+            var channels = this.buffer.numberOfChannels;
+            var splitPeaks = [];
+            var mergedPeaks = [];
+
+            for (var c = 0; c < channels; c++) {
+                var peaks = splitPeaks[c] = [];
+                var chan = this.buffer.getChannelData(c);
+
+                for (var i = 0; i < length; i++) {
+                    var start = ~~(i * sampleSize);
+                    var end = ~~(start + sampleSize);
+                    var min = 0;
+                    var max = 0;
+
+                    for (var j = start; j < end; j += sampleStep) {
+                        var value = chan[j];
+
+                        if (value > max) {
+                            max = value;
+                        }
+
+                        if (value < min) {
+                            min = value;
+                        }
+                    }
+
+                    peaks[2 * i] = max;
+                    peaks[2 * i + 1] = min;
+
+                    if (c == 0 || max > mergedPeaks[2 * i]) {
+                        mergedPeaks[2 * i] = max;
+                    }
+
+                    if (c == 0 || min < mergedPeaks[2 * i + 1]) {
+                        mergedPeaks[2 * i + 1] = min;
+                    }
+                }
+            }
+
+            return this.params.splitChannels ? splitPeaks : mergedPeaks;
+        },
+
+        getPlayedPercents: function () {
+            return this.state.getPlayedPercents.call(this);
+        },
+
+        disconnectSource: function () {
+            if (this.source) {
+                this.source.disconnect();
+            }
+        },
+
+        destroy: function () {
+            if (!this.isPaused()) {
+                this.pause();
+            }
+            this.unAll();
+            this.buffer = null;
+            this.disconnectFilters();
+            this.disconnectSource();
+            this.gainNode.disconnect();
+            this.scriptNode.disconnect();
+            this.analyser.disconnect();
+        },
+
+        load: function (buffer) {
+            this.startPosition = 0;
+            this.lastPlay = this.ac.currentTime;
+            this.buffer = buffer;
+            this.createSource();
+        },
+
+        createSource: function () {
+            this.disconnectSource();
+            this.source = this.ac.createBufferSource();
+
+            //adjust for old browsers.
+            this.source.start = this.source.start || this.source.noteGrainOn;
+            this.source.stop = this.source.stop || this.source.noteOff;
+
+            this.source.playbackRate.value = this.playbackRate;
+            this.source.buffer = this.buffer;
+            this.source.connect(this.analyser);
+        },
+
+        isPaused: function () {
+            return this.state !== this.states[this.PLAYING_STATE];
+        },
+
+        getDuration: function () {
+            if (!this.buffer) {
+                return 0;
+            }
+            return this.buffer.duration;
+        },
+
+        seekTo: function (start, end) {
+            if (!this.buffer) { return; }
+
+            this.scheduledPause = null;
+
+            if (start == null) {
+                start = this.getCurrentTime();
+                if (start >= this.getDuration()) {
+                    start = 0;
+                }
+            }
+            if (end == null) {
+                end = this.getDuration();
+            }
+
+            this.startPosition = start;
+            this.lastPlay = this.ac.currentTime;
+
+            if (this.state === this.states[this.FINISHED_STATE]) {
+                this.setState(this.PAUSED_STATE);
+            }
+
+            return { start: start, end: end };
+        },
+
+        getPlayedTime: function () {
+            return (this.ac.currentTime - this.lastPlay) * this.playbackRate;
+        },
+
+        /**
+         * Plays the loaded audio region.
+         *
+         * @param {Number} start Start offset in seconds,
+         * relative to the beginning of a clip.
+         * @param {Number} end When to stop
+         * relative to the beginning of a clip.
+         */
+        play: function (start, end) {
+            if (!this.buffer) { return; }
+
+            // need to re-create source on each playback
+            this.createSource();
+
+            var adjustedTime = this.seekTo(start, end);
+
+            start = adjustedTime.start;
+            end = adjustedTime.end;
+
+            this.scheduledPause = end;
+
+            this.source.start(0, start, end - start);
+
+            this.setState(this.PLAYING_STATE);
+
+            this.fireEvent('play');
+        },
+
+        /**
+         * Pauses the loaded audio.
+         */
+        pause: function () {
+            this.scheduledPause = null;
+
+            this.startPosition += this.getPlayedTime();
+            this.source && this.source.stop(0);
+
+            this.setState(this.PAUSED_STATE);
+
+            this.fireEvent('pause');
+        },
+
+        /**
+         *   Returns the current time in seconds relative to the audioclip's duration.
+         */
+        getCurrentTime: function () {
+            return this.state.getCurrentTime.call(this);
+        },
+
+        /**
+         * Set the audio source playback rate.
+         */
+        setPlaybackRate: function (value) {
+            value = value || 1;
+            if (this.isPaused()) {
+                this.playbackRate = value;
+            } else {
+                this.pause();
+                this.playbackRate = value;
+                this.play();
+            }
+        }
+    };
+
+    WaveSurfer.WebAudio.state = {};
+
+    WaveSurfer.WebAudio.state.playing = {
+        init: function () {
+            this.addOnAudioProcess();
+        },
+        getPlayedPercents: function () {
+            var duration = this.getDuration();
+            return (this.getCurrentTime() / duration) || 0;
+        },
+        getCurrentTime: function () {
+            return this.startPosition + this.getPlayedTime();
+        }
+    };
+
+    WaveSurfer.WebAudio.state.paused = {
+        init: function () {
+            this.removeOnAudioProcess();
+        },
+        getPlayedPercents: function () {
+            var duration = this.getDuration();
+            return (this.getCurrentTime() / duration) || 0;
+        },
+        getCurrentTime: function () {
+            return this.startPosition;
+        }
+    };
+
+    WaveSurfer.WebAudio.state.finished = {
+        init: function () {
+            this.removeOnAudioProcess();
+            this.fireEvent('finish');
+        },
+        getPlayedPercents: function () {
+            return 1;
+        },
+        getCurrentTime: function () {
+            return this.getDuration();
+        }
+    };
+
+    WaveSurfer.util.extend(WaveSurfer.WebAudio, WaveSurfer.Observer);
+
+    'use strict';
+
+    WaveSurfer.MediaElement = Object.create(WaveSurfer.WebAudio);
+
+    WaveSurfer.util.extend(WaveSurfer.MediaElement, {
+        init: function (params) {
+            this.params = params;
+
+            // Dummy media to catch errors
+            this.media = {
+                currentTime: 0,
+                duration: 0,
+                paused: true,
+                playbackRate: 1,
+                play: function () {},
+                pause: function () {}
+            };
+
+            this.mediaType = params.mediaType.toLowerCase();
+            this.elementPosition = params.elementPosition;
+            this.setPlaybackRate(this.params.audioRate);
+            this.createTimer();
+        },
+
+
+        /**
+         * Create a timer to provide a more precise `audioprocess' event.
+         */
+        createTimer: function () {
+            var my = this;
+            var playing = false;
+
+            var onAudioProcess = function () {
+                if (my.isPaused()) { return; }
+
+                my.fireEvent('audioprocess', my.getCurrentTime());
+
+                // Call again in the next frame
+                var requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame;
+                requestAnimationFrame(onAudioProcess);
+            };
+
+            this.on('play', onAudioProcess);
+        },
+
+        /**
+         *  Create media element with url as its source,
+         *  and append to container element.
+         *  @param  {String}        url         path to media file
+         *  @param  {HTMLElement}   container   HTML element
+         *  @param  {Array}         peaks       array of peak data
+         *  @param  {String}        preload     HTML 5 preload attribute value
+         */
+        load: function (url, container, peaks, preload) {
+            var my = this;
+
+            var media = document.createElement(this.mediaType);
+            media.controls = this.params.mediaControls;
+            media.autoplay = this.params.autoplay || false;
+            media.preload = preload == null ? 'auto' : preload;
+            media.src = url;
+            media.style.width = '100%';
+
+            var prevMedia = container.querySelector(this.mediaType);
+            if (prevMedia) {
+                container.removeChild(prevMedia);
+            }
+            container.appendChild(media);
+
+            this._load(media, peaks);
+        },
+
+        /**
+         *  Load existing media element.
+         *  @param  {MediaElement}  elt     HTML5 Audio or Video element
+         *  @param  {Array}         peaks   array of peak data
+         */
+        loadElt: function (elt, peaks) {
+            var my = this;
+
+            var media = elt;
+            media.controls = this.params.mediaControls;
+            media.autoplay = this.params.autoplay || false;
+
+            this._load(media, peaks);
+        },
+
+        /**
+         *  Private method called by both load (from url)
+         *  and loadElt (existing media element).
+         *  @param  {MediaElement}  media     HTML5 Audio or Video element
+         *  @param  {Array}         peaks   array of peak data
+         *  @private
+         */
+        _load: function (media, peaks) {
+            var my = this;
+
+            // load must be called manually on iOS, otherwise peaks won't draw
+            // until a user interaction triggers load --> 'ready' event
+            media.load();
+
+            media.addEventListener('error', function () {
+                my.fireEvent('error', 'Error loading media element');
+            });
+
+            media.addEventListener('canplay', function () {
+                my.fireEvent('canplay');
+            });
+
+            media.addEventListener('ended', function () {
+                my.fireEvent('finish');
+            });
+
+            this.media = media;
+            this.peaks = peaks;
+            this.onPlayEnd = null;
+            this.buffer = null;
+            this.setPlaybackRate(this.playbackRate);
+        },
+
+        isPaused: function () {
+            return !this.media || this.media.paused;
+        },
+
+        getDuration: function () {
+            var duration = this.media.duration;
+            if (duration >= Infinity) { // streaming audio
+                duration = this.media.seekable.end(0);
+            }
+            return duration;
+        },
+
+        getCurrentTime: function () {
+            return this.media && this.media.currentTime;
+        },
+
+        getPlayedPercents: function () {
+            return (this.getCurrentTime() / this.getDuration()) || 0;
+        },
+
+        /**
+         * Set the audio source playback rate.
+         */
+        setPlaybackRate: function (value) {
+            this.playbackRate = value || 1;
+            this.media.playbackRate = this.playbackRate;
+        },
+
+        seekTo: function (start) {
+            if (start != null) {
+                this.media.currentTime = start;
+            }
+            this.clearPlayEnd();
+        },
+
+        /**
+         * Plays the loaded audio region.
+         *
+         * @param {Number} start Start offset in seconds,
+         * relative to the beginning of a clip.
+         * @param {Number} end End offset in seconds,
+         * relative to the beginning of a clip.
+         */
+        play: function (start, end) {
+            this.seekTo(start);
+            this.media.play();
+            end && this.setPlayEnd(end);
+            this.fireEvent('play');
+        },
+
+        /**
+         * Pauses the loaded audio.
+         */
+        pause: function () {
+            this.media && this.media.pause();
+            this.clearPlayEnd();
+            this.fireEvent('pause');
+        },
+
+        setPlayEnd: function (end) {
+            var my = this;
+            this.onPlayEnd = function (time) {
+                if (time >= end) {
+                    my.pause();
+                    my.seekTo(end);
+                }
+            };
+            this.on('audioprocess', this.onPlayEnd);
+        },
+
+        clearPlayEnd: function () {
+            if (this.onPlayEnd) {
+                this.un('audioprocess', this.onPlayEnd);
+                this.onPlayEnd = null;
+            }
+        },
+
+        getPeaks: function (length) {
+            if (this.buffer) {
+                return WaveSurfer.WebAudio.getPeaks.call(this, length);
+            }
+            return this.peaks || [];
+        },
+
+        getVolume: function () {
+            return this.media.volume;
+        },
+
+        setVolume: function (val) {
+            this.media.volume = val;
+        },
+
+        destroy: function () {
+            this.pause();
+            this.unAll();
+            this.media && this.media.parentNode && this.media.parentNode.removeChild(this.media);
+            this.media = null;
+        }
+    });
+
+//For backwards compatibility
+    WaveSurfer.AudioElement = WaveSurfer.MediaElement;
+
+    'use strict';
+
+    WaveSurfer.Drawer = {
+        init: function (container, params) {
+            this.container = container;
+            this.params = params;
+
+            this.width = 0;
+            this.height = params.height * this.params.pixelRatio;
+
+            this.lastPos = 0;
+
+            this.initDrawer(params);
+            this.createWrapper();
+            this.createElements();
+        },
+
+        createWrapper: function () {
+            this.wrapper = this.container.appendChild(
+                document.createElement('wave')
+            );
+
+            this.style(this.wrapper, {
+                display: 'block',
+                position: 'relative',
+                userSelect: 'none',
+                webkitUserSelect: 'none',
+                height: this.params.height + 'px'
+            });
+
+            if (this.params.fillParent || this.params.scrollParent) {
+                this.style(this.wrapper, {
+                    width: '100%',
+                    overflowX: this.params.hideScrollbar ? 'hidden' : 'auto',
+                    overflowY: 'hidden'
+                });
+            }
+
+            this.setupWrapperEvents();
+        },
+
+        handleEvent: function (e, noPrevent) {
+            !noPrevent && e.preventDefault();
+
+            var clientX = e.targetTouches ? e.targetTouches[0].clientX : e.clientX;
+            var bbox = this.wrapper.getBoundingClientRect();
+
+            var nominalWidth = this.width;
+            var parentWidth = this.getWidth();
+
+            var progress;
+
+            if (!this.params.fillParent && nominalWidth < parentWidth) {
+                progress = ((clientX - bbox.left) * this.params.pixelRatio / nominalWidth) || 0;
+
+                if (progress > 1) {
+                    progress = 1;
+                }
+            } else {
+                progress = ((clientX - bbox.left + this.wrapper.scrollLeft) / this.wrapper.scrollWidth) || 0;
+            }
+
+            return progress;
+        },
+
+        setupWrapperEvents: function () {
+            var my = this;
+
+            this.wrapper.addEventListener('click', function (e) {
+                var scrollbarHeight = my.wrapper.offsetHeight - my.wrapper.clientHeight;
+                if (scrollbarHeight != 0) {
+                    // scrollbar is visible.  Check if click was on it
+                    var bbox = my.wrapper.getBoundingClientRect();
+                    if (e.clientY >= bbox.bottom - scrollbarHeight) {
+                        // ignore mousedown as it was on the scrollbar
+                        return;
+                    }
+                }
+
+                if (my.params.interact) {
+                    my.fireEvent('click', e, my.handleEvent(e));
+                }
+            });
+
+            this.wrapper.addEventListener('scroll', function (e) {
+                my.fireEvent('scroll', e);
+            });
+        },
+
+        drawPeaks: function (peaks, length) {
+            this.resetScroll();
+            this.setWidth(length);
+
+            this.params.barWidth ?
+                this.drawBars(peaks) :
+                this.drawWave(peaks);
+        },
+
+        style: function (el, styles) {
+            Object.keys(styles).forEach(function (prop) {
+                if (el.style[prop] !== styles[prop]) {
+                    el.style[prop] = styles[prop];
+                }
+            });
+            return el;
+        },
+
+        resetScroll: function () {
+            if (this.wrapper !== null) {
+                this.wrapper.scrollLeft = 0;
+            }
+        },
+
+        recenter: function (percent) {
+            var position = this.wrapper.scrollWidth * percent;
+            this.recenterOnPosition(position, true);
+        },
+
+        recenterOnPosition: function (position, immediate) {
+            var scrollLeft = this.wrapper.scrollLeft;
+            var half = ~~(this.wrapper.clientWidth / 2);
+            var target = position - half;
+            var offset = target - scrollLeft;
+            var maxScroll = this.wrapper.scrollWidth - this.wrapper.clientWidth;
+
+            if (maxScroll == 0) {
+                // no need to continue if scrollbar is not there
+                return;
+            }
+
+            // if the cursor is currently visible...
+            if (!immediate && -half <= offset && offset < half) {
+                // we'll limit the "re-center" rate.
+                var rate = 5;
+                offset = Math.max(-rate, Math.min(rate, offset));
+                target = scrollLeft + offset;
+            }
+
+            // limit target to valid range (0 to maxScroll)
+            target = Math.max(0, Math.min(maxScroll, target));
+            // no use attempting to scroll if we're not moving
+            if (target != scrollLeft) {
+                this.wrapper.scrollLeft = target;
+            }
+
+        },
+
+        getWidth: function () {
+            return Math.round(this.container.clientWidth * this.params.pixelRatio);
+        },
+
+        setWidth: function (width) {
+            this.width = width;
+
+            if (this.params.fillParent || this.params.scrollParent) {
+                this.style(this.wrapper, {
+                    width: ''
+                });
+            } else {
+                this.style(this.wrapper, {
+                    width: ~~(this.width / this.params.pixelRatio) + 'px'
+                });
+            }
+
+            this.updateSize();
+        },
+
+        setHeight: function (height) {
+            if (height == this.height) { return; }
+            this.height = height;
+            this.style(this.wrapper, {
+                height: ~~(this.height / this.params.pixelRatio) + 'px'
+            });
+            this.updateSize();
+        },
+
+        progress: function (progress) {
+            var minPxDelta = 1 / this.params.pixelRatio;
+            var pos = Math.round(progress * this.width) * minPxDelta;
+
+            if (pos < this.lastPos || pos - this.lastPos >= minPxDelta) {
+                this.lastPos = pos;
+
+                if (this.params.scrollParent && this.params.autoCenter) {
+                    var newPos = ~~(this.wrapper.scrollWidth * progress);
+                    this.recenterOnPosition(newPos);
+                }
+
+                this.updateProgress(progress);
+            }
+        },
+
+        destroy: function () {
+            this.unAll();
+            if (this.wrapper) {
+                this.container.removeChild(this.wrapper);
+                this.wrapper = null;
+            }
+        },
+
+        /* Renderer-specific methods */
+        initDrawer: function () {},
+
+        createElements: function () {},
+
+        updateSize: function () {},
+
+        drawWave: function (peaks, max) {},
+
+        clearWave: function () {},
+
+        updateProgress: function (position) {}
+    };
+
+    WaveSurfer.util.extend(WaveSurfer.Drawer, WaveSurfer.Observer);
+
+    'use strict';
+
+    WaveSurfer.Drawer.Canvas = Object.create(WaveSurfer.Drawer);
+
+    WaveSurfer.util.extend(WaveSurfer.Drawer.Canvas, {
+        createElements: function () {
+            var waveCanvas = this.wrapper.appendChild(
+                this.style(document.createElement('canvas'), {
+                    position: 'absolute',
+                    zIndex: 1,
+                    left: 0,
+                    top: 0,
+                    bottom: 0
+                })
+            );
+            this.waveCc = waveCanvas.getContext('2d');
+
+            this.progressWave = this.wrapper.appendChild(
+                this.style(document.createElement('wave'), {
+                    position: 'absolute',
+                    zIndex: 2,
+                    left: 0,
+                    top: 0,
+                    bottom: 0,
+                    overflow: 'hidden',
+                    width: '0',
+                    display: 'none',
+                    boxSizing: 'border-box',
+                    borderRightStyle: 'solid',
+                    borderRightWidth: this.params.cursorWidth + 'px',
+                    borderRightColor: this.params.cursorColor
+                })
+            );
+
+            if (this.params.waveColor != this.params.progressColor) {
+                var progressCanvas = this.progressWave.appendChild(
+                    document.createElement('canvas')
+                );
+                this.progressCc = progressCanvas.getContext('2d');
+            }
+        },
+
+        updateSize: function () {
+            var width = Math.round(this.width / this.params.pixelRatio);
+
+            this.waveCc.canvas.width = this.width;
+            this.waveCc.canvas.height = this.height;
+            this.style(this.waveCc.canvas, { width: width + 'px'});
+
+            this.style(this.progressWave, { display: 'block'});
+
+            if (this.progressCc) {
+                this.progressCc.canvas.width = this.width;
+                this.progressCc.canvas.height = this.height;
+                this.style(this.progressCc.canvas, { width: width + 'px'});
+            }
+
+            this.clearWave();
+        },
+
+        clearWave: function () {
+            this.waveCc.clearRect(0, 0, this.width, this.height);
+            if (this.progressCc) {
+                this.progressCc.clearRect(0, 0, this.width, this.height);
+            }
+        },
+
+        drawBars: function (peaks, channelIndex) {
+            // Split channels
+            if (peaks[0] instanceof Array) {
+                var channels = peaks;
+                if (this.params.splitChannels) {
+                    this.setHeight(channels.length * this.params.height * this.params.pixelRatio);
+                    channels.forEach(this.drawBars, this);
+                    return;
+                } else {
+                    peaks = channels[0];
+                }
+            }
+
+            // Bar wave draws the bottom only as a reflection of the top,
+            // so we don't need negative values
+            var hasMinVals = [].some.call(peaks, function (val) { return val < 0; });
+            if (hasMinVals) {
+                peaks = [].filter.call(peaks, function (_, index) { return index % 2 == 0; });
+            }
+
+            // A half-pixel offset makes lines crisp
+            var $ = 0.5 / this.params.pixelRatio;
+            var width = this.width;
+            var height = this.params.height * this.params.pixelRatio;
+            var offsetY = height * channelIndex || 0;
+            var halfH = height / 2;
+            var length = peaks.length;
+            var bar = this.params.barWidth * this.params.pixelRatio;
+            var gap = Math.max(this.params.pixelRatio, ~~(bar / 2));
+            var step = bar + gap;
+
+            var absmax = 1;
+            if (this.params.normalize) {
+                absmax = WaveSurfer.util.max(peaks);
+            }
+
+            var scale = length / width;
+
+            this.waveCc.fillStyle = this.params.waveColor;
+            if (this.progressCc) {
+                this.progressCc.fillStyle = this.params.progressColor;
+            }
+
+            [ this.waveCc, this.progressCc ].forEach(function (cc) {
+                if (!cc) { return; }
+
+                for (var i = 0; i < width; i += step) {
+                    var h = Math.round(peaks[Math.floor(i * scale)] / absmax * halfH);
+                    cc.fillRect(i + $, halfH - h + offsetY, bar + $, h * 2);
+                }
+            }, this);
+        },
+
+        drawWave: function (peaks, channelIndex) {
+            // Split channels
+            if (peaks[0] instanceof Array) {
+                var channels = peaks;
+                if (this.params.splitChannels) {
+                    this.setHeight(channels.length * this.params.height * this.params.pixelRatio);
+                    channels.forEach(this.drawWave, this);
+                    return;
+                } else {
+                    peaks = channels[0];
+                }
+            }
+
+            // Support arrays without negative peaks
+            var hasMinValues = [].some.call(peaks, function (val) { return val < 0; });
+            if (!hasMinValues) {
+                var reflectedPeaks = [];
+                for (var i = 0, len = peaks.length; i < len; i++) {
+                    reflectedPeaks[2 * i] = peaks[i];
+                    reflectedPeaks[2 * i + 1] = -peaks[i];
+                }
+                peaks = reflectedPeaks;
+            }
+
+            // A half-pixel offset makes lines crisp
+            var $ = 0.5 / this.params.pixelRatio;
+            var height = this.params.height * this.params.pixelRatio;
+            var offsetY = height * channelIndex || 0;
+            var halfH = height / 2;
+            var length = ~~(peaks.length / 2);
+
+            var scale = 1;
+            if (this.params.fillParent && this.width != length) {
+                scale = this.width / length;
+            }
+
+            var absmax = 1;
+            if (this.params.normalize) {
+                var max = WaveSurfer.util.max(peaks);
+                var min = WaveSurfer.util.min(peaks);
+                absmax = -min > max ? -min : max;
+            }
+
+            this.waveCc.fillStyle = this.params.waveColor;
+            if (this.progressCc) {
+                this.progressCc.fillStyle = this.params.progressColor;
+            }
+
+            [ this.waveCc, this.progressCc ].forEach(function (cc) {
+                if (!cc) { return; }
+
+                cc.beginPath();
+                cc.moveTo($, halfH + offsetY);
+
+                for (var i = 0; i < length; i++) {
+                    var h = Math.round(peaks[2 * i] / absmax * halfH);
+                    cc.lineTo(i * scale + $, halfH - h + offsetY);
+                }
+
+                // Draw the bottom edge going backwards, to make a single
+                // closed hull to fill.
+                for (var i = length - 1; i >= 0; i--) {
+                    var h = Math.round(peaks[2 * i + 1] / absmax * halfH);
+                    cc.lineTo(i * scale + $, halfH - h + offsetY);
+                }
+
+                cc.closePath();
+                cc.fill();
+
+                // Always draw a median line
+                cc.fillRect(0, halfH + offsetY - $, this.width, $);
+            }, this);
+        },
+
+        updateProgress: function (progress) {
+            var pos = Math.round(
+                this.width * progress
+            ) / this.params.pixelRatio;
+            this.style(this.progressWave, { width: pos + 'px' });
+        },
+
+        getImage: function(type, quality) {
+            return this.waveCc.canvas.toDataURL(type, quality);
+        }
+    });
+
+    'use strict';
+
+    WaveSurfer.Drawer.MultiCanvas = Object.create(WaveSurfer.Drawer);
+
+    WaveSurfer.util.extend(WaveSurfer.Drawer.MultiCanvas, {
+
+        initDrawer: function (params) {
+            this.maxCanvasWidth = params.maxCanvasWidth != null ? params.maxCanvasWidth : 4000;
+            this.maxCanvasElementWidth = Math.round(this.maxCanvasWidth / this.params.pixelRatio);
+
+            if (this.maxCanvasWidth <= 1) {
+                throw 'maxCanvasWidth must be greater than 1.';
+            } else if (this.maxCanvasWidth % 2 == 1) {
+                throw 'maxCanvasWidth must be an even number.';
+            }
+
+            this.hasProgressCanvas = this.params.waveColor != this.params.progressColor;
+            this.halfPixel = 0.5 / this.params.pixelRatio;
+            this.canvases = [];
+        },
+
+        createElements: function () {
+            this.progressWave = this.wrapper.appendChild(
+                this.style(document.createElement('wave'), {
+                    position: 'absolute',
+                    zIndex: 2,
+                    left: 0,
+                    top: 0,
+                    bottom: 0,
+                    overflow: 'hidden',
+                    width: '0',
+                    display: 'none',
+                    boxSizing: 'border-box',
+                    borderRightStyle: 'solid',
+                    borderRightWidth: this.params.cursorWidth + 'px',
+                    borderRightColor: this.params.cursorColor
+                })
+            );
+
+            this.addCanvas();
+        },
+
+        updateSize: function () {
+            var totalWidth = Math.round(this.width / this.params.pixelRatio),
+                requiredCanvases = Math.ceil(totalWidth / this.maxCanvasElementWidth);
+
+            while (this.canvases.length < requiredCanvases) {
+                this.addCanvas();
+            }
+
+            while (this.canvases.length > requiredCanvases) {
+                this.removeCanvas();
+            }
+
+            for (var i in this.canvases) {
+                // Add some overlap to prevent vertical white stripes, keep the width even for simplicity.
+                var canvasWidth = this.maxCanvasWidth + 2 * Math.ceil(this.params.pixelRatio / 2);
+
+                if (i == this.canvases.length - 1) {
+                    canvasWidth = this.width - (this.maxCanvasWidth * (this.canvases.length - 1));
+                }
+
+                this.updateDimensions(this.canvases[i], canvasWidth, this.height);
+                this.clearWaveForEntry(this.canvases[i]);
+            }
+        },
+
+        addCanvas: function () {
+            var entry = {},
+                leftOffset = this.maxCanvasElementWidth * this.canvases.length;
+
+            entry.wave = this.wrapper.appendChild(
+                this.style(document.createElement('canvas'), {
+                    position: 'absolute',
+                    zIndex: 1,
+                    left: leftOffset + 'px',
+                    top: 0,
+                    bottom: 0
+                })
+            );
+            entry.waveCtx = entry.wave.getContext('2d');
+
+            if (this.hasProgressCanvas) {
+                entry.progress = this.progressWave.appendChild(
+                    this.style(document.createElement('canvas'), {
+                        position: 'absolute',
+                        left: leftOffset + 'px',
+                        top: 0,
+                        bottom: 0
+                    })
+                );
+                entry.progressCtx = entry.progress.getContext('2d');
+            }
+
+            this.canvases.push(entry);
+        },
+
+        removeCanvas: function () {
+            var lastEntry = this.canvases.pop();
+            lastEntry.wave.parentElement.removeChild(lastEntry.wave);
+            if (this.hasProgressCanvas) {
+                lastEntry.progress.parentElement.removeChild(lastEntry.progress);
+            }
+        },
+
+        updateDimensions: function (entry, width, height) {
+            var elementWidth = Math.round(width / this.params.pixelRatio),
+                totalWidth = Math.round(this.width / this.params.pixelRatio);
+
+            // Where the canvas starts and ends in the waveform, represented as a decimal between 0 and 1.
+            entry.start = (entry.waveCtx.canvas.offsetLeft / totalWidth) || 0;
+            entry.end = entry.start + elementWidth / totalWidth;
+
+            entry.waveCtx.canvas.width = width;
+            entry.waveCtx.canvas.height = height;
+            this.style(entry.waveCtx.canvas, { width: elementWidth + 'px'});
+
+            this.style(this.progressWave, { display: 'block'});
+
+            if (this.hasProgressCanvas) {
+                entry.progressCtx.canvas.width = width;
+                entry.progressCtx.canvas.height = height;
+                this.style(entry.progressCtx.canvas, { width: elementWidth + 'px'});
+            }
+        },
+
+        clearWave: function () {
+            for (var i in this.canvases) {
+                this.clearWaveForEntry(this.canvases[i]);
+            }
+        },
+
+        clearWaveForEntry: function (entry) {
+            entry.waveCtx.clearRect(0, 0, entry.waveCtx.canvas.width, entry.waveCtx.canvas.height);
+            if (this.hasProgressCanvas) {
+                entry.progressCtx.clearRect(0, 0, entry.progressCtx.canvas.width, entry.progressCtx.canvas.height);
+            }
+        },
+
+        drawBars: function (peaks, channelIndex) {
+            // Split channels
+            if (peaks[0] instanceof Array) {
+                var channels = peaks;
+                if (this.params.splitChannels) {
+                    this.setHeight(channels.length * this.params.height * this.params.pixelRatio);
+                    channels.forEach(this.drawBars, this);
+                    return;
+                } else {
+                    peaks = channels[0];
+                }
+            }
+
+            // Bar wave draws the bottom only as a reflection of the top,
+            // so we don't need negative values
+            var hasMinVals = [].some.call(peaks, function (val) { return val < 0; });
+            if (hasMinVals) {
+                peaks = [].filter.call(peaks, function (_, index) { return index % 2 == 0; });
+            }
+
+            // A half-pixel offset makes lines crisp
+            var width = this.width;
+            var height = this.params.height * this.params.pixelRatio;
+            var offsetY = height * channelIndex || 0;
+            var halfH = height / 2;
+            var length = peaks.length;
+            var bar = this.params.barWidth * this.params.pixelRatio;
+            var gap = Math.max(this.params.pixelRatio, ~~(bar / 2));
+            var step = bar + gap;
+
+            var absmax = 1;
+            if (this.params.normalize) {
+                absmax = WaveSurfer.util.max(peaks);
+            }
+
+            var scale = length / width;
+
+            for (var i = 0; i < width; i += step) {
+                var h = Math.round(peaks[Math.floor(i * scale)] / absmax * halfH);
+                this.fillRect(i + this.halfPixel, halfH - h + offsetY, bar + this.halfPixel, h * 2);
+            }
+        },
+
+        drawWave: function (peaks, channelIndex) {
+            // Split channels
+            if (peaks[0] instanceof Array) {
+                var channels = peaks;
+                if (this.params.splitChannels) {
+                    this.setHeight(channels.length * this.params.height * this.params.pixelRatio);
+                    channels.forEach(this.drawWave, this);
+                    return;
+                } else {
+                    peaks = channels[0];
+                }
+            }
+
+            // Support arrays without negative peaks
+            var hasMinValues = [].some.call(peaks, function (val) { return val < 0; });
+            if (!hasMinValues) {
+                var reflectedPeaks = [];
+                for (var i = 0, len = peaks.length; i < len; i++) {
+                    reflectedPeaks[2 * i] = peaks[i];
+                    reflectedPeaks[2 * i + 1] = -peaks[i];
+                }
+                peaks = reflectedPeaks;
+            }
+
+            // A half-pixel offset makes lines crisp
+            var height = this.params.height * this.params.pixelRatio;
+            var offsetY = height * channelIndex || 0;
+            var halfH = height / 2;
+
+            var absmax = 1;
+            if (this.params.normalize) {
+                var max = WaveSurfer.util.max(peaks);
+                var min = WaveSurfer.util.min(peaks);
+                absmax = -min > max ? -min : max;
+            }
+
+            this.drawLine(peaks, absmax, halfH, offsetY);
+
+            // Always draw a median line
+            this.fillRect(0, halfH + offsetY - this.halfPixel, this.width, this.halfPixel);
+        },
+
+        drawLine: function (peaks, absmax, halfH, offsetY) {
+            for (var index in this.canvases) {
+                var entry = this.canvases[index];
+
+                this.setFillStyles(entry);
+
+                this.drawLineToContext(entry, entry.waveCtx, peaks, absmax, halfH, offsetY);
+                this.drawLineToContext(entry, entry.progressCtx, peaks, absmax, halfH, offsetY);
+            }
+        },
+
+        drawLineToContext: function (entry, ctx, peaks, absmax, halfH, offsetY) {
+            if (!ctx) { return; }
+
+            var length = peaks.length / 2;
+
+            var scale = 1;
+            if (this.params.fillParent && this.width != length) {
+                scale = this.width / length;
+            }
+
+            var first = Math.round(length * entry.start),
+                last = Math.round(length * entry.end);
+
+            ctx.beginPath();
+            ctx.moveTo(this.halfPixel, halfH + offsetY);
+
+            for (var i = first; i < last; i++) {
+                var h = Math.round(peaks[2 * i] / absmax * halfH);
+                ctx.lineTo((i - first) * scale + this.halfPixel, halfH - h + offsetY);
+            }
+
+            // Draw the bottom edge going backwards, to make a single
+            // closed hull to fill.
+            for (var i = last - 1; i >= first; i--) {
+                var h = Math.round(peaks[2 * i + 1] / absmax * halfH);
+                ctx.lineTo((i - first) * scale + this.halfPixel, halfH - h + offsetY);
+            }
+
+            ctx.closePath();
+            ctx.fill();
+        },
+
+        fillRect: function (x, y, width, height) {
+            for (var i in this.canvases) {
+                var entry = this.canvases[i],
+                    leftOffset = i * this.maxCanvasWidth;
+
+                var intersection = {
+                    x1: Math.max(x, i * this.maxCanvasWidth),
+                    y1: y,
+                    x2: Math.min(x + width, i * this.maxCanvasWidth + entry.waveCtx.canvas.width),
+                    y2: y + height
+                };
+
+                if (intersection.x1 < intersection.x2) {
+                    this.setFillStyles(entry);
+
+                    this.fillRectToContext(entry.waveCtx,
+                        intersection.x1 - leftOffset,
+                        intersection.y1,
+                        intersection.x2 - intersection.x1,
+                        intersection.y2 - intersection.y1);
+
+                    this.fillRectToContext(entry.progressCtx,
+                        intersection.x1 - leftOffset,
+                        intersection.y1,
+                        intersection.x2 - intersection.x1,
+                        intersection.y2 - intersection.y1);
+                }
+            }
+        },
+
+        fillRectToContext: function (ctx, x, y, width, height) {
+            if (!ctx) { return; }
+            ctx.fillRect(x, y, width, height);
+        },
+
+        setFillStyles: function (entry) {
+            entry.waveCtx.fillStyle = this.params.waveColor;
+            if (this.hasProgressCanvas) {
+                entry.progressCtx.fillStyle = this.params.progressColor;
+            }
+        },
+
+        updateProgress: function (progress) {
+            var pos = Math.round(
+                this.width * progress
+            ) / this.params.pixelRatio;
+            this.style(this.progressWave, { width: pos + 'px' });
+        }
+    });
+
+    'use strict';
+
+    /* Init from HTML */
+    (function () {
+        var init = function () {
+            var containers = document.querySelectorAll('wavesurfer');
+
+            Array.prototype.forEach.call(containers, function (el) {
+                var params = WaveSurfer.util.extend({
+                    container: el,
+                    backend: 'MediaElement',
+                    mediaControls: true
+                }, el.dataset);
+
+                el.style.display = 'block';
+
+                var wavesurfer = WaveSurfer.create(params);
+
+                if (el.dataset.peaks) {
+                    var peaks = JSON.parse(el.dataset.peaks);
+                }
+
+                wavesurfer.load(el.dataset.url, peaks);
+            });
+        };
+
+        if (document.readyState === 'complete') {
+            init();
+        } else {
+            window.addEventListener('load', init);
+        }
+    }());
+
+    return WaveSurfer;
+
+}));
