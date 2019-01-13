@@ -15,7 +15,7 @@ let wavesurfer = WaveSurfer.create({
 });
 
 // load audio file
-wavesurfer.load("audioFiles/blackbird.wav");
+wavesurfer.load("audioFiles/riptide portfolio.wav");
 
 // playhead buttons
 let playBtn = document.getElementById("play");
@@ -33,7 +33,7 @@ function playheadBtnColorReset() {
 }
 
 // beats array
-let beats = ["audioFiles/blackbird.wav", "audioFiles/beat.mp3", "audioFiles/tom misch type beat.wav"];
+let beats = ["audioFiles/riptide portfolio.wav", "audioFiles/oque portfolio.wav", "audioFiles/beat portfolio.wav"];
 
 // unordered list that will list out the beats
 let beatsList = document.getElementById("beats");
