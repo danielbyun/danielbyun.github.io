@@ -39,7 +39,7 @@ header {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      width: 100%;
+      width: 80%;
       height: 100%;
       margin: 0 auto; }
       header nav .nav .menuIcon {
@@ -183,4 +183,4 @@ footer {
           align-items: center;
           height: 100%; } }
 
-/*# sourceMappingURL=home.css.map */
+/*# sourceMappingURL=index.css.map */

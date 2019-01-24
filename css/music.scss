@@ -1,3 +1,7 @@
+html, body {
+  height: 100%;
+}
+
 html {
   box-sizing: border-box;
   font-family: 'lucida console', sans-serif;
@@ -8,8 +12,7 @@ html {
 body {
   padding: 0;
   margin: 0;
-  height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url("https://source.unsplash.com/featured/?music") no-repeat center center fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url("https://images.unsplash.com/photo-1511735111819-9a3f7709049c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2048&q=80") no-repeat center center fixed;
   background-size: cover;
 }
 

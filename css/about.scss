@@ -13,14 +13,13 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'lucida console', sans-serif;
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)), url("https://source.unsplash.com/daily") no-repeat center center fixed;
+  background: #000000;
   background-size: cover;
 }
 
 a {
   text-decoration: none;
   transition: all 0.2s ease-in-out;
-  color: whitesmoke;
 }
 
 header {
@@ -44,7 +43,7 @@ header {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      width: 100%;
+      width: 80%;
       height: 100%;
       margin: 0 auto;
       .menuIcon {
@@ -68,66 +67,42 @@ header {
 }
 
 main {
-  height: 100%;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  section {
+  position: relative;
+  top: 10rem;
+  #infoSection {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
     flex: 0 0 100%;
-  }
-  .msg {
-    .comingSoon {
-      transition: all 0.2s ease-in-out;
-      padding: 1rem;
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      border-radius: 10px;
-      margin-top: 1em;
-      h1:nth-child(1) {
-        text-align: center;
-        margin-bottom: 1rem;
+    .social {
+      flex: 0 0 30%;
+      flex-wrap: wrap;
+      width: auto;
+      padding: 20px;
+      background-color: whitesmoke;
+      border: 1px solid whitesmoke;
+      border-radius: 7px;
+      text-align: center;
+      p {
+        flex-basis: 100%;
+        padding: 0 0 10px 0;
       }
-      h1 {
+      .socialIcons {
+        flex: 0 0 25%;
+        display: flex;
+        justify-content: space-evenly;
         a {
-          text-decoration: none;
-          color: white;
-          margin-bottom: 5px;
-          transition: all 0.2s ease-in-out;
+          color: #77a2ff;
+          transition: 0.2s all ease-in-out;
+          width: auto;
         }
         a:hover {
-          color: black;
+          color: #eb77ff;
         }
-      }
-    }
-  }
-  .social {
-    flex: 0 0 30%;
-    width: auto;
-    color: white;
-    margin-top: 1em;
-    flex-wrap: wrap;
-    p {
-      flex-basis: 100%;
-      text-align: center;
-    }
-    .socialIcons {
-      flex: 0 0 25%;
-      display: flex;
-      justify-content: space-between;
-      margin-top: 1em;
-      a {
-        color: white;
-        transition: 0.2s all ease-in-out;
-        width: auto;
-      }
-      a:hover {
-        color: orchid;
       }
     }
   }
