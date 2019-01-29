@@ -6,16 +6,25 @@ let wavesurfer = WaveSurfer.create({
     progressColor: 'hsla(200, 100%, 30%, 1)',
     cursorColor: '#efefef',
     splitChannels: false,
-    height: 350,
-    responsive: 10,
+    height: 250,
+    // responsive: true,
     barHeight: 99,
     barWidth: 3,
-    normalize: true
+    normalize: true,
+    minPxPerSec: 1
     // backend: "MediaElement"
 });
 
 // load audio file
 wavesurfer.load("audioFiles/riptide.wav");
+
+// make it responsive
+let responsiveWave = wavesurfer.util.debounce(function () {
+    wavesurfer.empty();
+    wavesurfer.drawBuffer();
+}, 150);
+
+window.addEventListener("resize", responsiveWave);
 
 // playhead buttons
 let playBtn = document.getElementById("play");

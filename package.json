@@ -9,6 +9,7 @@
     "minimatch": "^3.0.4"
   },
   "devDependencies": {
+    "autoprefixer": "^9.4.6",
     "browser-sync": "^2.26.3",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-concat": "^2.6.1",

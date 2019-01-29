@@ -1,5 +1,6 @@
 const gulp = require("gulp");
 const autoprefixer = require("gulp-autoprefixer");
+const prefixer = require("autoprefixer");
 const imagemin = require("gulp-imagemin");
 const uglify = require("gulp-uglify");
 const concat = require("gulp-concat");
@@ -7,9 +8,16 @@ const browsersync = require("browser-sync");
 
 // autoprefixer
 gulp.task("styles", function() {
-    gulp.src("app/css/*.css")
+    gulp.src("css/*.css")
         .pipe(autoprefixer())
-        .pipe(gulp.dest("dist/css"))
+        .pipe(gulp.dest("/dist/css"))
+});
+
+// prefixer
+gulp.task("prefix", function() {
+    gulp.src("css/*.css")
+        .pipe(prefixer())
+        .pipe(gulp.dest("/dist/css"))
 });
 
 // gulp.task("minify", function(){
@@ -20,7 +28,7 @@ gulp.task("styles", function() {
 
 // optimize images
 gulp.task("imageMin", () =>
-    gulp.src("app/img/*")
+    gulp.src("img/*")
         .pipe(imagemin())
         .pipe(gulp.dest("dist/img"))
 );

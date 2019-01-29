@@ -97,6 +97,19 @@ main {
       h1, p {
         color: black;
       }
+      #webApp1 {
+        div {
+          div {
+            div.modal-body {
+              p:nth-child(4) {
+                img {
+                  max-height: calc(100vh - 1px);
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -214,8 +227,11 @@ footer {
   main {
     font-size: 14px;
     width: 100%;
-    position: relative;
-    top: 10rem;
+    height: 100%;
+    display: flex;
+    top: 0;
+    justify-content: center;
+    align-content: center;
   }
   footer {
     width: 100%;
