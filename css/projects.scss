@@ -122,6 +122,51 @@ main {
           }
         }
       }
+      #webApp2 {
+        div {
+          div {
+            div.modal-body {
+              p:nth-child(1) {
+                text-align: center;
+                img {
+                  height: 25%;
+                  width: 25%;
+                }
+              }
+            }
+          }
+        }
+      }
+      #webApp3 {
+        div {
+          div {
+            div.modal-body {
+              p:nth-child(1) {
+                text-align: center;
+                img {
+                  height: 25%;
+                  width: 25%;
+                }
+              }
+            }
+          }
+        }
+      }
+      #webApp4 {
+        div {
+          div {
+            div.modal-body {
+              p:nth-child(1) {
+                text-align: center;
+                img {
+                  height: 25%;
+                  width: 25%;
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

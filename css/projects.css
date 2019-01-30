@@ -94,6 +94,21 @@ main {
         main section article #webApp1 div div div.modal-body p:nth-child(13) img {
           height: 50%;
           width: 50%; }
+      main section article #webApp2 div div div.modal-body p:nth-child(1) {
+        text-align: center; }
+        main section article #webApp2 div div div.modal-body p:nth-child(1) img {
+          height: 25%;
+          width: 25%; }
+      main section article #webApp3 div div div.modal-body p:nth-child(1) {
+        text-align: center; }
+        main section article #webApp3 div div div.modal-body p:nth-child(1) img {
+          height: 25%;
+          width: 25%; }
+      main section article #webApp4 div div div.modal-body p:nth-child(1) {
+        text-align: center; }
+        main section article #webApp4 div div div.modal-body p:nth-child(1) img {
+          height: 25%;
+          width: 25%; }
 
 footer {
   display: none; }
