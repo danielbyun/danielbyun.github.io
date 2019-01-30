@@ -21,6 +21,10 @@
               integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
               crossorigin="anonymous">
 
+        <!-- google code prettify -->
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=java&amp;skin=desert"></script>
+
+
         <link href="css/projects.css" rel="stylesheet">
         <link href="css/reset.css" rel="stylesheet">
     </head>
@@ -56,7 +60,7 @@
                     <div class="modal fade" id="webApp1" tabindex="-1" role="dialog"
                          aria-labelledby="webApp1Label"
                          aria-hidden="true">
-                        <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-dialog modal-xl" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="webApp1Label">simplified reddit home page
@@ -67,24 +71,30 @@
                                 </div>
                                 <div class="modal-body">
                                     <p>
+                                        <img class="img-fluid javaLogo" src="img/java%20logo%20vector.png"
+                                             alt="java logo">
+                                        <img class="img-fluid javaLogo" src="img/mysql%20logo%20vector.png"
+                                             alt="mysql logo">
+                                    </p>
+                                    <p>
                                         This web app was created using Java EE, MySQL, JDBC, Servlet, and JSP was used
                                         for the view layer.
                                     </p>
                                     <p>
                                         The goal of this web app is to clone the reddit home page.
                                     </p>
-                                    <div>
-                                        <p>features include:</p>
-                                        <ol>
-                                            <li>
-                                                1) login // register users
-                                            </li>
-                                            <li>
-                                                2) create // edit (only for authors) // reply (only for users) // view //
-                                                delete boards
-                                            </li>
-                                        </ol>
-                                    </div>
+                                    <p>features include:</p>
+                                    <ol>
+                                        <li>
+                                            1) login // register users
+                                        </li>
+                                        <li>
+                                            2) create // edit (only for authors) // reply (only for users) // view
+                                            //
+                                            delete boards
+                                        </li>
+                                    </ol>
+
                                     <p>
                                         project directory: <i class="fas fa-arrow-alt-circle-down"></i>
                                     </p>
@@ -93,33 +103,3043 @@
                                              alt="java EE project directory" class="img-fluid">
                                     </p>
                                     <p>
-                                        MySQL query: <i class="fas fa-arrow-alt-circle-down"></i>
+                                        MySQL query: (create members) <i class="fas fa-arrow-alt-circle-down"></i>
                                     </p>
-                                    <img src="https://images.unsplash.com/photo-1485813727108-9b009dfab116?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2378&q=80"
-                                         alt="tech1" class="img-fluid">
-                                    <h1>GIF TESTING below <i class="fas fa-arrow-alt-circle-down"></i><i
-                                            class="fas fa-arrow-alt-circle-down"></i></h1>
+                                    <pre class="prettyprint">
+
+ CREATE TABLE `members` (
+     `id` int(11) NOT NULL AUTO_INCREMENT,
+     `userId` varchar(100) NOT NULL,
+     `userPw` varchar(100) NOT NULL,
+     `userEmail` varchar(100) NOT NULL,
+     PRIMARY KEY (`id`)
+ )
+                                    </pre>
+                                    <p>
+                                        MySQL query: (create boards) <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <pre class="prettyprint">
+
+ CREATE TABLE `posts` (
+     `mId` int(11) NOT NULL AUTO_INCREMENT,
+     `mGroup` int(11) NOT NULL,
+     `step` int(11) NOT NULL,
+     `hit` int(11) NOT NULL DEFAULT '0',
+     `indent` int(11) NOT NULL,
+     `userId` varchar(100) NOT NULL,
+     `title` varchar(100) NOT NULL DEFAULT 'title',
+     `content` varchar(400) NOT NULL,
+     `date` timestamp NOT NULL,
+     PRIMARY KEY (`mId`)
+ )
+                                    </pre>
+                                    <p>
+                                        database table looks like this:
+                                    </p>
+                                    <p>
+                                        <img src="img/java%20ee%20database%20schema.png" alt="database table">
+                                    </p>
                                     <div style="width:100%;height:0;padding-bottom:75%;position:relative;">
-                                        <iframe src="https://giphy.com/embed/UcK7JalnjCz0k" width="100%" height="100%"
-                                                style="position:absolute" frameBorder="0" class="giphy-embed"
-                                                allowFullScreen></iframe>
+                                        <iframe src="https://giphy.com/embed/3o6Ztk7NosfLVRqcpy" width="100%"
+                                                height="100%" style="position:absolute" frameBorder="0"
+                                                class="" allowFullScreen></iframe>
                                     </div>
-                                    <p> Quisque sit amet mollis purus. Cras gravida tempus mi interdum elementum. Duis
-                                        non efficitur ex. Donec ultricies augue sed condimentum mattis. Praesent
-                                        malesuada non quam et posuere. Cras consectetur fermentum lectus, et dictum
-                                        elit. Etiam a lorem et mauris vehicula sollicitudin non vitae purus. Integer at
-                                        fringilla mi. Morbi dignissim elementum tortor, nec rhoncus nulla volutpat et.
+                                    <h1>
+                                        lets get to it!!!
+                                    </h1>
+
+                                    <p>
+                                        context.xml
                                     </p>
-                                    <p> Morbi sit amet leo auctor, pretium dui sed, accumsan arcu. Nam euismod, quam et
-                                        vehicula faucibus, odio tellus malesuada arcu, vel convallis tellus turpis vitae
-                                        sem. Nulla sem orci, faucibus non semper quis, lacinia at urna. Aliquam erat
-                                        volutpat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam
-                                        erat volutpat. Donec ornare aliquet ex, sit amet ultrices nibh sollicitudin
-                                        vitae.
+                                    <pre class="prettyprint">
+
+ // make sure the name matches the context lookup string in the DBConnect class
+
+ &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+ &lt;Context path=&quot;/&quot;&gt;
+    &lt;Resource name=&quot;jdbc/db&quot;
+              auth=&quot;Container&quot;
+              type=&quot;javax.sql.DataSource&quot;
+              username=&quot;[]&quot;
+              password=&quot;[]&quot;
+              driverClassName=&quot;com.mysql.cj.jdbc.Driver&quot;
+              url=&quot;jdbc:mysql://localhost:3306/webprojects?allowPublicKeyRetrieval=true&amp;#038;useSSL=false&amp;#038;amp&amp;#038;useUnicode=true&amp;#038;amp&amp;#038;serverTimezone=UTC&quot;
+              loginTimeout=&quot;100&quot;
+              maxActive=&quot;500&quot;
+              maxIdle=&quot;100&quot;
+    /&gt;
+ &lt;/Context&gt;
+                                    </pre>
+                                    <p>
+                                        web.xml
                                     </p>
-                                    <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80"
-                                         alt="tech3" class="img-fluid">
-                                    <a href="" target="_blank">github link to project</a>
+                                    <pre class="prettyprint" lang="xml">
+
+ &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+    &lt;web-app xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+             xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
+             xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;
+             version=&quot;4.0&quot;&gt;
+    &lt;!-- mysql --&gt;
+    &lt;context-param&gt;
+        &lt;description&gt;sql driver&lt;/description&gt;
+        &lt;param-name&gt;driver&lt;/param-name&gt;
+        &lt;param-value&gt;com.mysql.cj.jdbc.Driver&lt;/param-value&gt;
+    &lt;/context-param&gt;
+    &lt;context-param&gt;
+        &lt;description&gt;sql url&lt;/description&gt;
+        &lt;param-name&gt;url&lt;/param-name&gt;
+        &lt;param-value&gt;jdbc:mysql://localhost:3306/webprojects?allowPublicKeyRetrieval=true&amp;amp;useSSL=false&amp;amp;useUnicode=true&amp;amp;serverTimezone=UTC&lt;/param-value&gt;
+    &lt;/context-param&gt;
+    &lt;context-param&gt;
+        &lt;description&gt;hostId&lt;/description&gt;
+        &lt;param-name&gt;hostId&lt;/param-name&gt;
+        &lt;param-value&gt;[]&lt;/param-value&gt;
+    &lt;/context-param&gt;
+    &lt;context-param&gt;
+        &lt;description&gt;hostPw&lt;/description&gt;
+        &lt;param-name&gt;hostPw&lt;/param-name&gt;
+        &lt;param-value&gt;[]&lt;/param-value&gt;
+    &lt;/context-param&gt;
+
+    &lt;!-- connection pool --&gt;
+    &lt;resource-ref&gt;
+        &lt;description&gt;connectDBCP&lt;/description&gt;
+        &lt;res-ref-name&gt;jdbc/db&lt;/res-ref-name&gt;
+        &lt;res-type&gt;javax.sql.DataSource&lt;/res-type&gt;
+        &lt;res-auth&gt;Container&lt;/res-auth&gt;
+    &lt;/resource-ref&gt;
+
+    &lt;!-- welcome files --&gt;
+    &lt;display-name&gt;simple reddit clone&lt;/display-name&gt;
+
+    &lt;welcome-file-list&gt;
+        &lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt;
+        &lt;welcome-file&gt;index.html&lt;/welcome-file&gt;
+    &lt;/welcome-file-list&gt;
+
+    &lt;!-- error page --&gt;
+    &lt;error-page&gt;
+        &lt;location&gt;/error.html&lt;/location&gt;
+    &lt;/error-page&gt;
+    &lt;/web-app&gt;
+                                    </pre>
+                                    <p>
+                                        let's setup the connection with the database by setting up DBConnect (connection
+                                        pooling setup)
+                                    </p>
+                                    <pre class="prettyprint">
+
+ // this class links datasource information in the context.xml file and creates a dataSource
+ package org.web.dbConnect;
+
+ import javax.naming.Context;
+ import javax.naming.InitialContext;
+ import javax.sql.DataSource;
+ import java.sql.Connection;
+
+ public class DBConnect {
+     public static Connection getConnection() {
+         Connection conn = null;
+         try {
+             Context initContext = new InitialContext();
+             Context envContext = (Context) initContext.lookup("java:/comp/env");
+             DataSource ds = (DataSource) envContext.lookup("jdbc/db");
+             conn = ds.getConnection();
+         } catch (Exception e) {
+             e.printStackTrace();
+         }
+
+         return conn;
+     }
+ }
+                                    </pre>
+                                    <p>
+                                        MemberDTO
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package org.web.memberDTO;
+
+ public class MemberDTO {
+     private int id;
+     private String userId, userPw, userEmail;
+
+     public MemberDTO(String userId, String userPw, String userEmail) {
+         this.userId = userId;
+         this.userPw = userPw;
+         this.userEmail = userEmail;
+     }
+
+     public MemberDTO(int id, String userId, String userPw, String userEmail) {
+         this.id = id;
+         this.userId = userId;
+         this.userPw = userPw;
+         this.userEmail = userEmail;
+     }
+
+     public int getId() {
+         return id;
+     }
+
+     public void setId(int id) {
+         this.id = id;
+     }
+
+     public String getUserId() {
+         return userId;
+     }
+
+     public void setUserId(String userId) {
+         this.userId = userId;
+     }
+
+     public String getUserPw() {
+         return userPw;
+     }
+
+     public void setUserPw(String userPw) {
+         this.userPw = userPw;
+     }
+
+     public String getUserEmail() {
+         return userEmail;
+     }
+
+     public void setUserEmail(String userEmail) {
+         this.userEmail = userEmail;
+     }
+
+     // for debugging purposes
+     @Override
+     public String toString() {
+         return "MemberDTO{" +
+                 "id=" + id +
+                 ", userId='" + userId + '\'' +
+                 ", userPw='" + userPw + '\'' +
+                 ", userEmail='" + userEmail + '\'' +
+                 '}';
+     }
+ }
+                                    </pre>
+                                    <p>
+                                        BoardDTO
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package org.web.boardDTO;
+
+ import java.sql.Timestamp;
+
+ public class BoardDTO {
+     private int mId, mGroup, step, hit, indent;
+     private String userName, title, content;
+     private Timestamp date;
+
+     public BoardDTO(int mId, int mGroup, int step, int hit, int indent, String userName, String title, String content, Timestamp date) {
+         this.mId = mId;
+         this.mGroup = mGroup;
+         this.step = step;
+         this.hit = hit;
+         this.indent = indent;
+         this.userName = userName;
+         this.title = title;
+         this.content = content;
+         this.date = date;
+     }
+
+     public int getmId() {
+         return mId;
+     }
+
+     public void setmId(int mId) {
+         this.mId = mId;
+     }
+
+     public int getmGroup() {
+         return mGroup;
+     }
+
+     public void setmGroup(int mGroup) {
+         this.mGroup = mGroup;
+     }
+
+     public int getStep() {
+         return step;
+     }
+
+     public void setStep(int step) {
+         this.step = step;
+     }
+
+     public int getHit() {
+         return hit;
+     }
+
+     public void setHit(int hit) {
+         this.hit = hit;
+     }
+
+     public int getIndent() {
+         return indent;
+     }
+
+     public void setIndent(int indent) {
+         this.indent = indent;
+     }
+
+     public String getUserName() {
+         return userName;
+     }
+
+     public void setUserName(String userName) {
+         this.userName = userName;
+     }
+
+     public String getTitle() {
+         return title;
+     }
+
+     public void setTitle(String title) {
+         this.title = title;
+     }
+
+     public String getContent() {
+         return content;
+     }
+
+     public void setContent(String content) {
+         this.content = content;
+     }
+
+     public Timestamp getDate() {
+         return date;
+     }
+
+     public void setDate(Timestamp date) {
+         this.date = date;
+     }
+ }
+
+                                    </pre>
+                                    <p>
+                                        Controller (redirecting users so they can't access the pages manually)
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package org.web.controller;
+
+ import javax.servlet.RequestDispatcher;
+ import javax.servlet.ServletException;
+ import javax.servlet.annotation.WebServlet;
+ import javax.servlet.http.HttpServlet;
+ import javax.servlet.http.HttpServletRequest;
+ import javax.servlet.http.HttpServletResponse;
+ import java.io.IOException;
+
+ @WebServlet("*.do")
+ public class Controller extends HttpServlet {
+     @Override
+     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         doService(req, resp);
+     }
+
+     @Override
+     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         doService(req, resp);
+     }
+
+     private void doService(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         resp.setCharacterEncoding("utf-8");
+
+         // retrieving the url
+         String path = req.getContextPath();
+         String URI = req.getRequestURI();
+
+         // substringing to cut out everything before /
+         String basicURL = URI.substring(path.length());
+
+         String url = "";
+
+         // redirect links
+         switch (basicURL) {
+             case "/join.do":
+                 url = "/join.jsp";
+
+                 break;
+             case "/login.do":
+                 url = "/login.jsp";
+
+                 break;
+             case "/profile.do":
+                 url = "/profile.jsp";
+
+                 break;
+             case "/updateProfile.do":
+                 url = "/updateProfile.jsp";
+
+                 break;
+             case "/deleteProfile.do":
+                 url = "/deleteProfile.jsp";
+
+                 break;
+             case "/profileDeleted.do":
+                 url = "/profileDeleted.jsp";
+
+                 break;
+         }
+
+         RequestDispatcher dispatcher = req.getRequestDispatcher(url);
+         dispatcher.forward(req, resp);
+     }
+ }
+
+                                    </pre>
+                                    <p>
+                                        MemberController
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package org.web.memberController;
+
+ import org.web.memberCommand.*;
+
+ import javax.servlet.RequestDispatcher;
+ import javax.servlet.ServletException;
+ import javax.servlet.annotation.WebServlet;
+ import javax.servlet.http.HttpServlet;
+ import javax.servlet.http.HttpServletRequest;
+ import javax.servlet.http.HttpServletResponse;
+ import java.io.IOException;
+
+ @WebServlet("*.mo")
+ public class MemberController extends HttpServlet {
+     @Override
+     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         moService(req, resp);
+     }
+
+     @Override
+     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         moService(req, resp);
+     }
+
+     private void moService(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         resp.setCharacterEncoding("utf-8");
+
+         String path = req.getContextPath();
+         String URI = req.getRequestURI();
+         String basicURL = URI.substring(path.length());
+
+         String url = "";
+         MemberCommand action;
+         RequestDispatcher requestDispatcher;
+
+         switch (basicURL) {
+             case "/idCheck.mo":
+                 action = new IdCheck();
+                 action.executeQueryCommand(req, resp);
+
+                 break;
+             case "/join.mo":
+                 action = new MemberJoin();
+                 action.executeQueryCommand(req, resp);
+
+                 url = (String) req.getAttribute("url");
+                 requestDispatcher = req.getRequestDispatcher(url);
+                 requestDispatcher.forward(req, resp);
+
+                 break;
+             case "/login.mo":
+                 action = new MemberLogin();
+                 action.executeQueryCommand(req, resp);
+
+                 break;
+             case "/logout.mo":
+                 action = new MemberLogout();
+                 action.executeQueryCommand(req, resp);
+
+                 url = (String) req.getAttribute("url");
+                 requestDispatcher = req.getRequestDispatcher(url);
+                 requestDispatcher.forward(req, resp);
+
+                 break;
+             case "/viewProfile.mo":
+                 action = new MemberView();
+                 action.executeQueryCommand(req, resp);
+
+                 url = (String) req.getAttribute("url");
+                 requestDispatcher = req.getRequestDispatcher(url);
+                 requestDispatcher.forward(req, resp);
+
+                 break;
+             case "/updateProfile.mo":
+                 action = new MemberUpdate();
+                 action.executeQueryCommand(req, resp);
+
+                 url = (String) req.getAttribute("url");
+                 requestDispatcher = req.getRequestDispatcher(url);
+                 requestDispatcher.forward(req, resp);
+
+                 break;
+             case "/deleteProfile.mo":
+                 action = new MemberDelete();
+                 action.executeQueryCommand(req, resp);
+
+                 url = (String) req.getAttribute("url");
+                 requestDispatcher = req.getRequestDispatcher(url);
+                 requestDispatcher.forward(req, resp);
+
+                 break;
+         }
+     }
+ }
+                                    </pre>
+                                    <p>
+                                        BoardController
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package org.web.boardController;
+
+ import org.web.boardCommand.*;
+
+ import javax.servlet.RequestDispatcher;
+ import javax.servlet.ServletException;
+ import javax.servlet.annotation.WebServlet;
+ import javax.servlet.http.HttpServlet;
+ import javax.servlet.http.HttpServletRequest;
+ import javax.servlet.http.HttpServletResponse;
+ import java.io.IOException;
+
+ @WebServlet("*.bo")
+ public class BoardController extends HttpServlet {
+     @Override
+     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         doService(req, resp);
+     }
+
+     @Override
+     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         doService(req, resp);
+     }
+
+     private void doService(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         req.setCharacterEncoding("utf8");
+
+         String path = req.getContextPath();
+         String uri = req.getRequestURI();
+         String basicurl = uri.substring(path.length());
+
+         String url = "";
+         BoardCommand action;
+
+         RequestDispatcher dispatcher;
+
+         switch (basicurl) {
+             case "/boardList.bo":
+                 action = new BoardList();
+                 action.executeQueryCommand(req, resp);
+                 url = (String) req.getAttribute("url");
+
+                 dispatcher = req.getRequestDispatcher(url);
+                 dispatcher.forward(req, resp);
+
+                 break;
+             case"/boardCommentCount.bo":
+                 action = new BoardCommentCount();
+                 action.executeQueryCommand(req, resp);
+
+                 break;
+             case "/boardUpdate.bo":
+                 action = new BoardUpdate();
+                 action.executeQueryCommand(req, resp);
+
+                 break;
+             case "/boardWrite.bo":
+                 action = new BoardWrite();
+                 action.executeQueryCommand(req, resp);
+
+                 break;
+             case "/boardView.bo":
+                 action = new BoardView();
+                 action.executeQueryCommand(req, resp);
+                 url = (String) req.getAttribute("url");
+
+                 dispatcher = req.getRequestDispatcher(url);
+                 dispatcher.forward(req, resp);
+
+                 break;
+             case "/boardReply.bo":
+                 action = new BoardReply();
+                 action.executeQueryCommand(req, resp);
+
+                 break;
+         }
+     }
+ }
+                                    </pre>
+                                    <p>
+                                        interface command that will have a method for other operations to override
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package org.web.memberCommand;
+
+ import javax.servlet.ServletException;
+ import javax.servlet.http.HttpServletRequest;
+ import javax.servlet.http.HttpServletResponse;
+ import java.io.IOException;
+
+ public interface MemberCommand {
+     void executeQueryCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
+ }
+                                    </pre>
+                                    <p>
+                                        MemberCommand (login, logout, join, delete, update, view)
+                                    </p>
+                                    <p>
+                                        MemberLogin
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package org.web.memberCommand;
+
+ import org.web.memberDAO.MemberDAO;
+ import org.web.memberDTO.MemberDTO;
+
+ import javax.servlet.ServletException;
+ import javax.servlet.http.HttpServletRequest;
+ import javax.servlet.http.HttpServletResponse;
+ import javax.servlet.http.HttpSession;
+ import java.io.IOException;
+ import java.io.PrintWriter;
+
+ public class MemberLogin implements MemberCommand {
+     @Override
+     public void executeQueryCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         String userId = req.getParameter("userId");
+         String userPw = req.getParameter("userPw");
+
+         MemberDAO dao = MemberDAO.getInstance();
+         PrintWriter out = resp.getWriter();
+
+         HttpSession session = req.getSession(false);
+         if (session != null && !session.isNew()) {
+             session.invalidate();
+         }
+
+         int result = dao.memberLogin(userId, userPw);
+         MemberDTO member = dao.memberLoginAndRetrieveAll(userId, userPw);
+
+         if (result == 1) {
+             session = req.getSession(true);
+
+             session.setAttribute("sessionId", member.getUserId());
+             session.setAttribute("member", member);
+             session.setMaxInactiveInterval(60 * 10);
+         }
+
+         out.write(result + "");
+         out.close();
+     }
+ }
+
+                                    </pre>
+                                    <p>
+                                        MemberLogout
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package org.web.memberCommand;
+
+ import javax.servlet.ServletException;
+ import javax.servlet.http.HttpServletRequest;
+ import javax.servlet.http.HttpServletResponse;
+ import javax.servlet.http.HttpSession;
+ import java.io.IOException;
+
+ public class MemberLogout implements MemberCommand {
+     @Override
+     public void executeQueryCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         HttpSession session = req.getSession();
+         String url;
+
+         if (session != null) {
+             // terminate session
+             session.invalidate();
+
+             url = "/boardList.do";
+         } else {
+             url = "/logout.mo";
+         }
+
+         req.setAttribute("url", url);
+     }
+ }
+                                    </pre>
+                                    <p>
+                                        MemberJoin
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package org.web.memberCommand;
+
+ import org.web.memberDAO.MemberDAO;
+
+ import javax.servlet.ServletException;
+ import javax.servlet.http.HttpServletRequest;
+ import javax.servlet.http.HttpServletResponse;
+ import java.io.IOException;
+
+ public class MemberJoin implements MemberCommand {
+     @Override
+     public void executeQueryCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         System.out.println("join command");
+
+         String userId = req.getParameter("userId");
+         String userPw = req.getParameter("userPw");
+         String userEmail = req.getParameter("userEmail");
+
+         MemberDAO dao = MemberDAO.getInstance();
+
+         int result = dao.memberJoin(userId, userPw, userEmail);
+         String url = "";
+
+         if (result == 1) {
+             url = "/login.jsp";
+         } else {
+             url = "/join.jsp";
+         }
+
+         // redirecting user
+         req.setAttribute("url", url);
+     }
+ }
+                                    </pre>
+                                    <p>
+                                        MemberView
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package org.web.memberCommand;
+
+ import org.web.memberDAO.MemberDAO;
+ import org.web.memberDTO.MemberDTO;
+
+ import javax.servlet.ServletException;
+ import javax.servlet.http.HttpServletRequest;
+ import javax.servlet.http.HttpServletResponse;
+ import java.io.IOException;
+
+ public class MemberView implements MemberCommand {
+     @Override
+     public void executeQueryCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         String memberId = req.getParameter("memberId");
+         MemberDAO dao = MemberDAO.getInstance();
+         MemberDTO member = dao.memberView(memberId);
+
+         String url = "";
+
+         if (member != null) {
+             req.setAttribute("member", member);
+             url = "/profile.do";
+         } else {
+             url = "/profile.do";
+         }
+         req.setAttribute("url", url);
+     }
+ }
+                                    </pre>
+                                    <p>
+                                        MemberDelete
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package org.web.memberCommand;
+
+ import org.web.memberDAO.MemberDAO;
+
+ import javax.servlet.ServletException;
+ import javax.servlet.http.HttpServletRequest;
+ import javax.servlet.http.HttpServletResponse;
+ import javax.servlet.http.HttpSession;
+ import java.io.IOException;
+ import java.io.PrintWriter;
+
+ public class MemberDelete implements MemberCommand {
+     @Override
+     public void executeQueryCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         String id = req.getParameter("id");
+
+         String userId = req.getParameter("userId");
+         String userPw = req.getParameter("userPw");
+
+         MemberDAO dao = MemberDAO.getInstance();
+         int result = dao.memberDelete(userId, userPw);
+
+         HttpSession session = req.getSession();
+         PrintWriter out = resp.getWriter();
+
+         if (result == 1) {
+             session.invalidate();
+         }
+
+         out.write(result + "");
+         out.close();
+     }
+ }
+                                    </pre>
+                                    <p>
+                                        MemberUpdate
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package org.web.memberCommand;
+
+ import org.web.memberDAO.MemberDAO;
+
+ import javax.servlet.ServletException;
+ import javax.servlet.http.HttpServletRequest;
+ import javax.servlet.http.HttpServletResponse;
+ import javax.servlet.http.HttpSession;
+ import java.io.IOException;
+
+ public class MemberUpdate implements MemberCommand {
+     @Override
+     public void executeQueryCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         int id = Integer.parseInt(req.getParameter("memberId"));
+         String userId = req.getParameter("userId");
+         String userPw = req.getParameter("userPw");
+         String userEmail = req.getParameter("userEmail");
+
+         MemberDAO dao = MemberDAO.getInstance();
+         int result = dao.memberUpdate(id, userId, userPw, userEmail);
+         String url = "";
+
+         // try to update session as well
+         if (result == 1) {
+             HttpSession session = req.getSession(false);
+             session.getAttribute("sessionId");
+
+             // session.setAttribute("member", member);
+
+             url = "/viewProfile.mo?memberId=" + id;
+             req.setAttribute("url", url);
+         }
+     }
+ }
+
+                                    </pre>
+                                    <p>
+                                        BoardCommand
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package org.web.boardCommand;
+
+ import javax.servlet.ServletException;
+ import javax.servlet.http.HttpServletRequest;
+ import javax.servlet.http.HttpServletResponse;
+ import java.io.IOException;
+
+ public interface BoardCommand {
+     void executeQueryCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
+ }
+
+                                    </pre>
+                                    <p>
+                                        BoardList
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package org.web.boardCommand;
+
+ import org.web.boardDAO.BoardDAO;
+ import org.web.boardDTO.BoardDTO;
+
+ import javax.servlet.ServletException;
+ import javax.servlet.http.HttpServletRequest;
+ import javax.servlet.http.HttpServletResponse;
+ import java.io.IOException;
+ import java.util.ArrayList;
+ import java.util.Collections;
+
+ public class BoardList implements BoardCommand {
+     @Override
+     public void executeQueryCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         BoardDAO dao = BoardDAO.getInstance();
+         ArrayList&lt;BoardDTO&gt; lists = dao.list();
+
+         req.setAttribute("lists", lists);
+         req.setAttribute("url", "/boardList.jsp");
+     }
+ }
+
+                                    </pre>
+                                    <p>
+                                        BoardView
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package org.web.boardCommand;
+
+ import org.web.boardDAO.BoardDAO;
+ import org.web.boardDTO.BoardDTO;
+
+ import javax.servlet.ServletException;
+ import javax.servlet.http.HttpServletRequest;
+ import javax.servlet.http.HttpServletResponse;
+ import java.io.IOException;
+ import java.util.ArrayList;
+
+ public class BoardView implements BoardCommand {
+     @Override
+     public void executeQueryCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         int mId = (Integer.parseInt(req.getParameter("mId")));
+
+         BoardDAO dao = BoardDAO.getInstance();
+         BoardDTO dto = dao.boardView(mId);
+
+         // get the arraylist of all posts
+         ArrayList&lt;BoardDTO&gt; lists = dao.list();
+
+         // send all posts to boardView page
+         req.setAttribute("lists", lists);
+
+         // send the specific post requested to view
+         req.setAttribute("list", dto);
+
+         // req.setAttribute("count", count);
+         req.setAttribute("url", "/boardView.jsp");
+     }
+ }
+                                    </pre>
+                                    <p>
+                                        BoardWrite
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package org.web.boardCommand;
+
+ import org.web.boardDAO.BoardDAO;
+
+ import javax.servlet.ServletException;
+ import javax.servlet.http.HttpServletRequest;
+ import javax.servlet.http.HttpServletResponse;
+ import java.io.IOException;
+ import java.io.PrintWriter;
+
+ public class BoardWrite implements BoardCommand {
+     @Override
+     public void executeQueryCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         String userId = req.getParameter("userId");
+         String title = req.getParameter("title");
+         String content = req.getParameter("content");
+
+         BoardDAO dao = BoardDAO.getInstance();
+
+         int result = dao.write(userId, title, content);
+         PrintWriter out = resp.getWriter();
+
+         out.write(result + "");
+         out.close();
+     }
+ }
+
+                                    </pre>
+                                    <p>
+                                        BoardDelete
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package org.web.boardCommand;
+
+ import org.web.boardDAO.BoardDAO;
+
+ import javax.servlet.ServletException;
+ import javax.servlet.http.HttpServletRequest;
+ import javax.servlet.http.HttpServletResponse;
+ import java.io.IOException;
+ import java.io.PrintWriter;
+
+ public class BoardDelete implements BoardCommand {
+     @Override
+     public void executeQueryCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         String mId = req.getParameter("mId");
+
+         BoardDAO dao = BoardDAO.getInstance();
+         int result = dao.boardDelete(mId);
+         PrintWriter out = resp.getWriter();
+
+         if (result == 1) {
+             out.write("1");
+         } else {
+             out.write("0");
+         }
+
+         out.close();
+     }
+ }
+
+                                    </pre>
+                                    <p>
+                                        BoardUpdate
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package org.web.boardCommand;
+
+ import org.web.boardDAO.BoardDAO;
+
+ import javax.servlet.ServletException;
+ import javax.servlet.http.HttpServletRequest;
+ import javax.servlet.http.HttpServletResponse;
+ import java.io.IOException;
+ import java.io.PrintWriter;
+
+ public class BoardUpdate implements BoardCommand {
+     @Override
+     public void executeQueryCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         int mId = Integer.parseInt(req.getParameter("mId"));
+         String title = req.getParameter("title");
+         String content = req.getParameter("content");
+
+         BoardDAO dao = BoardDAO.getInstance();
+         int result = dao.boardUpdate(mId, title, content);
+
+         PrintWriter out = resp.getWriter();
+
+         out.write(result + "");
+         out.close();
+     }
+ }
+                                    </pre>
+                                    <p>
+                                        BoardReply
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package org.web.boardCommand;
+
+ import org.web.boardDAO.BoardDAO;
+
+ import javax.servlet.ServletException;
+ import javax.servlet.http.HttpServletRequest;
+ import javax.servlet.http.HttpServletResponse;
+ import java.io.IOException;
+ import java.io.PrintWriter;
+
+ public class BoardReply implements BoardCommand {
+     @Override
+     public void executeQueryCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         int mId = Integer.parseInt(req.getParameter("mId"));
+         int mGroup = Integer.parseInt(req.getParameter("mGroup"));
+         int step = Integer.parseInt(req.getParameter("step"));
+         int indent = Integer.parseInt(req.getParameter("indent"));
+         String userId = req.getParameter("userId");
+         String title = req.getParameter("title");
+         String content = req.getParameter("content");
+
+         BoardDAO dao = BoardDAO.getInstance();
+         int result = dao.boardReply(mId, mGroup, step, indent, userId, title, content);
+
+         PrintWriter out = resp.getWriter();
+
+         out.write(result + "");
+         out.close();
+     }
+ }
+                                    </pre>
+                                    <p>
+                                        MemberDAO (with Singleton pattern)
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package org.web.memberDAO;
+
+ import org.web.dbConnect.DBConnect;
+ import org.web.memberDTO.MemberDTO;
+
+ import java.sql.Connection;
+ import java.sql.PreparedStatement;
+ import java.sql.ResultSet;
+ import java.sql.SQLException;
+
+ public class MemberDAO {
+     private Connection conn = null;
+     private PreparedStatement pstm = null;
+     private ResultSet rs = null;
+
+     // singleton method to have MemberDAO be retrieved without starting a new instantiation every time
+     private MemberDAO() {
+     }
+
+     public static MemberDAO getInstance() {
+         return singleton.instance;
+     }
+
+     private static class singleton {
+         private static final MemberDAO instance = new MemberDAO();
+     }
+
+     //  i put the last method in a method to make the code DRY
+     private void cleanUp() {
+         try {
+             if (conn != null) conn.close();
+             if (pstm != null) pstm.close();
+             if (rs != null) rs.close();
+         } catch (Exception e) {
+             e.printStackTrace();
+         }
+     }
+
+     // id validation method
+     public int idCheck(String userId) {
+         int result = 0;
+
+         try {
+             conn = DBConnect.getConnection();
+             String query = "select count(*) from simpleDatabase.members where userId = ?";
+             pstm = conn.prepareStatement(query);
+
+             pstm.setString(1, userId);
+             rs = pstm.executeQuery();
+
+             if (rs != null) {
+                 while (rs.next()) {
+                     result = rs.getInt(1);
+                 }
+             }
+         } catch (SQLException e) {
+             e.printStackTrace();
+         } finally {
+             cleanUp();
+         }
+
+         return result;
+     }
+
+     // join method
+     public int memberJoin(String userId, String userPw, String userEmail) {
+         int result = 0;
+
+         try {
+             conn = DBConnect.getConnection();
+             String query = "insert into simpleDatabase.members (id, userId, userPw, userEmail) values (null, ?, ?, ?)";
+             pstm = conn.prepareStatement(query);
+
+             pstm.setString(1, userId);
+             pstm.setString(2, userPw);
+             pstm.setString(3, userEmail);
+
+             result = pstm.executeUpdate();
+         } catch (SQLException e) {
+             e.printStackTrace();
+         } finally {
+             cleanUp();
+         }
+
+         return result;
+     }
+
+     public MemberDTO memberLoginAndRetrieveAll(String userId, String userPw) {
+         MemberDTO member = null;
+
+         try {
+             conn = DBConnect.getConnection();
+             String query = "select * from simpleDatabase.members where userId=? and userPw=?";
+             pstm = conn.prepareStatement(query);
+             pstm.setString(1, userId);
+             pstm.setString(2, userPw);
+
+             rs = pstm.executeQuery();
+
+             if (rs != null) {
+                 while (rs.next()) {
+                     int memberId = rs.getInt(1);
+                     String userId1 = rs.getString(2);
+                     String userPw1 = rs.getString(3);
+                     String userEmail = rs.getString(4);
+
+                     member = new MemberDTO(memberId, userId1, userPw1, userEmail);
+                 }
+             }
+         } catch (SQLException e) {
+             e.printStackTrace();
+         } finally {
+             cleanUp();
+         }
+         return member;
+     }
+
+     public int memberLogin(String userId, String userPw) {
+         int result = 0;
+
+         try {
+             conn = DBConnect.getConnection();
+             String query = "select count(*) from simpleDatabase.members where userId=? and userPw=?";
+             pstm = conn.prepareStatement(query);
+
+             pstm.setString(1, userId);
+             pstm.setString(2, userPw);
+
+             rs = pstm.executeQuery();
+             if (rs != null) {
+                 while (rs.next()) {
+                     result = rs.getInt(1);
+                 }
+             }
+         } catch (SQLException e) {
+             e.printStackTrace();
+         } finally {
+             cleanUp();
+         }
+
+         return result;
+     }
+
+     public int memberDelete(String userId, String userPw) {
+         int result = 0;
+
+         try {
+             conn = DBConnect.getConnection();
+             String query = "delete from simpleDatabase.members where userId=? and userPw=?";
+             pstm = conn.prepareStatement(query);
+
+             pstm.setString(1, userId);
+             pstm.setString(2, userPw);
+
+             result = pstm.executeUpdate();
+         } catch (SQLException e) {
+             e.printStackTrace();
+         } finally {
+             cleanUp();
+         }
+
+         return result;
+     }
+
+     public MemberDTO memberView(String memberId) {
+         MemberDTO member = null;
+
+         try {
+             conn = DBConnect.getConnection();
+             // String query = "select * from simpleDatabase.members where memberId=?";
+             String query = "select * from simpleDatabase.members where id = ?";
+             pstm = conn.prepareStatement(query);
+             pstm.setString(1, memberId);
+
+             rs = pstm.executeQuery();
+
+             if (rs != null) {
+                 while (rs.next()) {
+                     int memberId1 = rs.getInt(1);
+                     String userId = rs.getString(2);
+                     String userPw = rs.getString(3);
+                     String userEmail = rs.getString(4);
+
+                     member = new MemberDTO(memberId1, userId, userPw, userEmail);
+                 }
+             }
+         } catch (SQLException e) {
+             e.printStackTrace();
+         } finally {
+             cleanUp();
+         }
+         return member;
+     }
+
+     public int memberUpdate(int id, String userId, String userPw, String userEmail) {
+         int result = 0;
+
+         try {
+             conn = DBConnect.getConnection();
+             String query = "update simpleDatabase.members set userId=?, userPw=?, userEmail=? where id=?";
+             pstm = conn.prepareStatement(query);
+
+             pstm.setString(1, userId);
+             pstm.setString(2, userPw);
+             pstm.setString(3, userEmail);
+             pstm.setInt(4, id);
+
+             result = pstm.executeUpdate();
+         } catch (SQLException e) {
+             e.printStackTrace();
+         } finally {
+             cleanUp();
+         }
+
+         return result;
+     }
+ }
+
+                                    </pre>
+                                    <p>
+                                        BoardDAO
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package org.web.boardDAO;
+
+ import org.web.boardDTO.BoardDTO;
+ import org.web.dbConnect.DBConnect;
+
+ import java.sql.*;
+ import java.util.ArrayList;
+
+ public class BoardDAO {
+     private Connection conn = null;
+     private PreparedStatement pstm = null;
+     private ResultSet rs = null;
+
+     private BoardDAO() {
+     }
+
+     // singleton pattern
+     private static class singleton {
+         private static final BoardDAO instance = new BoardDAO();
+     }
+
+     public static BoardDAO getInstance() {
+         return singleton.instance;
+     }
+
+     private void cleanUp() {
+         try {
+             if (conn != null) {
+                 conn.close();
+             }
+             if (pstm != null) {
+                 pstm.close();
+             }
+             if (rs != null) {
+                 rs.close();
+             }
+         } catch (SQLException e) {
+             e.printStackTrace();
+         }
+     }
+
+     // list all boards method
+     public ArrayList&lt;BoardDTO&gt; list() {
+         ArrayList&lt;BoardDTO&gt; lists = new ArrayList<>();
+
+         try {
+             conn = DBConnect.getConnection();
+             String query = "select * from simpleDatabase.posts order by hit desc, mGroup asc, indent asc";
+             pstm = conn.prepareStatement(query);
+             rs = pstm.executeQuery();
+
+             if (rs != null) {
+                 while (rs.next()) {
+                     int mId = rs.getInt(1);
+                     int mGroup = rs.getInt(2);
+                     int mIndent = rs.getInt(3);
+                     int step = rs.getInt(4);
+                     int hit = rs.getInt(5);
+                     String userId = rs.getString(6);
+                     String title = rs.getString(7);
+                     String content = rs.getString(8);
+                     Timestamp date = rs.getTimestamp(9);
+
+                     BoardDTO dto = new BoardDTO(mId, mGroup, mIndent, step, hit, userId, title, content, date);
+                     lists.add(dto);
+                 }
+             }
+         } catch (SQLException e) {
+             e.printStackTrace();
+         } finally {
+             cleanUp();
+         }
+
+         return lists;
+     }
+
+     public int write(String userId, String title, String content) {
+         int result = 0;
+
+         try {
+             conn = DBConnect.getConnection();
+             String query = "insert into simpleDatabase.posts(mGroup, step, hit, indent, userId, title, content, date) values ((select case count(*) when 0 then 1 else max(mGroup) + 1 end from simpleDatabase.posts b1), 0, 0, 0, ?, ?, ?, now())";
+             pstm = conn.prepareStatement(query);
+
+             pstm.setString(1, userId);
+             pstm.setString(2, title);
+             pstm.setString(3, content);
+
+             result = pstm.executeUpdate();
+         } catch (SQLException e) {
+             e.printStackTrace();
+         } finally {
+             cleanUp();
+         }
+
+         return result;
+     }
+
+     public BoardDTO boardView(int mId) {
+         BoardDTO dto = null;
+
+         upHit(mId);
+
+         try {
+             conn = DBConnect.getConnection();
+             String query = "select * from simpleDatabase.posts where mId=?";
+             pstm = conn.prepareStatement(query);
+             pstm.setInt(1, mId);
+
+             rs = pstm.executeQuery();
+             if (rs != null) {
+                 while (rs.next()) {
+                     int mId1 = rs.getInt(1);
+                     int mGroup = rs.getInt(2);
+                     int step = rs.getInt(3);
+                     int hit = rs.getInt(4);
+                     int indent = rs.getInt(5);
+                     String userId = rs.getString(6);
+                     String title = rs.getString(7);
+                     String content = rs.getString(8);
+                     Timestamp date = rs.getTimestamp(9);
+
+                     dto = new BoardDTO(mId1, mGroup, step, hit, indent, userId, title, content, date);
+                 }
+             }
+         } catch (SQLException e) {
+             e.printStackTrace();
+         } finally {
+             cleanUp();
+         }
+
+         return dto;
+     }
+
+     public int boardReply(int mId, int mGroup, int step, int indent, String userId, String title, String content) {
+         int result = 0;
+
+         boardReplyUpdate(mGroup, step);
+
+         try {
+             conn = DBConnect.getConnection();
+             String query = "insert into simpleDatabase.posts(mId, mGroup, step, indent, userId, title, content, date) VALUES (null, ?, ?, ?, ?, ?, ?, now())";
+             pstm = conn.prepareStatement(query);
+
+             pstm.setInt(1, mGroup);
+             pstm.setInt(2, step + 1);
+             pstm.setInt(3, indent + 1);
+             pstm.setString(4, userId);
+             pstm.setString(5, title);
+             pstm.setString(6, content);
+
+             result = pstm.executeUpdate();
+         } catch (SQLException e) {
+             e.printStackTrace();
+         } finally {
+             cleanUp();
+         }
+
+         return result;
+     }
+
+     private int upHit(int mId) {
+         int result = 0;
+
+         try {
+             conn = DBConnect.getConnection();
+             String query = "update simpleDatabase.posts set hit = hit + 1 where mId = ?";
+
+             pstm = conn.prepareStatement(query);
+             pstm.setInt(1, mId);
+             result = pstm.executeUpdate();
+         } catch (SQLException e) {
+             e.printStackTrace();
+         } finally {
+             cleanUp();
+         }
+
+         return result;
+     }
+
+     private int boardReplyUpdate(int mGroup, int step) {
+         int result = 0;
+
+         try {
+             conn = DBConnect.getConnection();
+             String query = "update simpleDatabase.posts set step = step + 1 where mGroup = ? and step > ?";
+             pstm = conn.prepareStatement(query);
+
+             pstm.setInt(1, mGroup);
+             pstm.setInt(2, step);
+
+             result = pstm.executeUpdate();
+         } catch (SQLException e) {
+             e.printStackTrace();
+         } finally {
+             cleanUp();
+         }
+
+         return result;
+     }
+
+     public int commentCount(int mGroup) {
+         int count = 0;
+
+         try {
+             conn = DBConnect.getConnection();
+             String query = "select count(*) from simpleDatabase.posts where mGroup = ?";
+             pstm = conn.prepareStatement(query);
+
+             pstm.setInt(1, mGroup);
+
+             rs = pstm.executeQuery();
+             if (rs != null) {
+                 while (rs.next()) {
+                     count = rs.getInt(1);
+                 }
+             }
+         } catch (SQLException e) {
+             e.printStackTrace();
+         } finally {
+             cleanUp();
+         }
+
+         return count;
+     }
+
+     public int boardUpdate(int mId, String title, String content) {
+         int result = 0;
+
+         try {
+             conn = DBConnect.getConnection();
+             String query = "update simpleDatabase.posts set title = ?, content = ? where mId = ?";
+             pstm = conn.prepareStatement(query);
+
+             pstm.setString(1, title);
+             pstm.setString(2, content);
+             pstm.setInt(3, mId);
+
+             result = pstm.executeUpdate();
+         } catch (SQLException e) {
+             e.printStackTrace();
+         } finally {
+             cleanUp();
+         }
+
+         return result;
+     }
+
+     public int boardDelete(String mId) {
+         int result = 0;
+
+         try {
+             conn = DBConnect.getConnection();
+             String query = "delete from simpleDatabase.posts where mId = ?";
+             pstm = conn.prepareStatement(query);
+
+             pstm.setString(1, mId);
+
+             result = pstm.executeUpdate();
+         } catch (SQLException e) {
+             e.printStackTrace();
+         } finally {
+             cleanUp();
+         }
+
+         return result;
+     }
+ }
+                                    </pre>
+                                    <p>
+                                        IdCheck (to check if the id exists already in the database)
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package org.web.memberCommand;
+
+ import org.web.memberDAO.MemberDAO;
+
+ import javax.servlet.ServletException;
+ import javax.servlet.http.HttpServletRequest;
+ import javax.servlet.http.HttpServletResponse;
+ import java.io.IOException;
+ import java.io.PrintWriter;
+
+ public class IdCheck implements MemberCommand {
+     @Override
+     public void executeQueryCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         String userId = req.getParameter("userId");
+         MemberDAO dao = MemberDAO.getInstance();
+
+         int result = dao.idCheck(userId);
+         PrintWriter out = resp.getWriter();
+
+         out.write(result + "");
+         out.close();
+     }
+ }
+                                    </pre>
+                                    <h1>
+                                        views (using JSP)
+                                    </h1>
+                                    <p>
+                                        index
+                                    </p>
+                                    <pre class="prettyprint">
+
+ <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+ <%
+     response.sendRedirect("boardList.bo");
+ %>
+                                    </pre>
+                                    <p>
+                                        header page (to be included in other pages)
+                                    </p>
+                                    <pre class="prettyprint">
+
+ &lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+ &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+ &lt;header&gt;
+     &lt;nav&gt;
+         &lt;ul&gt;
+             &lt;c:choose&gt;
+                 &lt;c:when test=&quot;${sessionScope.sessionId != null}&quot;&gt;
+                     &lt;li&gt;&lt;a href=&quot;boardList.bo&quot;&gt;&lt;img src=&quot;img/spongebob%20face.jpg&quot; alt=&quot;logo&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;a href=&quot;boardList.bo&quot;&gt;view posts&lt;/a&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;a href=&quot;boardWrite.jsp&quot;&gt;write a post&lt;/a&gt;&lt;/li&gt;
+                     &lt;li&gt;
+                         &lt;div class=&quot;dropdown&quot;&gt;
+                             &lt;span&gt;&lt;a&gt;${sessionScope.member.userId}&lt;/a&gt;&lt;/span&gt;
+                             &lt;div class=&quot;dropdownContent&quot;&gt;
+                                 &lt;a href=&quot;viewProfile.mo?memberId=${sessionScope.member.id}&quot;&gt;my profile&lt;/a&gt;
+                                 &lt;input type=&quot;text&quot; hidden value=&quot;${sessionScope.memberId}&quot; id=&quot;memberIdHeader&quot;&gt;
+                                 &lt;a href=&quot;logout.mo&quot;&gt;logout&lt;/a&gt;
+                             &lt;/div&gt;
+                         &lt;/div&gt;
+                     &lt;/li&gt;
+                 &lt;/c:when&gt;
+                 &lt;c:otherwise&gt;
+                     &lt;li&gt;&lt;a href=&quot;boardList.bo&quot;&gt;&lt;img src=&quot;img/spongebob%20face.jpg&quot; alt=&quot;logo&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;a href=&quot;boardList.bo&quot;&gt;view posts&lt;/a&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;a href=&quot;join.do&quot;&gt;sign up&lt;/a&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;a href=&quot;login.do&quot;&gt;login&lt;/a&gt;&lt;/li&gt;
+                 &lt;/c:otherwise&gt;
+             &lt;/c:choose&gt;
+         &lt;/ul&gt;
+     &lt;/nav&gt;
+ &lt;/header&gt;
+                                    </pre>
+                                    <p>
+                                        footer page
+                                    </p>
+                                    <pre class="prettyprint">
+
+ &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+ &lt;%@ taglib prefix=&quot;fmt&quot; uri=&quot;http://java.sun.com/jstl/core&quot; %&gt;
+ &lt;footer&gt;
+     &lt;section&gt;
+         &lt;jsp:useBean id=&quot;current&quot; class=&quot;java.util.Date&quot;/&gt;
+         &lt;small&gt;daniel byun &amp;copy; ${(current.year) + 1900}&lt;/small&gt;
+     &lt;/section&gt;
+ &lt;/footer&gt;
+                                    </pre>
+                                    <p>
+                                        BoardList (main page)
+                                    </p>
+                                    <pre class="prettyprint">
+
+ &lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+ &lt;%@ taglib prefix=&quot;fn&quot; uri=&quot;http://java.sun.com/jsp/jstl/functions&quot; %&gt;
+ &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+ &lt;html&gt;
+     &lt;head&gt;
+         &lt;title&gt;board list&lt;/title&gt;
+         &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/reset.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/boardList.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/header.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/footer.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;https://use.fontawesome.com/releases/v5.5.0/css/all.css&quot; integrity=&quot;sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU&quot; crossorigin=&quot;anonymous&quot;&gt;
+         &lt;script src=&quot;https://code.jquery.com/jquery-3.3.1.min.js&quot; integrity=&quot;sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+     &lt;/head&gt;
+     &lt;body&gt;
+         &lt;jsp:include page=&quot;header.jsp&quot;/&gt;
+         &lt;main&gt;
+             &lt;section class=&quot;boardList&quot;&gt;
+                 &lt;div class=&quot;boards&quot;&gt;
+                     &lt;p style=&quot;color: white; text-align: center;&quot;&gt;sorted by most clicked&lt;/p&gt;
+                     &lt;c:forEach var=&quot;list&quot; items=&quot;${lists}&quot;&gt;
+                         &lt;c:choose&gt;
+                             &lt;c:when test=&quot;${list.indent == 0}&quot;&gt;
+                                 &lt;div class=&quot;boardWrap&quot;&gt;
+                                     &lt;input type=&quot;text&quot; name=&quot;indent&quot; id=&quot;indent&quot; hidden value=&quot;${list.indent}&quot;&gt;
+                                     &lt;input type=&quot;text&quot; name=&quot;mGroup&quot; class=&quot;mGroup&quot; hidden value=&quot;${list.mGroup}&quot;&gt;
+                                     &lt;input type=&quot;text&quot; name=&quot;content&quot; id=&quot;content&quot; hidden value=&quot;${list.content}&quot;&gt;
+                                     &lt;a href=&quot;&lt;c:url value=&quot;boardView.bo?mId=${list.mId}&quot;/&gt;&quot;&gt;
+                                         &lt;div class=&quot;board&quot;&gt;
+                                             &lt;jsp:useBean id=&quot;current&quot; class=&quot;java.util.Date&quot;/&gt;
+                                             &lt;small&gt;
+                                                 posted by ${list.userName}
+                                                 on ${list.date.toLocaleString()}
+                                             &lt;/small&gt;
+                                             &lt;h1&gt;
+                                                     ${list.title}
+                                             &lt;/h1&gt;
+                                             &lt;p class=&quot;content&quot;&gt;
+                                                     ${list.content}
+                                             &lt;/p&gt;
+                                             &lt;div class=&quot;social&quot;&gt;
+                                                 &lt;a href=&quot;#&quot; class=&quot;replyBtn&quot;&gt;
+                                                     &lt;i class=&quot;fas fa-comment-alt&quot;&gt;&lt;/i&gt;
+                                                     &lt;c:choose&gt;
+                                                         &lt;c:when test=&quot;${list.indent &gt; 0}&quot;&gt;
+                                                             &lt;c:choose&gt;
+                                                                 &lt;c:when test=&quot;${list.indent == 1}&quot;&gt;
+                                                                     comment
+                                                                 &lt;/c:when&gt;
+                                                                 &lt;c:otherwise&gt;
+                                                                     comments
+                                                                 &lt;/c:otherwise&gt;
+                                                             &lt;/c:choose&gt;
+                                                         &lt;/c:when&gt;
+                                                         &lt;c:otherwise&gt;
+                                                             comment
+                                                         &lt;/c:otherwise&gt;
+                                                     &lt;/c:choose&gt;
+                                                 &lt;/a&gt;
+                                                 &lt;a href=&quot;#&quot; class=&quot;tweetBtn&quot;&gt;
+                                                     &lt;i class=&quot;fab fa-twitter&quot;&gt;&lt;/i&gt;
+                                                     tweet
+                                                 &lt;/a&gt;
+                                                 &lt;a href=&quot;&quot; class=&quot;favoriteBtn&quot;&gt;
+                                                     &lt;i class=&quot;fas fa-star&quot;&gt;&lt;/i&gt;
+                                                     favorite
+                                                 &lt;/a&gt;
+                                                 &lt;c:if test=&quot;${sessionScope.sessionId.equals(list.userName)}&quot;&gt;
+                                                     &lt;a href=&quot;#&quot; class=&quot;editBtn&quot;&gt;
+                                                         &lt;i class=&quot;fas fa-pen-square&quot;&gt;&lt;/i&gt;
+                                                         edit
+                                                     &lt;/a&gt;
+                                                 &lt;/c:if&gt;
+                                             &lt;/div&gt;
+                                         &lt;/div&gt;
+                                         &lt;div class=&quot;reply&quot;&gt;
+                                             &lt;textarea name=&quot;replyBoard&quot; id=&quot;replyBoard&quot; cols=&quot;30&quot; rows=&quot;10&quot; placeholder=&quot;what are your thoughts?&quot;&gt;&lt;/textarea&gt;
+                                             &lt;input type=&quot;button&quot; value=&quot;CANCEL&quot; class=&quot;cancelBtn&quot;&gt;
+                                             &lt;input type=&quot;button&quot; value=&quot;REPLY&quot; id=&quot;replySubmit&quot;&gt;
+                                         &lt;/div&gt;
+                                         &lt;div class=&quot;editArea&quot;&gt;
+                                             &lt;textarea name=&quot;editContent&quot; id=&quot;editContent&quot; cols=&quot;30&quot; rows=&quot;10&quot; placeholder=&quot;${list.content}&quot;&gt;&lt;/textarea&gt;
+                                             &lt;input type=&quot;button&quot; value=&quot;CANCEL&quot; class=&quot;cancelBtnEdit&quot;&gt;
+                                             &lt;input type=&quot;button&quot; value=&quot;EDIT&quot; id=&quot;editSubmit&quot;&gt;
+                                         &lt;/div&gt;
+                                     &lt;/a&gt;
+                                 &lt;/div&gt;
+                             &lt;/c:when&gt;
+                         &lt;/c:choose&gt;
+                     &lt;/c:forEach&gt;
+                 &lt;/div&gt;
+                 &lt;div class=&quot;page-load-status&quot;&gt;
+                     &lt;div class=&quot;loader-ellips infinite-scroll-request&quot;&gt;
+                         &lt;span class=&quot;loader-ellips__dot&quot;&gt;&lt;/span&gt;
+                         &lt;span class=&quot;loader-ellips__dot&quot;&gt;&lt;/span&gt;
+                         &lt;span class=&quot;loader-ellips__dot&quot;&gt;&lt;/span&gt;
+                         &lt;span class=&quot;loader-ellips__dot&quot;&gt;&lt;/span&gt;
+                     &lt;/div&gt;
+                     &lt;p class=&quot;infinite-scroll-last&quot;&gt;End of content&lt;/p&gt;
+                     &lt;p class=&quot;infinite-scroll-error&quot;&gt;No more pages to load&lt;/p&gt;
+                 &lt;/div&gt;
+             &lt;/section&gt;
+         &lt;/main&gt;
+         &lt;jsp:include page=&quot;footer.jsp&quot;/&gt;
+         &lt;script src=&quot;js/index.js&quot;&gt;&lt;/script&gt;
+     &lt;/body&gt;
+ &lt;/html&gt;
+                                    </pre>
+                                    <p>
+                                        login page
+                                    </p>
+                                    <pre class="prettyprint">
+
+ &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+ &lt;html&gt;
+     &lt;head&gt;
+         &lt;title&gt;login&lt;/title&gt;
+         &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/reset.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/login.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/header.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/footer.css&quot;&gt;
+     &lt;/head&gt;
+     &lt;body&gt;
+         &lt;jsp:include page=&quot;header.jsp&quot;/&gt;
+         &lt;main&gt;
+             &lt;section&gt;
+                 &lt;form action=&quot;login.mo&quot; method=&quot;post&quot; name=&quot;loginForm&quot; id=&quot;loginForm&quot;&gt;
+                     &lt;span id=&quot;errorMsg&quot;&gt;error&lt;/span&gt;
+                     &lt;ul&gt;
+                         &lt;li&gt;&lt;h1&gt;login&lt;/h1&gt;&lt;/li&gt;
+                         &lt;li&gt;&lt;input type=&quot;text&quot; name=&quot;userId&quot; id=&quot;userId&quot; placeholder=&quot;your id&quot;&gt;&lt;/li&gt;
+                         &lt;li&gt;&lt;input type=&quot;password&quot; name=&quot;userPw&quot; id=&quot;userPw&quot; placeholder=&quot;*****&quot;&gt;&lt;/li&gt;
+                         &lt;li&gt;&lt;input type=&quot;button&quot; value=&quot;login&quot; id=&quot;loginBtn&quot;&gt;&lt;/li&gt;
+                     &lt;/ul&gt;
+                 &lt;/form&gt;
+             &lt;/section&gt;
+         &lt;/main&gt;
+         &lt;jsp:include page=&quot;footer.jsp&quot;/&gt;
+         &lt;script src=&quot;js/login.js&quot;&gt;&lt;/script&gt;
+     &lt;/body&gt;
+ &lt;/html&gt;
+                                    </pre>
+                                    <p>
+                                        join page
+                                    </p>
+                                    <pre class="prettyprint">
+
+ &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+ &lt;html&gt;
+     &lt;head&gt;
+         &lt;title&gt;simple database&lt;/title&gt;
+         &lt;meta charset=&quot;utf-8&quot;&gt;
+         &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/reset.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/join.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/header.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/footer.css&quot;&gt;
+     &lt;/head&gt;
+     &lt;body&gt;
+         &lt;jsp:include page=&quot;header.jsp&quot;/&gt;
+         &lt;main&gt;
+             &lt;section&gt;
+                 &lt;form action=&quot;join.mo&quot; method=&quot;post&quot; name=&quot;joinForm&quot; id=&quot;joinForm&quot;&gt;
+                     &lt;span id=&quot;errorMsg&quot;&gt;error&lt;/span&gt;
+                     &lt;ul&gt;
+                         &lt;li&gt;
+                             &lt;input type=&quot;text&quot; name=&quot;userId&quot; id=&quot;userId&quot; placeholder=&quot;your id&quot;&gt;
+                             &lt;input type=&quot;hidden&quot; name=&quot;idCheckOk&quot; id=&quot;idCheckOk&quot; value=&quot;idNotChecked&quot;&gt;
+                              &lt;input type=&quot;button&quot; value=&quot;check id&quot; id=&quot;checkId&quot;&gt;
+                         &lt;/li&gt;
+                         &lt;li&gt;
+                             &lt;input type=&quot;password&quot; name=&quot;userPw&quot; id=&quot;userPw&quot; placeholder=&quot;*****&quot; onkeyup=&quot;checkPwFunc()&quot;&gt;
+                             &lt;input type=&quot;password&quot; name=&quot;userPwCheck&quot; id=&quot;userPwCheck&quot; placeholder=&quot;*****&quot; onkeyup=&quot;checkPwFunc()&quot;&gt;
+                         &lt;/li&gt;
+                         &lt;li&gt;
+                             &lt;input type=&quot;email&quot; name=&quot;userEmail&quot; id=&quot;userEmail&quot; placeholder=&quot;your email&quot;&gt;
+                         &lt;/li&gt;
+                         &lt;li&gt;
+                             &lt;input type=&quot;button&quot; value=&quot;join&quot; id=&quot;joinBtn&quot;&gt;
+                         &lt;/li&gt;
+                     &lt;/ul&gt;
+                 &lt;/form&gt;
+             &lt;/section&gt;
+         &lt;/main&gt;
+         &lt;jsp:include page=&quot;footer.jsp&quot;/&gt;
+         &lt;script src=&quot;js/join.js&quot;&gt;&lt;/script&gt;
+     &lt;/body&gt;
+ &lt;/html&gt;
+                                    </pre>
+                                    <p>
+                                        view member
+                                    </p>
+                                    <pre class="prettyprint">
+
+ &lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+ &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+ &lt;c:if test=&quot;${sessionScope.sessionId == null}&quot;&gt;
+     &lt;script&gt;
+         alert(&quot;please log in to view this page!&quot;);
+     &lt;/script&gt;
+     &lt;c:redirect url=&quot;boardList.do&quot;/&gt;
+ &lt;/c:if&gt;
+ &lt;html&gt;
+     &lt;head&gt;
+         &lt;title&gt;view my profile&lt;/title&gt;
+         &lt;meta charset=&quot;utf-8&quot;&gt;
+         &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/reset.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/profile.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/header.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/footer.css&quot;&gt;
+     &lt;/head&gt;
+     &lt;body&gt;
+         &lt;jsp:include page=&quot;header.jsp&quot;/&gt;
+         &lt;main&gt;
+             &lt;section&gt;
+                 &lt;form action=&quot;updateProfile.mo&quot; id=&quot;updateForm&quot;&gt;
+                     &lt;span id=&quot;errorMsg&quot;&gt;error&lt;/span&gt;
+                     &lt;ul&gt;
+                         &lt;li&gt;&lt;h1&gt;${member.userId}&apos;s profile&lt;/h1&gt;&lt;/li&gt;
+                         &lt;li&gt;
+                             &lt;input type=&quot;hidden&quot; name=&quot;memberId&quot; id=&quot;memberId&quot; value=&quot;${member.id}&quot;&gt;
+                             &lt;input type=&quot;text&quot; name=&quot;userId&quot; id=&quot;userId&quot; placeholder=&quot;${member.userId}&quot;&gt;
+                             &lt;input type=&quot;button&quot; value=&quot;check id&quot; id=&quot;checkId&quot;&gt;
+                             &lt;input type=&quot;hidden&quot; name=&quot;idCheckOk&quot; id=&quot;idCheckOk&quot; value=&quot;idNotChecked&quot;&gt;
+                         &lt;/li&gt;
+                         &lt;li&gt;
+                             &lt;input type=&quot;email&quot; name=&quot;userEmail&quot; id=&quot;userEmail&quot; placeholder=&quot;${member.userEmail}&quot;&gt;
+                         &lt;/li&gt;
+                         &lt;li&gt;
+                             &lt;input type=&quot;password&quot; name=&quot;userPw&quot; id=&quot;userPw&quot; placeholder=&quot;********&quot; onkeyup=&quot;checkPwFunc()&quot;&gt;
+                             &lt;input type=&quot;password&quot; name=&quot;userPwCheck&quot; id=&quot;userPwCheck&quot; placeholder=&quot;********&quot; onkeyup=&quot;checkPwFunc()&quot;&gt;
+                         &lt;/li&gt;
+                         &lt;li&gt;&lt;input type=&quot;button&quot; value=&quot;click here to update your profile&quot; id=&quot;updateBtn&quot;&gt;&lt;/li&gt;
+                         &lt;li&gt;&lt;input type=&quot;button&quot; value=&quot;click here to delete your profile&quot; id=&quot;deleteRedirect&quot;&gt;&lt;/li&gt;
+                     &lt;/ul&gt;
+                 &lt;/form&gt;
+             &lt;/section&gt;
+         &lt;/main&gt;
+         &lt;jsp:include page=&quot;footer.jsp&quot;/&gt;
+         &lt;script src=&quot;js/update.js&quot;&gt;&lt;/script&gt;
+     &lt;/body&gt;
+ &lt;/html&gt;
+                                    </pre>
+                                    <p>
+                                        delete member
+                                    </p>
+                                    <pre class="prettyprint">
+
+ &lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+ &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+ &lt;c:choose&gt;
+     &lt;c:when test=&quot;${sessionScope.sessionId == null}&quot;&gt;
+         &lt;script&gt;
+             alert(&quot;please log in to view this page!&quot;);
+         &lt;/script&gt;
+         &lt;c:redirect url=&quot;index.jsp&quot;/&gt;
+     &lt;/c:when&gt;
+ &lt;/c:choose&gt;
+ &lt;html&gt;
+     &lt;head&gt;
+         &lt;title&gt;delete page&lt;/title&gt;
+         &lt;meta charset=&quot;utf-8&quot;&gt;
+         &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/reset.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/deleteProfile.css&quot;&gt;
+     &lt;/head&gt;
+     &lt;body&gt;
+         &lt;jsp:include page=&quot;header.jsp&quot;/&gt;
+         &lt;main&gt;
+             &lt;section&gt;
+                 &lt;form action=&quot;deleteProfile.mo&quot; method=&quot;post&quot; id=&quot;deleteForm&quot;&gt;
+                     &lt;span id=&quot;errorMsg&quot;&gt;&lt;/span&gt;
+                     &lt;ul&gt;
+                         &lt;h1&gt;delete your profile&lt;/h1&gt;
+                         &lt;li&gt;
+                             &lt;input type=&quot;text&quot; name=&quot;userId&quot; id=&quot;userId&quot; placeholder=&quot;your id&quot;&gt;
+                         &lt;/li&gt;
+                         &lt;li&gt;
+                             &lt;input type=&quot;password&quot; name=&quot;userPw&quot; id=&quot;userPw&quot; placeholder=&quot;your password&quot;&gt;
+                         &lt;/li&gt;
+                         &lt;li&gt;
+                             &lt;input type=&quot;button&quot; value=&quot;delete&quot; id=&quot;deleteBtn&quot;&gt;
+                         &lt;/li&gt;
+                     &lt;/ul&gt;
+                 &lt;/form&gt;
+             &lt;/section&gt;
+         &lt;/main&gt;
+         &lt;jsp:include page=&quot;footer.jsp&quot;/&gt;
+         &lt;script src=&quot;js/delete.js&quot;&gt;&lt;/script&gt;
+     &lt;/body&gt;
+ &lt;/html&gt;
+                                    </pre>
+                                    <p>
+                                        update profile
+                                    </p>
+                                    <pre class="prettyprint">
+
+ &lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+ &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+ &lt;c:if test=&quot;${sessionScope.sessionId == null}&quot;&gt;
+     &lt;script&gt;
+         alert(&quot;please log in to view this page!&quot;);
+     &lt;/script&gt;
+     &lt;c:redirect url=&quot;boardList.do&quot;/&gt;
+ &lt;/c:if&gt;
+ &lt;html&gt;
+     &lt;head&gt;
+         &lt;title&gt; update profile&lt;/title&gt;
+         &lt;meta charset=&quot;utf-8&quot;&gt;
+         &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/reset.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/updateProfile.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/header.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/footer.css&quot;&gt;
+     &lt;/head&gt;
+     &lt;body&gt;
+         &lt;jsp:include page=&quot;header.jsp&quot;/&gt;
+         &lt;main&gt;
+             &lt;section&gt;
+                 &lt;form action=&quot;updateProfile.mo&quot; method=&quot;post&quot;&gt;
+                     &lt;span id=&quot;errorMsg&quot;&gt;error&lt;/span&gt;
+                     &lt;ul&gt;
+                         &lt;li&gt;
+                             &lt;input type=&quot;text&quot; name=&quot;userId&quot; id=&quot;userId&quot; placeholder=&quot;your new id&quot;&gt;
+                             &lt;input type=&quot;hidden&quot; name=&quot;&quot; id=memberId&quot; value=&quot;${member.memberId}&quot;&gt;
+                             &lt;input type=&quot;hidden&quot; name=&quot;&quot; value=&quot;${member.userId}&quot;&gt;
+                             &lt;input type=&quot;hidden&quot; name=&quot;idCheckOk&quot; id=&quot;idCheckOk&quot; value=&quot;idNotChecked&quot;&gt;
+                             &lt;input type=&quot;button&quot; value=&quot;check id&quot; id=&quot;checkId&quot;&gt;
+                         &lt;/li&gt;
+                         &lt;li&gt;
+                             &lt;input type=&quot;email&quot; name=&quot;userEmail&quot; id=&quot;userEmail&quot; placeholder=&quot;your new email&quot;&gt;
+                         &lt;/li&gt;
+                         &lt;li&gt;
+                             &lt;input type=&quot;password&quot; name=&quot;userPw&quot; id=&quot;userPw&quot; placeholder=&quot;*****&quot; onkeyup=&quot;checkPwFunc()&quot;&gt;
+                             &lt;input type=&quot;password&quot; name=&quot;userPwCheck&quot; id=&quot;userPwCheck&quot; placeholder=&quot;*****&quot; onkeyup=&quot;checkPwFunc()&quot;&gt;
+                         &lt;/li&gt;
+                         &lt;li&gt;
+                             &lt;input type=&quot;button&quot; value=&quot;update&quot; id=&quot;updateBtn&quot;&gt;
+                         &lt;/li&gt;
+                     &lt;/ul&gt;
+                 &lt;/form&gt;
+             &lt;/section&gt;
+         &lt;/main&gt;
+         &lt;script src=&quot;js/update.js&quot;&gt;&lt;/script&gt;
+         &lt;jsp:include page=&quot;footer.jsp&quot;/&gt;
+     &lt;/body&gt;
+ &lt;/html&gt;
+                                    </pre>
+                                    <p>
+                                        boardWrite page
+                                    </p>
+                                    <pre class="prettyprint">
+
+ &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+     &lt;head&gt;
+         &lt;title&gt;board write&lt;/title&gt;
+         &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/reset.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/boardWrite.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/header.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/footer.css&quot;&gt;
+     &lt;/head&gt;
+     &lt;body&gt;
+         &lt;jsp:include page=&quot;header.jsp&quot;/&gt;
+         &lt;main&gt;
+             &lt;section class=&quot;writeSection&quot;&gt;
+                 &lt;h1&gt;
+                     Create a post
+                 &lt;/h1&gt;
+                 &lt;form action=&quot;boardWrite.bo&quot; method=&quot;post&quot; id=&quot;writeForm&quot;&gt;
+                     &lt;ul&gt;
+                         &lt;li&gt;
+                             &lt;span class=&quot;errorMsg&quot;&gt;&lt;/span&gt;
+                         &lt;/li&gt;
+                         &lt;li&gt;
+                             &lt;input type=&quot;text&quot; name=&quot;userId&quot; id=&quot;userId&quot; value=&quot;${sessionScope.member.userId}&quot; hidden placeholder=&quot;${sessionScope.member.userId}&quot;&gt;
+                         &lt;/li&gt;
+                         &lt;li&gt;
+                             &lt;input type=&quot;text&quot; name=&quot;title&quot; id=&quot;title&quot; placeholder=&quot;title&quot;&gt;
+                         &lt;/li&gt;
+                         &lt;li&gt;
+                             &lt;textarea name=&quot;content&quot; id=&quot;content&quot; cols=&quot;30&quot; rows=&quot;9&quot; placeholder=&quot;text&quot;&gt;&lt;/textarea&gt;
+                         &lt;/li&gt;
+                         &lt;li&gt;
+                             &lt;input type=&quot;button&quot; value=&quot;POST&quot; id=&quot;writeBtn&quot; disabled&gt;
+                         &lt;/li&gt;
+                     &lt;/ul&gt;
+                 &lt;/form&gt;
+             &lt;/section&gt;
+         &lt;/main&gt;
+         &lt;script src=&quot;js/boardWrite.js&quot;&gt;&lt;/script&gt;
+         &lt;jsp:include page=&quot;footer.jsp&quot;/&gt;
+     &lt;/body&gt;
+ &lt;/html&gt;
+                                    </pre>
+                                    <p>
+                                        board view page
+                                    </p>
+                                    <pre class="prettyprint">
+
+ &lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+ &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+ &lt;html&gt;
+     &lt;head&gt;
+         &lt;title&gt;board view&lt;/title&gt;
+         &lt;meta charset=&quot;utf-8&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/reset.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/boardView.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/header.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;css/footer.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;https://use.fontawesome.com/releases/v5.5.0/css/all.css&quot; integrity=&quot;sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU&quot; crossorigin=&quot;anonymous&quot;&gt;
+         &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+     &lt;/head&gt;
+     &lt;body&gt;
+         &lt;jsp:include page=&quot;header.jsp&quot;/&gt;
+         &lt;main&gt;
+             &lt;section class=&quot;boardView&quot;&gt;
+                 &lt;div class=&quot;boards&quot;&gt;
+                     &lt;div class=&quot;board&quot; style=&quot;position: relative; left: ${list.indent}rem&quot;&gt;
+                         &lt;jsp:useBean id=&quot;current&quot; class=&quot;java.util.Date&quot;/&gt;
+                         &lt;div class=&quot;post&quot;&gt;
+                             &lt;div class=&quot;attr&quot;&gt;
+                                 &lt;input type=&quot;text&quot; name=&quot;mId&quot; id=&quot;mId&quot; hidden value=&quot;${list.mId}&quot;&gt;
+                                 &lt;input type=&quot;text&quot; name=&quot;mGroup&quot; id=&quot;mGroup&quot; hidden value=&quot;${list.mGroup}&quot;&gt;
+                                 &lt;input type=&quot;text&quot; name=&quot;step&quot; id=&quot;step&quot; hidden value=&quot;${list.step}&quot;&gt;
+                                 &lt;input type=&quot;text&quot; name=&quot;indent&quot; id=&quot;indent&quot; hidden value=&quot;${list.indent}&quot;&gt;
+                                 &lt;input type=&quot;text&quot; name=&quot;userId&quot; id=&quot;userId&quot; hidden value=&quot;${sessionScope.member.userId}&quot;&gt;
+                                 &lt;input type=&quot;text&quot; name=&quot;title&quot; id=&quot;title&quot; hidden value=&quot;${list.title}&quot;&gt;
+                                 &lt;input type=&quot;text&quot; name=&quot;content&quot; id=&quot;content&quot; hidden value=&quot;${list.content}&quot;&gt;
+                             &lt;/div&gt;
+                             &lt;small&gt;
+                                 posted by ${list.userName}
+                                 on ${list.date.toLocaleString()}
+                             &lt;/small&gt;
+                             &lt;h1&gt;
+                                 ${list.title}
+                             &lt;/h1&gt;
+                             &lt;p class=&quot;content&quot;&gt;
+                                 ${list.content}
+                             &lt;/p&gt;
+                             &lt;c:choose&gt;
+                                 &lt;c:when test=&quot;${list.indent &gt; 0}&quot;&gt;
+                                     &lt;c:choose&gt;
+                                         &lt;c:when test=&quot;${list.indent == 1}&quot;&gt;
+                                             ${list.indent} comment
+                                         &lt;/c:when&gt;
+                                         &lt;c:otherwise&gt;
+                                             ${list.indent} comments
+                                         &lt;/c:otherwise&gt;
+                                     &lt;/c:choose&gt;
+                                 &lt;/c:when&gt;
+                             &lt;/c:choose&gt;
+                             &lt;div class=&quot;editArea&quot;&gt;
+                                 &lt;textarea name=&quot;editContent&quot; id=&quot;editContent&quot; cols=&quot;30&quot; rows=&quot;10&quot; placeholder=&quot;${list.content}&quot;&gt;&lt;/textarea&gt;
+                                 &lt;input type=&quot;button&quot; value=&quot;CANCEL&quot; id=&quot;cancelBtn&quot;&gt;
+                                 &lt;input type=&quot;button&quot; value=&quot;EDIT&quot; id=&quot;editBtn&quot;&gt;
+                             &lt;/div&gt;
+                         &lt;/div&gt;
+                         &lt;c:choose&gt;
+                             &lt;c:when test=&quot;${sessionScope.sessionId != null}&quot;&gt;
+                                 &lt;ul class=&quot;commentPrompt&quot;&gt;
+                                     &lt;li&gt;
+                                         &lt;a href=&quot;&quot;&gt;&lt;i class=&quot;fas fa-comment-alt&quot;&gt;&lt;/i&gt;comments&lt;/a&gt;
+                                         &lt;a href=&quot;&quot;&gt;&lt;i class=&quot;fas fa-star&quot;&gt;&lt;/i&gt;favorite&lt;/a&gt;
+                                         &lt;a href=&quot;&quot;&gt;&lt;i class=&quot;fab fa-twitter&quot;&gt;&lt;/i&gt;tweet&lt;/a&gt;
+                                         &lt;c:if test=&quot;${sessionScope.sessionId.equals(list.userName)}&quot;&gt;
+                                             &lt;a href=&quot;#&quot; id=&quot;edit&quot;&gt;&lt;i class=&quot;fas fa-pen-square&quot;&gt;&lt;/i&gt;edit&lt;/a&gt;
+                                         &lt;/c:if&gt;
+                                     &lt;/li&gt;
+                                 &lt;/ul&gt;
+                                 &lt;ul class=&quot;reply&quot;&gt;
+                                     &lt;li&gt;
+                                         &lt;textarea name=&quot;reply&quot; class=&quot;reply&quot; cols=&quot;30&quot; rows=&quot;10&quot; placeholder=&quot;what are your thoughts?&quot;&gt;&lt;/textarea&gt;
+                                         &lt;input type=&quot;button&quot; value=&quot;COMMENT&quot; class=&quot;replyBtn&quot;&gt;
+                                     &lt;/li&gt;
+                                 &lt;/ul&gt;
+                             &lt;/c:when&gt;
+                             &lt;c:otherwise&gt;
+                                 &lt;ul class=&quot;signUpPrompt&quot;&gt;
+                                     &lt;li&gt;
+                                         &lt;p&gt;What are your thoughts? Log in or Sign up&lt;/p&gt;
+                                     &lt;/li&gt;
+                                     &lt;li&gt;
+                                         &lt;a href=&quot;login.do&quot;&gt;LOG IN&lt;/a&gt;
+                                         &lt;a href=&quot;join.do&quot;&gt;SIGN UP&lt;/a&gt;
+                                     &lt;/li&gt;
+                                 &lt;/ul&gt;
+                             &lt;/c:otherwise&gt;
+                         &lt;/c:choose&gt;
+                     &lt;/div&gt;
+
+                     &lt;c:forEach var=&quot;lists&quot; items=&quot;${lists}&quot; varStatus=&quot;loop&quot;&gt;
+                         &lt;c:if test=&quot;${list.mGroup == lists.mGroup &amp;&amp; not loop.first &amp;&amp; lists.step &gt; 0}&quot;&gt;
+                             &lt;section class=&quot;replyBoard&quot; style=&quot;margin-left: ${lists.indent * 2}rem&quot;&gt;
+                                 &lt;div class=&quot;post&quot;&gt;
+                                     &lt;small&gt;
+                                         posted by ${lists.userName}
+                                         on ${lists.date.toLocaleString()}
+                                     &lt;/small&gt;
+                                     &lt;h1&gt;
+                                             ${lists.title}
+                                     &lt;/h1&gt;
+                                     &lt;p class=&quot;content&quot;&gt;
+                                             ${lists.content}
+                                     &lt;/p&gt;
+                                 &lt;/div&gt;
+                                 &lt;ul class=&quot;commentPrompt&quot;&gt;
+                                     &lt;li&gt;
+                                         &lt;a href=&quot;&quot;&gt;&lt;i class=&quot;fas fa-comment-alt&quot;&gt;&lt;/i&gt;reply&lt;/a&gt;
+                                         &lt;c:if test=&quot;${sessionScope.sessionId.equals(list.userName)}&quot;&gt;
+                                             &lt;a href=&quot;#&quot; id=&quot;edit&quot;&gt;&lt;i class=&quot;fas fa-pen-square&quot;&gt;&lt;/i&gt;edit&lt;/a&gt;
+                                         &lt;/c:if&gt;
+                                     &lt;/li&gt;
+                                 &lt;/ul&gt;
+                                 &lt;ul class=&quot;reply&quot;&gt;
+                                     &lt;li&gt;
+                                         &lt;textarea name=&quot;reply&quot; class=&quot;reply&quot; cols=&quot;30&quot; rows=&quot;10&quot; placeholder=&quot;what are your thoughts?&quot;&gt;&lt;/textarea&gt;
+                                         &lt;input type=&quot;button&quot; value=&quot;COMMENT&quot; class=&quot;replyBtn&quot;&gt;
+                                     &lt;/li&gt;
+                                 &lt;/ul&gt;
+                             &lt;/section&gt;
+                         &lt;/c:if&gt;
+                     &lt;/c:forEach&gt;
+                 &lt;/div&gt;
+             &lt;/section&gt;
+         &lt;/main&gt;
+         &lt;jsp:include page=&quot;footer.jsp&quot;/&gt;
+         &lt;script src=&quot;js/boardReply.js&quot;&gt;&lt;/script&gt;
+     &lt;/body&gt;
+ &lt;/html&gt;
+                                    </pre>
+                                    <p>
+                                        error page
+                                    </p>
+                                    <pre class="prettyprint">
+
+   &lt;!DOCTYPE html&gt;
+ &lt;html lang=&quot;en&quot;&gt;
+     &lt;head&gt;
+         &lt;meta charset=&quot;UTF-8&quot;&gt;
+         &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+         &lt;title&gt;Title&lt;/title&gt;
+     &lt;/head&gt;
+     &lt;body&gt;
+         &lt;h1&gt;
+             aw schucks, something went wrong!
+         &lt;/h1&gt;
+     &lt;/body&gt;
+ &lt;/html&gt;
+                                    </pre>
+                                    <h1>
+                                        javascript files
+                                    </h1>
+                                    <p>
+                                        index.js
+                                    </p>
+                                    <pre class="prettyprint">
+
+ let mGroup = document.getElementsByClassName("mGroup");
+ let mGroupArr = [];
+ let replyBoard = document.getElementById("replyBoard");
+ let editContent = document.getElementById("editContent");
+
+ // retrieve each mGroup number from each board
+ for (let i = 0; i < mGroup.length; i++) {
+     mGroupArr.push(`${mGroup[i].value}`);
+ }
+
+ let url = "boardCommentCount.bo";
+ let data = `mGroupArr=${mGroupArr}`;
+
+ // jquery scroll detection v2 (feature not implemented yet)
+ $(window).scroll(function () {
+     if ($(window).scrollTop() + $(window).height() === getDocHeight()) {
+         alert("bottom!");
+     }
+
+     // ajax call to retrieve more boards
+     let url = "";
+     let data = ``;
+
+     fetch(`${url}?${data}`)
+         .then((resp) => resp.text())
+         .then(data => function () {
+             if (data == 1) {
+                 console.log("successful");
+             } else {
+                 console.log("failed");
+             }
+         })
+ });
+
+ // get document height for different browsers, different machines
+ function getDocHeight() {
+     let D = document;
+
+     return Math.max(
+         D.body.scrollHeight, D.documentElement.scrollHeight,
+         D.body.offsetHeight, D.documentElement.offsetHeight,
+         D.body.clientHeight, D.documentElement.clientHeight
+     );
+ }
+
+ // buttons
+ let tweetBtn = document.getElementsByClassName("tweetBtn");
+ let replyBtn = document.getElementsByClassName("replyBtn");
+ let editBtn = document.getElementsByClassName("editBtn");
+ let cancelBtn = document.getElementsByClassName("cancelBtn");
+ let cancelBtnEdit = document.getElementsByClassName("cancelBtnEdit");
+ let content = document.getElementsByClassName("content");
+ let editSubmit = document.getElementById("editSubmit");
+
+ // textareas
+ let replyArea = document.getElementsByClassName("reply");
+ let editArea = document.getElementsByClassName("editArea");
+
+ // reply board showing?
+ let replyShowing = false;
+ // edit textarea showing?
+ let editShowing = false;
+
+ let boardWrap = $(".boardWrap");
+
+ for (let j = 0; j <= boardWrap.length + 1; j++) {
+     // tweet button click function
+     tweetBtn[j].addEventListener("click", function () {
+         window.open(`https://twitter.com/share?text=${content[j].textContent.trim()}`, "", "menubar=no, toolbar=no, resizable=yes, scrollbars=yes, height=550, width=420");
+     });
+
+     // toggle **cancel button should also do that
+     replyBtn[j].addEventListener("click", function () {
+         if (!replyShowing) {
+             replyArea[j].style.display = "flex";
+             editArea[j].style.display = "none";
+         }
+         replyShowing = true;
+     });
+
+     // textarea should disappear when the user clicks 'cancel'
+     cancelBtn[j].addEventListener("click", function () {
+         if (replyShowing) {
+             replyArea[j].style.display = "none";
+         }
+         replyShowing = false;
+     });
+
+     cancelBtnEdit[j].addEventListener("click", function () {
+         if (editShowing) {
+             editArea[j].style.display = "none";
+         }
+         editContent.textContent = "";
+         editShowing = false;
+     });
+
+     editBtn[j].addEventListener("click", function () {
+         if (!editShowing) {
+             editArea[j].style.display = "flex";
+             replyArea[j].style.display = "none";
+
+             editShowing = true;
+         } else if (editShowing) {
+             editArea[j].style.display = "none";
+
+             editShowing = false;
+         }
+     });
+
+     editContent[j].addEventListener("keyup", function () {
+         if (editContent[j].value === null || editContent[j].value.trim() === "") {
+
+             editSubmit[j].disabled = true;
+             editSubmit[j].style.cursor = "not-allowed";
+
+             return false;
+         }
+
+         editSubmit[j].disabled = false;
+         editSubmit[j].style.cursor = "pointer";
+         editSubmit[j].style.color = "black"
+     });
+ }
+                                    </pre>
+                                    <p>
+                                        login
+                                    </p>
+                                    <pre class="prettyprint">
+
+ // error message
+ let errorMessage = document.getElementById(&quot;errorMsg&quot;);
+
+ // login Btn
+ let loginBtn = document.getElementById(&quot;loginBtn&quot;);
+ loginBtn.addEventListener(&quot;click&quot;, loginOk);
+
+ function loginOk() {
+     let userId = document.getElementById(&quot;userId&quot;);
+     let userPw = document.getElementById(&quot;userPw&quot;);
+
+     if (userId.value === null || userId.value.trim() === &quot;&quot;) {
+         errorMessage.style.display = &quot;flex&quot;;
+         errorMessage.innerHTML = &quot;please put in your id&quot;;
+
+         userId.focus();
+         return false;
+     }
+     if (userPw.value === null || userPw.value.trim() === &quot;&quot;) {
+         errorMessage.style.display = &quot;flex&quot;;
+         errorMessage.innerHTML = &quot;please put in your pw&quot;;
+
+         userPw.focus();
+
+         return false;
+     }
+
+     // ajax (fetch API)
+     let data = `userId=${encodeURIComponent(userId.value)}&amp;userPw=${encodeURIComponent(userPw.value)}`;
+     let url = &quot;login.mo&quot;;
+
+     fetch(`${url}?${data}`)
+         .then((resp) =&gt; resp.text())
+         .then((data) =&gt; {
+             // successful
+             if (data == 1) {
+                 location.href = &quot;boardList.bo&quot;;
+             } else {
+                 errorMessage.style.display = &quot;flex&quot;;
+                 errorMessage.innerHTML = &quot;something went wrong, please try again&quot;;
+                 userId.focus();
+             }
+         })
+ }
+                                    </pre>
+                                    <p>
+                                        join
+                                    </p>
+                                    <pre class="prettyprint">
+
+ // form
+ let joinForm = document.getElementById("joinForm");
+
+ // check id button
+ let checkId = document.getElementById("checkId");
+
+ // whether the user checked the id or not
+ let checkIdConfirmation = document.getElementById("idCheckOk");
+
+ // error message span on top
+ let errorMessage = document.getElementById("errorMsg");
+
+ // user credentials
+ let userId = document.getElementById("userId");
+ let userPw = document.getElementById("userPw");
+ let userEmail = document.getElementById("userEmail");
+
+ // check the passwords
+ let checkPwCheck = document.getElementById("userPwCheck");
+
+ // submit button
+ let joinBtn = document.getElementById("joinBtn");
+
+ // event listeners
+ checkId.addEventListener("click", userIdCheck);
+ joinBtn.addEventListener("click", joinOk);
+
+ function isUserIdEmpty() {
+     if (userId.value === null || userId.value.trim() === "") {
+         errorMessage.style.display = "flex";
+         errorMessage.innerHTML = "please put in your id to check!";
+
+         userId.focus();
+
+         return false;
+     } else {
+         return true;
+     }
+ }
+
+ // created a function because it's used more than once.
+ function userIdCheck() {
+     // if its not empty
+     if (isUserIdEmpty() === true) {
+         checkID();
+     }
+ }
+
+ // check if the two password field values match
+ function checkPwFunc() {
+     let userPw = document.getElementById("userPw");
+     let userPwCheck = document.getElementById("userPwCheck");
+
+     if (userPw.value !== userPwCheck.value) {
+         errorMessage.style.backgroundColor = "red";
+         errorMessage.innerHTML = "password doesn't match";
+         return false;
+     } else {
+         errorMessage.innerHTML = "password matches!";
+         errorMessage.style.backgroundColor = "cadetblue";
+         return true;
+     }
+ }
+
+ // check id in database if theres any duplicates
+ function checkID() {
+     let userId = document.getElementById("userId");
+     let userPw = document.getElementById("userPw");
+     let data = `userId=${encodeURIComponent(userId.value)}`;
+     let url = "idCheck.mo";
+
+     fetch(`${url}?${data}`)
+         .then((resp) => resp.text())
+         .then((data) => {
+             // this is where we retrieve the result
+             if (data == 1) {
+                 errorMessage.style.display = "flex";
+                 errorMessage.innerHTML = "that id is taken, please try a different one!";
+
+                 userId.focus();
+             } else {
+                 errorMessage.style.display = "flex";
+                 errorMessage.style.backgroundColor = "cadetblue";
+                 errorMessage.innerHTML = "good to go!";
+
+                 userPw.focus();
+             }
+         });
+
+     // change the value to the 'checked'
+     checkIdConfirmation.value = "checked";
+ }
+
+ // join method
+ function joinOk() {
+     // userId field check
+     if (isUserIdEmpty() === true) {
+         // if userId have not been checked
+         if (checkIdConfirmation.value !== "checked") {
+             errorMessage.style.backgroundColor = "red";
+             errorMessage.innerHTML = "please make sure you check the id";
+
+             userId.focus();
+
+             return false;
+         }
+         // if the userPw field is empty
+         if (userPw.value === null || userPw.value.trim() === "") {
+             errorMessage.style.display = "flex";
+             errorMessage.innerHTML = "please put in your password";
+
+             userPw.focus();
+
+             return false;
+         }
+         // if the two password fields don't match
+         if (userPw.value !== checkPwCheck.value) {
+             errorMessage.style.display = "flex";
+             errorMessage.innerHTML = "the passwords don't match, please try again";
+
+             userPw.focus();
+
+             return false;
+         }
+         // if the userEmail field is empty
+         if (userEmail.value === null || userEmail.value.trim() === "") {
+             errorMessage.style.display = "flex";
+             errorMessage.innerHTML = "please put in your email";
+
+             userEmail.focus();
+
+             return false;
+         }
+
+         joinForm.submit();
+     }
+ }
+                                    </pre>
+                                    <p>
+                                        delete
+                                    </p>
+                                    <pre class="prettyprint">
+
+ // error message
+ let errorMessage = document.getElementById("errorMsg");
+
+ // delete btn
+ let deleteBtn = document.getElementById("deleteBtn");
+ deleteBtn.addEventListener("click", deleteOk);
+
+ function deleteOk() {
+     let userId = document.getElementById("userId");
+     let userPw = document.getElementById("userPw");
+
+     if (userId.value === null || userId.value.trim() === "") {
+         errorMessage.style.display = "flex";
+         errorMessage.innerHTML = "please put in your id";
+
+         userId.focus();
+         return false;
+     }
+     if (userPw.value === null || userPw.value.trim() === "") {
+         errorMessage.style.display = "flex";
+         errorMessage.innerHTML = "please put in your password";
+
+         userPw.focus();
+         return false;
+     }
+
+     // fetch data
+     let data = `userId=${encodeURIComponent(userId.value)}&userPw=${encodeURIComponent(userPw.value)}`;
+     let url = "deleteProfile.mo";
+
+     fetch (`${url}?${data}`)
+         .then((resp) => resp.text())
+         .then((data) => {
+             // successful
+             if (data == 1) {
+                 location.href = "/boardList.do";
+             } else {
+                 location.href = "/profile.do";
+             }
+         })
+ }
+                                    </pre>
+                                    <p>
+                                        update
+                                    </p>
+                                    <pre class="prettyprint">
+
+ let memberId = document.getElementById("memberId");
+ let userId = document.getElementById("userId");
+ let userEmail = document.getElementById("userEmail");
+ let userPw = document.getElementById("userPw");
+ let userPwCheck = document.getElementById("userPwCheck");
+ let checkIdConfirmation = document.getElementById("idCheckOk");
+ let updateForm = document.getElementById("updateForm");
+
+ let deleteRedirect = document.getElementById("deleteRedirect");
+ deleteRedirect.addEventListener("click", redirect);
+
+ function redirect() {
+     location.href = "deleteProfile.do";
+ }
+
+ let errorMsg = document.getElementById("errorMsg");
+ let updateBtn = document.getElementById("updateBtn");
+ updateBtn.addEventListener("click", updateFunc);
+
+ let checkId = document.getElementById("checkId");
+ checkId.addEventListener("click", userIdCheck);
+
+ function isUserIdEmpty() {
+     if (userId.value === null || userId.value.trim() === "") {
+         errorMsg.style.display = "flex";
+         errorMsg.innerHTML = "please put in your id to check!";
+
+         userId.focus();
+
+         return false;
+     } else {
+         return true;
+     }
+ }
+
+ function userIdCheck() {
+     // if its not empty
+     if (isUserIdEmpty() === true) {
+         checkID();
+     }
+ }
+
+ function updateFunc() {
+     if (isUserIdEmpty() === true) {
+         if (checkIdConfirmation.value !== "checked") {
+             errorMsg.style.backgroundColor = "red";
+             errorMsg.innerHTML = "please make sure you check the id";
+
+             userId.focus();
+
+             return false;
+         }
+         if (userId.value === null || userId.value.trim() === "") {
+             errorMsg.style.display = "flex";
+             errorMsg.innerHTML = "please put in your new id";
+
+             userId.focus();
+
+             return false;
+         }
+         if (userEmail.value === null || userEmail.value.trim() === "") {
+             errorMsg.style.display = "flex";
+             errorMsg.innerHTML = "please put in your new email address";
+
+             userEmail.focus();
+
+             return false;
+         }
+         if (userPw.value === null || userPw.value.trim() === "") {
+             errorMsg.style.display = "flex";
+             errorMsg.innerHTML = "please put in your new password";
+
+             userPw.focus();
+
+             return false;
+         }
+
+         updateForm.submit();
+     }
+ }
+
+ function checkID() {
+     let data = `userId=${encodeURIComponent(userId.value)}`;
+     let url = "idCheck.mo";
+
+     fetch(`${url}?${data}`)
+         .then((resp) => resp.text())
+         .then((data) => {
+             // this is where we retrieve the result
+             if (data == 1) {
+                 errorMsg.style.display = "flex";
+                 errorMsg.innerHTML = "that id is taken, please try a different one!";
+
+                 userId.focus();
+             } else {
+                 errorMsg.style.display = "flex";
+                 errorMsg.style.backgroundColor = "cadetblue";
+                 errorMsg.innerHTML = "good to go!";
+
+                 userEmail.focus();
+             }
+         });
+
+     // change the value to the 'checked'
+     checkIdConfirmation.value = "checked";
+ }
+
+ function checkPwFunc() {
+     if (userPw.value !== userPwCheck.value) {
+         errorMsg.style.backgroundColor = "red";
+         errorMsg.innerHTML = "password doesn't match";
+         return false;
+     } else {
+         errorMsg.innerHTML = "password matches!";
+         errorMsg.style.backgroundColor = "cadetblue";
+         return true;
+     }
+ }
+                                    </pre>
+                                    <p>
+                                        boardWrite
+                                    </p>
+                                    <pre class="prettyprint">
+
+ // html elements
+ let userId = document.getElementById("userId");
+ let title = document.getElementById("title");
+ let content = document.getElementById("content");
+ let writeBtn = document.getElementById("writeBtn");
+
+ // trigger write ajax when button is clicked
+ writeBtn.addEventListener("click", write);
+
+ // disable button to start
+ writeBtn.disabled = true;
+
+ // condition to see if the user has filled in something (disables again if the user deletes the content)
+ [title, content].forEach(function (element) {
+     element.addEventListener("keyup", function () {
+         if (title.value === null || title.value.trim() === "") {
+             writeBtn.disabled = true;
+             writeBtn.style.cursor = "not-allowed";
+
+             return false;
+         }
+
+         if (content.value === null || content.value.trim() === "") {
+             writeBtn.disabled = true;
+             writeBtn.style.cursor = "not-allowed";
+
+             return false;
+         }
+         writeBtn.disabled = false;
+         writeBtn.style.cursor = "pointer";
+         writeBtn.style.color = "black";
+     });
+ });
+
+ // write ajax call (using fetch) to controller
+ function write() {
+     let url = "boardWrite.bo";
+     let data = `userId=${encodeURIComponent(userId.value)}&title=${encodeURIComponent(title.value)}&content=${encodeURIComponent(content.value)}`;
+
+     fetch(`${url}?${data}`)
+         .then((resp) => resp.text())
+         .then((data) => {
+             if (data == 1) {
+                 location.href = "boardList.bo";
+             } else {
+                 alert("something went wrong, try again");
+
+                 title.focus();
+                 return false;
+             }
+         })
+ }
+                                    </pre>
+                                    <p>
+                                        boardReply
+                                    </p>
+                                    <pre class="prettyprint">
+
+ /* general html elements */
+ let mId = document.getElementById("mId");
+ let mGroup = document.getElementById("mGroup");
+ let step = document.getElementById("step");
+ let indent = document.getElementById("indent");
+
+ // let userId = document.getElementById("userId");
+ let title = document.getElementById("title");
+ let content = document.getElementById("content");
+
+ /* REPLY SECTION */
+ // html elements
+ let replyText = document.getElementById("reply");
+ let replyBtn = document.getElementById("replyBtn");
+
+ // trigger ajax call when the button is clicked
+ replyBtn.addEventListener("click", reply);
+
+ // disable button until the textarea is filled
+ replyBtn.disabled = true;
+
+ replyText.addEventListener("keyup", function () {
+     if (replyText.value === null || replyText.value.trim() === "") {
+         replyBtn.disabled = true;
+         replyBtn.style.cursor = "not-allowed";
+         replyBtn.style.color = "rgb(215, 218, 220)";
+
+         return false;
+     }
+     replyBtn.disabled = false;
+     replyBtn.style.cursor = "pointer";
+     replyBtn.style.color = "black";
+ });
+
+ // reply ajax call (using fetch) to controller
+ function reply() {
+     let url = "boardReply.bo";
+     let data = `mId=${mId.value}&mGroup=${mGroup.value}&step=${step.value}&indent=${indent.value}&userId=${userId.value}&title=${`re: ` + title.value}&content=${replyText.value}`;
+
+     console.log(`${url}?${data}`);
+
+     fetch(`${url}?${data}`)
+         .then((resp) => resp.text())
+         .then((data) => {
+             if (data == 1) {
+                 location.href = "boardList.bo";
+             }
+         })
+ }
+
+ /*=========================================================*/
+ /* EDIT SECTION */
+ // edit button
+ let showEdit = document.getElementById("edit");
+ let cancelBtn = document.getElementById("cancelBtn");
+ let editContent = document.getElementById("editContent");
+
+ let editBtn = document.getElementById("editBtn");
+ editBtn.addEventListener("click", editContentFunc);
+
+ // disable edit button
+ editBtn.disabled = true;
+
+ // edit div
+ let editArea = document.getElementsByClassName("editArea");
+
+ // edit trigger
+ showEdit.addEventListener("click", editDisplay);
+ cancelBtn.addEventListener("click", cancelFunc);
+
+ // show edit section
+ function editDisplay() {
+     editArea[0].style.display = "flex";
+ }
+
+ function cancelFunc() {
+     editArea[0].style.display = "none";
+     editContent.value = "";
+ }
+
+ // edit content
+ editContent.addEventListener("keyup", checkContent);
+
+ function checkContent() {
+     if (editContent.value === null || editContent.value.trim() === "") {
+         editBtn.disabled = true;
+         editBtn.style.cursor = "not-allowed";
+         editBtn.style.color = "rgb(215, 218, 220)";
+
+         return false;
+     }
+     editBtn.disabled = false;
+     editBtn.style.cursor = "pointer";
+     editBtn.style.color = "black";
+ }
+
+ // edit function
+ // need mId, title (unchanged), content (new)
+ function editContentFunc() {
+     let url = "boardUpdate.bo";
+     let data = `mId=${mId.value}&title=${title.value}&content=${editContent.value}`;
+
+     console.log(`${url}?${data}`);
+
+     fetch(`${url}?${data}`)
+         .then((resp) => resp.text())
+         .then((data) => {
+                 if (data == 1) {
+                     location.href = `boardView.bo?mId=${mId.value}`;
+                 } else {
+                     alert("failed, try again");
+                 }
+             }
+         )
+ }
+                                    </pre>
+                                    <p>
+                                        home page (boardList)
+                                    </p>
+                                    <p>
+                                        <img src="img/simple_database%20process%20pics/home.png" alt="home page"
+                                             class="img-fluid">
+                                    </p>
+                                    <p>
+                                        login page
+                                    </p>
+                                    <p>
+                                        <img src="img/simple_database%20process%20pics/login.png" alt="login page"
+                                             class="img-fluid">
+                                    </p>
+                                    <p>
+                                        error during login
+                                    </p>
+                                    <p>
+                                        <img src="img/simple_database%20process%20pics/wrong%20login.png"
+                                             alt="wrong login" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        home page (boardList) logged in
+                                        <small>* can edit the post they made</small>
+                                    </p>
+                                    <p>
+                                        <img src="img/simple_database%20process%20pics/logged%20in%20home.png"
+                                             alt="logged in home" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        sign up new user
+                                    </p>
+                                    <p>
+                                        <img src="img/simple_database%20process%20pics/sign%20up.png" alt="sign up"
+                                             class="img-fluid">
+                                    </p>
+                                    <p>
+                                        id taken
+                                    </p>
+                                    <p>
+                                        <img src="img/simple_database%20process%20pics/id%20taken.png"
+                                             alt="id taken page" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        id not taken
+                                    </p>
+                                    <p>
+                                        <img src="img/simple_database%20process%20pics/id%20not%20taken.png"
+                                             alt="id not taken page" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        password doesn't match
+                                    </p>
+                                    <p>
+                                        <img src="img/simple_database%20process%20pics/password%20doesn't%20match.png"
+                                             alt="password doesn't match" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        password matches and good to proceed on sign up
+                                    </p>
+                                    <p>
+                                        <img src="img/simple_database%20process%20pics/password%20matches.png"
+                                             alt="password matches" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        view profile
+                                    </p>
+                                    <p>
+                                        <img src="img/simple_database%20process%20pics/view%20profile.png"
+                                             alt="view profile" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        delete profile
+                                    </p>
+                                    <p>
+                                        <img src="img/simple_database%20process%20pics/delete%20profile.png"
+                                             alt="delete profile" class="img-fluid">
+                                    </p>
+                                    <h1>
+                                        now let's write a post
+                                    </h1>
+                                    <p>
+                                        write a post
+                                    </p>
+                                    <p>
+                                        <img src="img/simple_database%20process%20pics/boardWrite.png"
+                                             alt="write a post" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        write a post process
+                                    </p>
+                                    <p>
+                                        <img src="img/simple_database%20process%20pics/boardWriteProcess.png"
+                                             alt="writing a post process" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        write a post success
+                                    </p>
+                                    <p>
+                                        <img src="img/simple_database%20process%20pics/boardWriteSuccess.png"
+                                             alt="writing a post success" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        <a href="https://github.com/danielbyun/simple-database" target="_blank">github
+                                            link to project
+                                        </a>
+                                    </p>
+                                    <p>
+                                        view a specific board (when not logged in)
+                                    </p>
+                                    <p>
+                                        <img src="img/simple_database%20process%20pics/boardView%20not%20logged%20in.png"
+                                             alt="board view when not logged in" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        view a specific board (when logged in)
+                                    </p>
+                                    <p>
+                                        <img src="img/simple_database%20process%20pics/boardView%20logged%20in.png"
+                                             alt="board view when logged in" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        reply process
+                                    </p>
+                                    <p>
+                                        <img src="img/simple_database%20process%20pics/boardReplyProcess.png"
+                                             alt="board reply process" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        reply to a board
+                                    </p>
+                                    <p>
+                                        <img src="img/simple_database%20process%20pics/boardReplySuccess.png"
+                                             alt="board reply successful" class="img-fluid">
+                                    </p>
+                                    <hr>
+                                    <h1>
+                                        final thoughts
+                                    </h1>
+                                    <p>
+                                        there are a lot of code to accomplish things that can be written with more efficiency. </p>
+                                    <p> For example, using Spring MVC, Spring Security, etc we can accomplish the
+                                        similar things with more features with less lines of code.
+                                    </p>
+                                    <p>
+                                        there are areas in this project I would like to improve on, add onto, and make sure the features function properly.
+                                    </p>
+                                    <ul>
+                                        <hr>
+                                        <li>
+                                            1) for instance, having a 'favorite' feature that functions like a 'bookmark' function. the user can 'favorite' a post and can access it in the user's 'favorited' page
+                                        </li>
+                                        <li>
+                                            2) passwords should always be encrypted before being pushed out to production, right now in this project they are being saved as plaintext and also has no requirements before signing up.
+                                        </li>
+                                        <li>
+                                            3) would like to implement a better sorting query so that the user can choose the sorting method (recent, most liked, etc)
+                                        </li>
+                                        <li>
+                                            4) finish implementing the edit feature
+                                        </li>
+                                        <li>
+                                            5) finish implement the reply feature on the main page
+                                        </li>
+                                    </ul>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
@@ -130,15 +3150,70 @@
                 </article>
                 <article>
                     <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#webApp2">
-                        register // login app with multi-role feature
+                        login app and pages accessible based on roles
                     </button>
                     <div class="modal fade" id="webApp2" tabindex="-1" role="dialog"
                          aria-labelledby="webApp2Label"
                          aria-hidden="true">
-                        <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-dialog modal-xl" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="webApp2Label">
+                                        login app and pages accessible based on roles
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>This web app was created using Spring MVC, Spring Security, MySQL, JPA
+                                        (Hibernate), and JSP was used for the view layer.</p>
+                                    <p>
+                                        project directory <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <p>
+                                        project dependencies (pom.xml) <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <p>
+                                        spring security configuration <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <p>
+                                        controllers <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <p>
+                                        entities <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <p>
+                                        mysql properties <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <p>
+                                        view layer using JSP <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <p>
+                                        <a href="" target="_blank">github link to project</a>
+                                    </p>
+                                    <h1>
+
+                                    </h1>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#webApp3">
+                        register // login app with multi-role feature
+                    </button>
+                    <div class="modal fade" id="webApp3" tabindex="-1" role="dialog"
+                         aria-labelledby="webApp3Label"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-xl" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="webApp3Label">
                                         register // login app that supports multi-role feature
                                     </h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -172,7 +3247,9 @@
                                     <p>
                                         view layer using JSP <i class="fas fa-arrow-alt-circle-down"></i>
                                     </p>
-                                    <a href="" target="_blank">github link to project</a>
+                                    <p>
+                                        <a href="" target="_blank">github link to project</a>
+                                    </p>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
@@ -182,16 +3259,16 @@
                     </div>
                 </article>
                 <article>
-                    <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#webApp3">
+                    <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#webApp4">
                         gym CRM app
                     </button>
-                    <div class="modal fade" id="webApp3" tabindex="-1" role="dialog"
-                         aria-labelledby="webApp3Label"
+                    <div class="modal fade" id="webApp4" tabindex="-1" role="dialog"
+                         aria-labelledby="webApp4Label"
                          aria-hidden="true">
-                        <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-dialog modal-xl" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="webApp3Label">
+                                    <h5 class="modal-title" id="webApp4Label">
                                         gym CRM app
                                     </h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -252,7 +3329,9 @@
                                     <p>
                                         view layer using thymeleaf <i class="fas fa-arrow-alt-circle-down"></i>
                                     </p>
-                                    <a href="" target="_blank">github link to project</a>
+                                    <p>
+                                        <a href="" target="_blank">github link to project</a>
+                                    </p>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>

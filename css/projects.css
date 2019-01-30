@@ -78,10 +78,22 @@ main {
       margin: 1rem; }
     main section article {
       margin: 1rem auto; }
-      main section article h1, main section article p {
+      main section article h1, main section article p, main section article small {
         color: black; }
-      main section article #webApp1 div div div.modal-body p:nth-child(4) img {
-        max-height: calc(100vh - 1px); }
+      main section article #webApp1 h1 {
+        margin: 1rem 0; }
+      main section article #webApp1 div div div.modal-body p:nth-child(1) {
+        text-align: center; }
+        main section article #webApp1 div div div.modal-body p:nth-child(1) img {
+          height: 25%;
+          width: 25%; }
+      main section article #webApp1 div div div.modal-body p:nth-child(7),
+      main section article #webApp1 div div div.modal-body p:nth-child(13) {
+        text-align: center; }
+        main section article #webApp1 div div div.modal-body p:nth-child(7) img,
+        main section article #webApp1 div div div.modal-body p:nth-child(13) img {
+          height: 50%;
+          width: 50%; }
 
 footer {
   display: none; }
