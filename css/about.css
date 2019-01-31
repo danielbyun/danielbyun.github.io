@@ -2,7 +2,8 @@ html {
   box-sizing: border-box;
   position: relative;
   min-height: 100%;
-  font-size: 16px; }
+  font-size: 16px;
+  font-family: 'lucida console', sans-serif; }
 
 html, body {
   height: 100%; }
@@ -17,8 +18,7 @@ body {
   flex-direction: column; }
 
 *, *:before, *:after {
-  box-sizing: inherit;
-  font-family: 'lucida console', sans-serif; }
+  box-sizing: inherit; }
 
 a {
   text-decoration: none;

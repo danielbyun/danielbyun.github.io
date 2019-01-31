@@ -22,7 +22,6 @@ body {
 
 *, *:before, *:after {
   box-sizing: inherit;
-  font-family: 'lucida console', sans-serif;
 }
 
 header {
@@ -238,10 +237,11 @@ footer {
   main {
     font-size: 14px;
     width: 100%;
-    //flex: 0 0 calc(100vh - 4rem);
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    top: 6rem;
     .canvas {
       .waveform {
         flex: 0;

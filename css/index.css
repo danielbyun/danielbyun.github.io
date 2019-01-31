@@ -18,8 +18,7 @@ body {
   flex-direction: column; }
 
 *, *:before, *:after {
-  box-sizing: inherit;
-  font-family: 'lucida console', sans-serif; }
+  box-sizing: inherit; }
 
 header {
   position: fixed;
@@ -190,7 +189,9 @@ footer {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    position: relative;
+    top: 6rem; }
     main .canvas .waveform {
       flex: 0; }
     main #waveform {
