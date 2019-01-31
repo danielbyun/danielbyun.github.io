@@ -75,6 +75,7 @@ header {
     }
   }
 }
+
 main {
   position: relative;
   top: 10rem;
@@ -96,11 +97,11 @@ main {
       }
       .modal {
         overflow-scrolling: touch;
-      }
-      #webApp1 {
         h1 {
           margin: 1rem 0;
         }
+      }
+      #webApp1 {
         div {
           div {
             div.modal-body {
@@ -154,6 +155,21 @@ main {
         }
       }
       #webApp4 {
+        div {
+          div {
+            div.modal-body {
+              p:nth-child(1) {
+                text-align: center;
+                img {
+                  height: 25%;
+                  width: 25%;
+                }
+              }
+            }
+          }
+        }
+      }
+      #webApp5 {
         div {
           div {
             div.modal-body {

@@ -81,8 +81,8 @@ main {
         color: black; }
       main section article .modal {
         overflow-scrolling: touch; }
-      main section article #webApp1 h1 {
-        margin: 1rem 0; }
+        main section article .modal h1 {
+          margin: 1rem 0; }
       main section article #webApp1 div div div.modal-body p:nth-child(1) {
         text-align: center; }
         main section article #webApp1 div div div.modal-body p:nth-child(1) img {
@@ -108,6 +108,11 @@ main {
       main section article #webApp4 div div div.modal-body p:nth-child(1) {
         text-align: center; }
         main section article #webApp4 div div div.modal-body p:nth-child(1) img {
+          height: 25%;
+          width: 25%; }
+      main section article #webApp5 div div div.modal-body p:nth-child(1) {
+        text-align: center; }
+        main section article #webApp5 div div div.modal-body p:nth-child(1) img {
           height: 25%;
           width: 25%; }
 
