@@ -96,7 +96,7 @@ main {
         color: black;
       }
       .modal {
-        overflow-scrolling: touch;
+        -webkit-overflow-scrolling: touch;
         h1 {
           margin: 1rem 0;
         }

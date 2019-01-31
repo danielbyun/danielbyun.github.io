@@ -80,7 +80,7 @@ main {
       main section article h1, main section article p, main section article small {
         color: black; }
       main section article .modal {
-        overflow-scrolling: touch; }
+        -webkit-overflow-scrolling: touch; }
         main section article .modal h1 {
           margin: 1rem 0; }
       main section article #webApp1 div div div.modal-body p:nth-child(1) {
