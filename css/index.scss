@@ -3,6 +3,7 @@ html {
   font-family: 'lucida console', sans-serif;
   min-height: 100%;
   font-size: 16px;
+  position: relative;
 }
 
 html, body {
@@ -11,16 +12,17 @@ html, body {
 
 body {
   margin: 0;
+  margin-bottom: 60px;
   padding: 0;
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url("https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80") no-repeat center center fixed;
   background-size: cover;
   display: flex;
   flex-direction: column;
-  height: 100vh;
 }
 
 *, *:before, *:after {
   box-sizing: inherit;
+  font-family: 'lucida console', sans-serif;
 }
 
 header {
@@ -139,7 +141,7 @@ footer {
 }
 
 // mobile breakpoints
-@media only screen and (max-device-width: 800px) {
+@media screen and (max-device-width: 800px) {
   header {
     display: block;
     position: absolute;
@@ -232,13 +234,14 @@ footer {
   }
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 415px) {
+@media screen and (min-device-width: 320px) and (max-device-width: 415px) {
   main {
     font-size: 14px;
     width: 100%;
-    flex: 0 0 calc(100vh - 4rem);
-    position: relative;
-    top: 25px;
+    //flex: 0 0 calc(100vh - 4rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     .canvas {
       .waveform {
         flex: 0;

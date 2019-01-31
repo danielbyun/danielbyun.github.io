@@ -3,6 +3,7 @@ html {
   font-family: 'lucida console', sans-serif;
   min-height: 100%;
   font-size: 16px;
+  position: relative;
 }
 
 html, body {
@@ -10,14 +11,15 @@ html, body {
 }
 
 body {
-  padding: 0;
   margin: 0;
+  margin-bottom: 60px;
+  padding: 0;
   background: black;
   width: 100%;
   background-size: cover;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  //height: 100vh;
 }
 
 a {

@@ -1,9 +1,7 @@
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css");
-* {
-  font-family: 'lucida console', sans-serif; }
-
 html {
   box-sizing: border-box;
+  position: relative;
   min-height: 100%;
   font-size: 16px; }
 
@@ -12,19 +10,20 @@ html, body {
 
 body {
   margin: 0;
+  margin-bottom: 60px;
   padding: 0;
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url("https://images.unsplash.com/photo-1515643395264-3f8c19a2dc77?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1961&q=80") no-repeat center center fixed;
   background-size: cover;
   display: flex;
-  flex-direction: column;
-  height: 100vh; }
+  flex-direction: column; }
   body h1, body p {
     margin: 0; }
   body h1 {
     font-size: 1.5em; }
 
 *, *:before, *:after {
-  box-sizing: inherit; }
+  box-sizing: inherit;
+  font-family: 'lucida console', sans-serif; }
 
 header {
   position: fixed;
@@ -80,6 +79,8 @@ main {
       margin: 1rem auto; }
       main section article h1, main section article p, main section article small {
         color: black; }
+      main section article .modal {
+        -webkit-overflow-scrolling: touch; }
       main section article #webApp1 h1 {
         margin: 1rem 0; }
       main section article #webApp1 div div div.modal-body p:nth-child(1) {
