@@ -6,3 +6,7 @@ node_modules
 
 # ignore IDEA workspace
 .idea
+music.html
+beats.html
+roulette.html
+project.txt
