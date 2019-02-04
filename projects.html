@@ -52,9 +52,10 @@
         </header>
         <main>
             <section>
+                <!-- simplified reddit home page clone part 1 -->
                 <article>
                     <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#webApp1">
-                        simplified reddit home page clone part 1
+                        simplified reddit home page clone (part 1)
                     </button>
                     <div class="modal fade" id="webApp1" tabindex="-1" role="dialog"
                          aria-labelledby="webApp1Label"
@@ -69,10 +70,10 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <p>
-                                        <img class="img-fluid javaLogo" src="img/java%20logo%20vector.png"
+                                    <p class="logoTop">
+                                        <img class="img-fluid javaLogo logoImg" src="img/java%20logo%20vector.png"
                                              alt="java logo">
-                                        <img class="img-fluid javaLogo" src="img/mysql%20logo%20vector.png"
+                                        <img class="img-fluid javaLogo logoImg" src="img/mysql%20logo%20vector.png"
                                              alt="mysql logo">
                                     </p>
                                     <p>
@@ -97,7 +98,7 @@
                                     <p>
                                         project directory: <i class="fas fa-arrow-alt-circle-down"></i>
                                     </p>
-                                    <p>
+                                    <p class="img">
                                         <img src="img/java%20ee%20directory.png"
                                              alt="java EE project directory" class="img-fluid">
                                     </p>
@@ -135,8 +136,9 @@
                                     <p>
                                         database table looks like this:
                                     </p>
-                                    <p>
-                                        <img src="img/java%20ee%20database%20schema.png" alt="database table">
+                                    <p class="img">
+                                        <img src="img/java%20ee%20database%20schema.png" alt="database table"
+                                             class="img-fluid">
                                     </p>
                                     <div style="width:100%;height:0;padding-bottom:75%;position:relative;">
                                         <iframe src="https://giphy.com/embed/3o6Ztk7NosfLVRqcpy" width="100%"
@@ -1677,11 +1679,10 @@
      }
  }
                                     </pre>
+                                    <p>
+                                        check out part 2 for the view layer <i class="fas fa-arrow-circle-right"></i>
+                                    </p>
                                 </div>
-                                <hr>
-                                <p>
-                                    check out the part 2 for the view layer
-                                </p>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
                                 </div>
@@ -1689,9 +1690,10 @@
                         </div>
                     </div>
                 </article>
+                <!-- simplified reddit home page clone part 2 -->
                 <article>
                     <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#webApp5">
-                        simplified reddit home page clone part 2 (view layer)
+                        simplified reddit home page clone (part 2)
                     </button>
                     <div class="modal fade" id="webApp5" tabindex="-1" role="dialog"
                          aria-labelledby="webApp2Label"
@@ -1701,10 +1703,10 @@
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="webApp5Label">
                                         simplified reddit home page clone part 2 (view layer)
-                                        </h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <h1>
@@ -3069,6 +3071,10 @@
                                              alt="password matches" class="img-fluid">
                                     </p>
                                     <p>
+                                        <img src="dist/img/simple_database process pics/javaee database user update.png"
+                                             alt="user update" class="img-fluid"/>
+                                    </p>
+                                    <p>
                                         view profile
                                     </p>
                                     <p>
@@ -3107,6 +3113,10 @@
                                              alt="writing a post success" class="img-fluid">
                                     </p>
                                     <p>
+                                        <img src="dist/img/simple_database process pics/javaee database post update.png"
+                                             alt="post update" class="img-fluid"/>
+                                    </p>
+                                    <p>
                                         view a specific board (when not logged in)
                                     </p>
                                     <p>
@@ -3134,28 +3144,39 @@
                                         <img src="img/simple_database%20process%20pics/boardReplySuccess.png"
                                              alt="board reply successful" class="img-fluid">
                                     </p>
+                                    <p>
+                                        <img src="dist/img/simple_database%20process%20pics/javaee%20database%20reply%20update.png"
+                                             alt="reply update" class="img-fluid"/>
+                                    </p>
                                     <hr>
                                     <h1>
                                         final thoughts
                                     </h1>
                                     <p>
-                                        there are a lot of code to accomplish things that can be written with more efficiency. </p>
+                                        there are a lot of code to accomplish things that can be written with more
+                                        efficiency. </p>
                                     <p> For example, using Spring MVC, Spring Security, etc we can accomplish the
                                         similar things with more features with less lines of code.
                                     </p>
                                     <p>
-                                        there are areas in this project I would like to improve on, add onto, and make sure the features function properly.
+                                        there are areas in this project I would like to improve on, add onto, and make
+                                        sure the features function properly.
                                     </p>
                                     <ul>
                                         <hr>
                                         <li>
-                                            1) for instance, having a 'favorite' feature that functions like a 'bookmark' function. the user can 'favorite' a post and can access it in the user's 'favorited' page
+                                            1) for instance, having a 'favorite' feature that functions like a
+                                            'bookmark' function. the user can 'favorite' a post and can access it in the
+                                            user's 'favorited' page
                                         </li>
                                         <li>
-                                            2) passwords should always be encrypted before being pushed out to production, right now in this project they are being saved as plaintext and also has no requirements before signing up.
+                                            2) passwords should always be encrypted before being pushed out to
+                                            production, right now in this project they are being saved as plaintext and
+                                            also has no requirements before signing up.
                                         </li>
                                         <li>
-                                            3) would like to implement a better sorting query so that the user can choose the sorting method (recent, most liked, etc)
+                                            3) would like to implement a better sorting query so that the user can
+                                            choose the sorting method (recent, most liked, etc)
                                         </li>
                                         <li>
                                             4) finish implementing the edit feature
@@ -3177,69 +3198,10 @@
                         </div>
                     </div>
                 </article>
-                <article>
-                    <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#webApp2">
-                        login app and pages accessible based on roles
-                    </button>
-                    <div class="modal fade" id="webApp2" tabindex="-1" role="dialog"
-                         aria-labelledby="webApp2Label"
-                         aria-hidden="true">
-                        <div class="modal-dialog modal-xl" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="webApp2Label">
-                                        login app and pages accessible based on roles
-                                    </h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>
-                                        <img src="img/spring%20logo.png" alt="spring logo" class="img-fluid">
-                                    </p>
-                                    <p>
-                                        This web app was created using Spring MVC, Spring Security, MySQL, JPA
-                                        (Hibernate), and JSP was used for the view layer.
-                                    </p>
-                                    <p>
-                                        project directory <i class="fas fa-arrow-alt-circle-down"></i>
-                                    </p>
-                                    <p>
-                                        project dependencies (pom.xml) <i class="fas fa-arrow-alt-circle-down"></i>
-                                    </p>
-                                    <p>
-                                        spring security configuration <i class="fas fa-arrow-alt-circle-down"></i>
-                                    </p>
-                                    <p>
-                                        controllers <i class="fas fa-arrow-alt-circle-down"></i>
-                                    </p>
-                                    <p>
-                                        entities <i class="fas fa-arrow-alt-circle-down"></i>
-                                    </p>
-                                    <p>
-                                        mysql properties <i class="fas fa-arrow-alt-circle-down"></i>
-                                    </p>
-                                    <p>
-                                        view layer using JSP <i class="fas fa-arrow-alt-circle-down"></i>
-                                    </p>
-                                    <p>
-                                        <a href="" target="_blank">github link to project</a>
-                                    </p>
-                                    <h1>
-
-                                    </h1>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                <!-- register // login app with multi - role feature part 1 -->
                 <article>
                     <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#webApp3">
-                        register // login app with multi-role feature
+                        register // login app with multi-role feature (part 1)
                     </button>
                     <div class="modal fade" id="webApp3" tabindex="-1" role="dialog"
                          aria-labelledby="webApp3Label"
@@ -3248,43 +3210,719 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="webApp3Label">
-                                        register // login app that supports multi-role feature
+                                        register // login app that supports multi-role feature (part 1)
                                     </h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <p>
-                                        <img src="img/spring%20logo.png" alt="spring logo" class="img-fluid">
+                                    <p class="logoTop">
+                                        <img src="img/spring%20logo.png" alt="spring logo" class="img-fluid logoImg">
+                                        <img src="img/mysql%20logo%20vector.png"
+                                             alt="mysql logo" class="img-fluid javaLogo logoImg">
                                     </p>
                                     <p>
                                         This web app was created using Spring MVC, Spring Security, MySQL, JPA
                                         (Hibernate), and JSP was used for the view layer.
                                     </p>
                                     <p>
+                                        no XML configuration was used, java configuration only.
+                                    </p>
+                                    <p>
                                         project directory <i class="fas fa-arrow-alt-circle-down"></i>
                                     </p>
-                                    <img class="img-fluid"
-                                         src="https://images.unsplash.com/photo-1496917756835-20cb06e75b4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2166&q=80"
-                                         alt="city landscape">
+                                    <p class="img">
+                                        <img class="img-fluid"
+                                             src="img/registration :: login multi roles process pics/register :: login app with multi-role feature directory.png"
+                                             alt="project directory">
+                                    </p>
                                     <p>
                                         project dependencies (pom.xml) <i class="fas fa-arrow-alt-circle-down"></i>
                                     </p>
+                                    <pre class="prettyprint">
+ &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+ &lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+          xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+     &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+     &lt;groupId&gt;com.danielbyun&lt;/groupId&gt;
+     &lt;artifactId&gt;spring-security-demo-11-registration-multiroles&lt;/artifactId&gt;
+     &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+     &lt;packaging&gt;war&lt;/packaging&gt;
+
+     &lt;name&gt;spring-security-demo-10-registration Maven Webapp&lt;/name&gt;
+     &lt;!-- FIXME change it to the project&apos;s website --&gt;
+     &lt;url&gt;http://www.example.com&lt;/url&gt;
+
+     &lt;properties&gt;
+         &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+         &lt;maven.compiler.source&gt;1.7&lt;/maven.compiler.source&gt;
+         &lt;maven.compiler.target&gt;1.7&lt;/maven.compiler.target&gt;
+         &lt;springframework.version&gt;5.1.1.RELEASE&lt;/springframework.version&gt;
+         &lt;springsecurity.version&gt;5.1.1.RELEASE&lt;/springsecurity.version&gt;
+         &lt;hibernate.version&gt;5.3.7.FINAL&lt;/hibernate.version&gt;
+         &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+         &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+     &lt;/properties&gt;
+
+     &lt;dependencies&gt;
+         &lt;!-- Spring MVC support --&gt;
+         &lt;dependency&gt;
+             &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+             &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
+             &lt;version&gt;${springframework.version}&lt;/version&gt;
+         &lt;/dependency&gt;
+
+         &lt;!-- spring --&gt;
+         &lt;dependency&gt;
+             &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;
+             &lt;artifactId&gt;spring-security-web&lt;/artifactId&gt;
+             &lt;version&gt;${springsecurity.version}&lt;/version&gt;
+         &lt;/dependency&gt;
+
+         &lt;!-- spring security --&gt;
+         &lt;dependency&gt;
+             &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;
+             &lt;artifactId&gt;spring-security-config&lt;/artifactId&gt;
+             &lt;version&gt;${springsecurity.version}&lt;/version&gt;
+         &lt;/dependency&gt;
+
+         &lt;!-- add spring security taglibs suppport --&gt;
+         &lt;dependency&gt;
+             &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;
+             &lt;artifactId&gt;spring-security-taglibs&lt;/artifactId&gt;
+             &lt;version&gt;${springsecurity.version}&lt;/version&gt;
+         &lt;/dependency&gt;
+
+         &lt;!-- spring transactions --&gt;
+         &lt;dependency&gt;
+             &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+             &lt;artifactId&gt;spring-tx&lt;/artifactId&gt;
+             &lt;version&gt;${springframework.version}&lt;/version&gt;
+         &lt;/dependency&gt;
+
+         &lt;!-- spring orm --&gt;
+         &lt;dependency&gt;
+             &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+             &lt;artifactId&gt;spring-orm&lt;/artifactId&gt;
+             &lt;version&gt;${springframework.version}&lt;/version&gt;
+         &lt;/dependency&gt;
+
+         &lt;!-- Servlet, JSP and JSTL support --&gt;
+         &lt;dependency&gt;
+             &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+             &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+             &lt;version&gt;3.1.0&lt;/version&gt;
+         &lt;/dependency&gt;
+         &lt;dependency&gt;
+             &lt;groupId&gt;javax.servlet.jsp&lt;/groupId&gt;
+             &lt;artifactId&gt;javax.servlet.jsp-api&lt;/artifactId&gt;
+             &lt;version&gt;2.3.3&lt;/version&gt;
+         &lt;/dependency&gt;
+         &lt;dependency&gt;
+             &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+             &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+             &lt;version&gt;1.2&lt;/version&gt;
+         &lt;/dependency&gt;
+         &lt;dependency&gt;
+             &lt;groupId&gt;junit&lt;/groupId&gt;
+             &lt;artifactId&gt;junit&lt;/artifactId&gt;
+             &lt;version&gt;4.3.1&lt;/version&gt;
+             &lt;scope&gt;test&lt;/scope&gt;
+         &lt;/dependency&gt;
+
+         &lt;!-- mysql and connection pooling --&gt;
+         &lt;dependency&gt;
+             &lt;groupId&gt;mysql&lt;/groupId&gt;
+             &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+             &lt;version&gt;8.0.13&lt;/version&gt;
+         &lt;/dependency&gt;
+         &lt;dependency&gt;
+             &lt;groupId&gt;com.mchange&lt;/groupId&gt;
+             &lt;artifactId&gt;c3p0&lt;/artifactId&gt;
+             &lt;version&gt;0.9.5.2&lt;/version&gt;
+             &lt;scope&gt;compile&lt;/scope&gt;
+         &lt;/dependency&gt;
+
+         &lt;!-- hibernate core --&gt;
+         &lt;dependency&gt;
+             &lt;groupId&gt;org.hibernate&lt;/groupId&gt;
+             &lt;artifactId&gt;hibernate-core&lt;/artifactId&gt;
+             &lt;version&gt;5.3.7.Final&lt;/version&gt;
+         &lt;/dependency&gt;
+
+         &lt;!-- hibernate validator --&gt;
+         &lt;dependency&gt;
+             &lt;groupId&gt;org.hibernate&lt;/groupId&gt;
+             &lt;artifactId&gt;hibernate-validator&lt;/artifactId&gt;
+             &lt;version&gt;6.0.13.Final&lt;/version&gt;
+         &lt;/dependency&gt;
+
+         &lt;dependency&gt;
+             &lt;groupId&gt;javax.xml.bind&lt;/groupId&gt;
+             &lt;artifactId&gt;jaxb-api&lt;/artifactId&gt;
+             &lt;version&gt;2.3.1&lt;/version&gt;
+         &lt;/dependency&gt;
+         &lt;dependency&gt;
+             &lt;groupId&gt;com.sun.xml.bind&lt;/groupId&gt;
+             &lt;artifactId&gt;jaxb-core&lt;/artifactId&gt;
+             &lt;version&gt;2.3.0.1&lt;/version&gt;
+         &lt;/dependency&gt;
+         &lt;dependency&gt;
+             &lt;groupId&gt;com.sun.xml.bind&lt;/groupId&gt;
+             &lt;artifactId&gt;jaxb-impl&lt;/artifactId&gt;
+             &lt;version&gt;2.4.0-b180830.0438&lt;/version&gt;
+         &lt;/dependency&gt;
+         &lt;dependency&gt;
+             &lt;groupId&gt;com.sun.activation&lt;/groupId&gt;
+             &lt;artifactId&gt;javax.activation&lt;/artifactId&gt;
+             &lt;version&gt;1.2.0&lt;/version&gt;
+         &lt;/dependency&gt;
+
+     &lt;/dependencies&gt;
+
+     &lt;build&gt;
+         &lt;finalName&gt;spring-security-demo-10-registration&lt;/finalName&gt;
+         &lt;pluginManagement&gt;&lt;!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) --&gt;
+             &lt;plugins&gt;
+                 &lt;plugin&gt;
+                     &lt;artifactId&gt;maven-clean-plugin&lt;/artifactId&gt;
+                     &lt;version&gt;3.1.0&lt;/version&gt;
+                 &lt;/plugin&gt;
+                 &lt;!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging --&gt;
+                 &lt;plugin&gt;
+                     &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;
+                     &lt;version&gt;3.0.2&lt;/version&gt;
+                 &lt;/plugin&gt;
+                 &lt;plugin&gt;
+                     &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+                     &lt;version&gt;3.8.0&lt;/version&gt;
+                 &lt;/plugin&gt;
+                 &lt;plugin&gt;
+                     &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+                     &lt;version&gt;2.22.1&lt;/version&gt;
+                 &lt;/plugin&gt;
+                 &lt;plugin&gt;
+                     &lt;artifactId&gt;maven-war-plugin&lt;/artifactId&gt;
+                     &lt;version&gt;3.2.2&lt;/version&gt;
+                 &lt;/plugin&gt;
+                 &lt;plugin&gt;
+                     &lt;artifactId&gt;maven-install-plugin&lt;/artifactId&gt;
+                     &lt;version&gt;2.5.2&lt;/version&gt;
+                 &lt;/plugin&gt;
+                 &lt;plugin&gt;
+                     &lt;artifactId&gt;maven-deploy-plugin&lt;/artifactId&gt;
+                     &lt;version&gt;2.8.2&lt;/version&gt;
+                 &lt;/plugin&gt;
+             &lt;/plugins&gt;
+         &lt;/pluginManagement&gt;
+     &lt;/build&gt;
+ &lt;/project&gt;
+                                    </pre>
+                                    <p>
+                                        spring app configuration <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package com.danielbyun.loginRegistrationMultiroles.config;
+
+ import com.mchange.v2.c3p0.ComboPooledDataSource;
+ import org.springframework.context.annotation.Bean;
+ import org.springframework.core.env.Environment;
+ import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.context.annotation.ComponentScan;
+ import org.springframework.context.annotation.Configuration;
+ import org.springframework.context.annotation.PropertySource;
+ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+ import org.springframework.web.servlet.ViewResolver;
+ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+ import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+ import javax.sql.DataSource;
+ import java.beans.PropertyVetoException;
+ import java.util.Properties;
+ import java.util.logging.Logger;
+
+ @Configuration
+ @EnableWebMvc
+ @ComponentScan(basePackages = "com.danielbyun.loginRegistrationMultiroles.*")
+ @PropertySource("classpath:persistence-mysql.properties")
+ public class AppConfig implements WebMvcConfigurer {
+     @Autowired
+     private Environment environment;
+
+     // logger for diagnostic stuff
+     private Logger logger = Logger.getLogger(getClass().getName());
+
+     // view resolver
+     @Bean
+     public ViewResolver viewResolver() {
+         InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
+
+         internalResourceViewResolver.setPrefix("/WEB-INF/view/");
+         internalResourceViewResolver.setSuffix(".jsp");
+
+         return internalResourceViewResolver;
+     }
+
+     // resource handler
+     @Override
+     public void addResourceHandlers(ResourceHandlerRegistry resourceHandlerRegistry) {
+         resourceHandlerRegistry
+                 .addResourceHandler("/resource/**")
+                 .addResourceLocations("/resource/");
+     }
+
+     // define bean for datasource
+     @Bean
+     public DataSource dataSource() {
+         // create connection pool
+         ComboPooledDataSource dataSource = new ComboPooledDataSource();
+
+         // set the jdbc driver class
+         try {
+             // read db configs from the resource file
+             dataSource.setDriverClass(environment.getProperty("jdbc.driverClass"));
+         } catch (PropertyVetoException exc) {
+             throw new RuntimeException(exc);
+         }
+
+         // log the connection props
+         // check if we're reading the correct data from the properties file
+         logger.info(">> jdbc.url = " + environment.getProperty("jdbc.url"));
+         logger.info(">> jdbc.user = " + environment.getProperty("jdbc.user"));
+
+         // set database connection props
+         dataSource.setJdbcUrl(environment.getProperty("jdbc.url"));
+         dataSource.setUser(environment.getProperty("jdbc.user"));
+         dataSource.setPassword(environment.getProperty("jdbc.password"));
+
+         // set connection pool props
+         dataSource.setInitialPoolSize(getIntProperties("connection.pool.initialPoolSize"));
+         dataSource.setMinPoolSize(getIntProperties("connection.pool.minPoolSize"));
+         dataSource.setMaxPoolSize(getIntProperties("connection.pool.maxPoolSize"));
+         dataSource.setMaxIdleTime(getIntProperties("connection.pool.maxIdleTime"));
+
+         return dataSource;
+     }
+
+     private int getIntProperties(String propName) {
+         String propVal = environment.getProperty(propName);
+
+         // now convert string into int
+         int intPropVal = Integer.parseInt(propVal);
+
+         return intPropVal;
+     }
+
+     // get hibernate properties from .properties file
+     private Properties getHibernateProperties() {
+         // set hibernate properties
+         Properties props = new Properties();
+
+         props.setProperty("hibernate.dialect", environment.getProperty("hibernate.dialect"));
+         props.setProperty("hibernate.show_sql", environment.getProperty("hibernate.show_sql"));
+
+         return props;
+     }
+ }
+                                    </pre>
+                                    <p>
+                                        security web application initializer <i
+                                            class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package com.danielbyun.loginRegistrationMultiroles.config;
+
+ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+ public class SecurityWebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+     @Override
+     protected Class<?>[] getRootConfigClasses() {
+         return null;
+     }
+
+     @Override
+     protected Class<?>[] getServletConfigClasses() {
+         return new Class[]{AppConfig.class};
+     }
+
+     @Override
+     protected String[] getServletMappings() {
+         return new String[]{"/"};
+     }
+ }
+                                    </pre>
+                                    <p>
+                                        spring mvc dispatcher servlet <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package com.danielbyun.loginRegistrationMultiroles.config;
+
+ import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
+
+ public class SpringMvcDispatcherServletInitializer extends AbstractSecurityWebApplicationInitializer {
+ }
+                                    </pre>
                                     <p>
                                         spring security configuration <i class="fas fa-arrow-alt-circle-down"></i>
                                     </p>
-                                    <p>
-                                        controllers <i class="fas fa-arrow-alt-circle-down"></i>
-                                    </p>
-                                    <p>
-                                        entities <i class="fas fa-arrow-alt-circle-down"></i>
-                                    </p>
+                                    <pre class="prettyprint">
+
+ package com.danielbyun.loginRegistrationMultiroles.config;
+
+ import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.context.annotation.Bean;
+ import org.springframework.context.annotation.Configuration;
+ import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+ import org.springframework.security.config.annotation.web.builders.WebSecurity;
+ import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+ import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+ import org.springframework.security.provisioning.JdbcUserDetailsManager;
+ import org.springframework.security.provisioning.UserDetailsManager;
+
+ import javax.sql.DataSource;
+
+ @Configuration
+ @EnableWebSecurity
+ public class SecurityConfig extends WebSecurityConfigurerAdapter {
+     @Autowired
+     private DataSource dataSource;
+
+     @Override
+     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+         // use jdbc authentication
+         // tells spring security to use jdbc authentication with our data source
+         auth.jdbcAuthentication().dataSource(dataSource);
+     }
+
+     @Override
+     public void configure(WebSecurity web) throws Exception {
+         web.ignoring().antMatchers("/resource/css/**", "/resource/js/**");
+     }
+
+     @Override
+     protected void configure(HttpSecurity http) throws Exception {
+         http.authorizeRequests().antMatchers("/resource/css/**", "/resource/js/**", "/resource/images/**").permitAll();
+
+         http.authorizeRequests()
+                 .antMatchers("/").hasRole("EMPLOYEE")
+                 .antMatchers("/managers/**").hasRole("MANAGER")
+                 .antMatchers("/admin/**").hasRole("ADMIN")
+                 .and()
+                 .formLogin()
+                 .loginPage("/login")
+                 .loginProcessingUrl("/authenticateTheUser")
+                 .permitAll()
+                 .and()
+                 .logout().permitAll()
+                 .and()
+                 .exceptionHandling().accessDeniedPage("/access-denied");
+     }
+     @Bean
+     public UserDetailsManager userDetailsManager() {
+         JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager();
+         jdbcUserDetailsManager.setDataSource(dataSource);
+
+         return jdbcUserDetailsManager;
+     }
+ }
+                                    </pre>
                                     <p>
                                         mysql properties <i class="fas fa-arrow-alt-circle-down"></i>
                                     </p>
+                                    <pre class="prettyprint">
+ #
+ #   JDBC connection properties
+ #
+ jdbc.driverClass=com.mysql.cj.jdbc.Driver
+ jdbc.url=jdbc:mysql://localhost:3306/spring-login-registration-multiroles?useSSL=false&serverTimezone=UTC&useUnicode=true&allowPublicKeyRetrieval=true
+ jdbc.user=[]
+ jdbc.password=[]
+ #
+ #   Connection pool properties
+ #
+ connection.pool.initialPoolSize=5
+ connection.pool.minPoolSize=5
+ connection.pool.maxPoolSize=20
+ connection.pool.maxIdleTime=3000
+ #
+ #   hibernate properties
+ #
+ hibernate.dialect=org.hibernate.dialect.MySQLDialect
+ hibernate.show_sql=true
+                                    </pre>
                                     <p>
-                                        view layer using JSP <i class="fas fa-arrow-alt-circle-down"></i>
+                                        entities <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package com.danielbyun.loginRegistrationMultiroles.user;
+
+ import javax.validation.constraints.NotNull;
+ import javax.validation.constraints.Size;
+
+ public class AppUser {
+     @NotNull(message = "is required")
+     @Size(min = 1, message = "is required")
+     private String userName;
+
+     @NotNull(message = "is required")
+     @Size(min = 1, message = "is required")
+     private String password;
+
+     private String formRole;
+
+     public AppUser() {
+     }
+
+     public AppUser(@NotNull(message = "is required") @Size(min = 1, message = "is required") String userName, @NotNull(message = "is required") @Size(min = 1, message = "is required") String password, String formRole) {
+         this.userName = userName;
+         this.password = password;
+         this.formRole = formRole;
+     }
+
+     public String getUserName() {
+         return userName;
+     }
+
+     public void setUserName(String userName) {
+         this.userName = userName;
+     }
+
+     public String getPassword() {
+         return password;
+     }
+
+     public void setPassword(String password) {
+         this.password = password;
+     }
+
+     public String getFormRole() {
+         return formRole;
+     }
+
+     public void setFormRole(String formRole) {
+         this.formRole = formRole;
+     }
+
+     @Override
+     public String toString() {
+         return "AppUser{" +
+                 "userName='" + userName + '\'' +
+                 ", password='" + password + '\'' +
+                 ", formRole='" + formRole + '\'' +
+                 '}';
+     }
+ }
+                                    </pre>
+                                    <h1>
+                                        controllers
+                                    </h1>
+                                    <p>
+                                        main app controller <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package com.danielbyun.loginRegistrationMultiroles.controller;
+
+ import org.springframework.stereotype.Controller;
+ import org.springframework.web.bind.annotation.GetMapping;
+
+ @Controller
+ public class MainController {
+     @GetMapping("/")
+     public String showHome() {
+         return "home";
+     }
+
+     @GetMapping("/managers")
+     public String showLeaders() {
+         return "leaders";
+     }
+
+     @GetMapping("/admin")
+     public String showOwner() {
+         return "admin";
+     }
+ }
+                                    </pre>
+                                    <p>
+                                        login controller <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package com.danielbyun.loginRegistrationMultiroles.controller;
+
+ import org.springframework.stereotype.Controller;
+ import org.springframework.web.bind.annotation.GetMapping;
+
+ @Controller
+ public class LoginController {
+     @GetMapping("/login")
+     public String showLoginPage() {
+         return "login";
+     }
+
+     @GetMapping("/access-denied")
+     public String accessDeniedPage() {
+         return "access-denied";
+     }
+ }
+                                    </pre>
+                                    <p>
+                                        registration controller <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <pre class="prettyprint">
+
+ package com.danielbyun.loginRegistrationMultiroles.controller;
+
+ import com.danielbyun.loginRegistrationMultiroles.user.AppUser;
+ import org.springframework.security.core.userdetails.User;
+ import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+ import org.springframework.security.core.GrantedAuthority;
+ import org.springframework.security.core.authority.AuthorityUtils;
+ import org.springframework.security.core.authority.SimpleGrantedAuthority;
+ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+ import org.springframework.security.provisioning.UserDetailsManager;
+ import org.springframework.stereotype.Controller;
+ import org.springframework.ui.Model;
+ import org.springframework.validation.BindingResult;
+ import org.springframework.web.bind.WebDataBinder;
+ import org.springframework.web.bind.annotation.*;
+
+ import javax.annotation.PostConstruct;
+ import javax.validation.Valid;
+ import java.util.LinkedHashMap;
+ import java.util.List;
+ import java.util.Map;
+ import java.util.logging.Logger;
+
+ @Controller
+ @RequestMapping("/register")
+ public class RegistrationController {
+     @Autowired
+     private UserDetailsManager userDetailsManager;
+
+     private Map&lt;String, String&gt; roles;
+     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+     private Logger logger = Logger.getLogger(getClass().getName());
+
+     @InitBinder
+     public void initBinder(WebDataBinder dataBinder) {
+         StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
+         dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
+     }
+
+     // load roles
+     @PostConstruct
+     protected void loadRoles() {
+         roles = new LinkedHashMap&lt;String, String&gt;();
+
+         roles.put("ROLE_EMPLOYEE", "Employee");
+         roles.put("ROLE_MANAGER", "Manager");
+         roles.put("ROLE_ADMIN", "Admin");
+     }
+
+     // display registration from
+     @GetMapping("/showRegistrationForm")
+     public String showRegistrationForm(Model model) {
+         model.addAttribute("user", new AppUser());
+         model.addAttribute("roles", roles);
+
+         return "registration-form";
+     }
+
+     @PostMapping("/processRegistrationForm")
+     public String processRegistrationForm(
+             @Valid @ModelAttribute("user") AppUser user,
+             BindingResult bindingResult,
+             Model model) {
+         String userName = user.getUserName();
+         String role = user.getFormRole();
+
+         logger.info("processing registration form for: " + userName);
+         logger.info("role: " + role);
+
+         if (bindingResult.hasErrors()) {
+             model.addAttribute("user", new AppUser());
+             model.addAttribute("roles", roles);
+             model.addAttribute("registrationError", "user name // password cannot be empty.");
+
+             logger.warning("user name // password cannot be empty.");
+
+             return "registration-form";
+         }
+         boolean userExists = doesUserExist(userName);
+
+         if (userExists) {
+             model.addAttribute("user", new AppUser());
+             model.addAttribute("roles", roles);
+             model.addAttribute("registrationError", "user name already exists");
+
+             logger.warning("user name exists already");
+
+             return "registration-form";
+         }
+
+         // encode password usuing bCrypt
+         String encodedPassword = passwordEncoder.encode(user.getPassword());
+         // add {bcrypt} prefix to identify the bcrypt encryption
+         encodedPassword = "{bcrypt}" + encodedPassword;
+
+         // create authorityList
+         List&lt;GrantedAuthority&gt; authorities = AuthorityUtils.createAuthorityList();
+         // default role = ROLE_EMPLOYEE
+         authorities.add(new SimpleGrantedAuthority("ROLE_EMPLOYEE"));
+
+         String formRole = user.getFormRole();
+         logger.info(formRole);
+
+         // add ROLE_MANAGER when ROLE_ADMIN is selected
+         if (formRole.equals("ROLE_ADMIN")) {
+             authorities.add(new SimpleGrantedAuthority("ROLE_MANAGER"));
+         }
+
+         if (!formRole.equals("ROLE_EMPLOYEE")) {
+             authorities.add(new SimpleGrantedAuthority(formRole));
+         }
+
+         org.springframework.security.core.userdetails.User tempUser = new org.springframework.security.core. userdetails.User(userName, encodedPassword, authorities);
+
+         userDetailsManager.createUser(tempUser);
+
+         logger.info("successfully created user: " + userName);
+
+         return "registration-confirmation";
+     }
+
+     private boolean doesUserExist(String userName) {
+         boolean exists = userDetailsManager.userExists(userName);
+
+         logger.info("checking if user exists: " + userName);
+         logger.info("user: " + userName + ", exists: " + exists);
+
+         return exists;
+     }
+ }
+                                    </pre>
+                                    <p>
+                                        project database schema <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <p class="img">
+                                        <img src="img/registration :: login multi roles process pics/register :: login app with multi-role database schema.png"
+                                             alt="database schema" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        check out part 2 for the view layer <i class="fas fa-arrow-circle-right"></i>
                                     </p>
                                     <p>
                                         <a href="" target="_blank">github link to project</a>
@@ -3297,9 +3935,231 @@
                         </div>
                     </div>
                 </article>
+                <!-- register // login app with multi - role feature part 2 -->
+                <article>
+                    <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#webApp6">
+                        register // login app with multi-role feature (part 2)
+                    </button>
+                    <div class="modal fade" id="webApp6" tabindex="-1" role="dialog"
+                         aria-labelledby="webApp6Label"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-xl" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="webApp6Label">
+                                        register // login app that supports multi-role feature (part 2)
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <h1>
+                                        view layer
+                                    </h1>
+                                    <p>
+                                        the login page
+                                    </p>
+                                    <p>
+                                        since the security config file calls that all pages be accessible if they have
+                                        at least an 'EMPLOYEE' role, the main page will be the login page.
+                                    </p>
+                                    <pre class="prettyprint">
+
+ &lt;%@ taglib prefix=&quot;form&quot; uri=&quot;http://www.springframework.org/tags/form&quot; %&gt;
+ &lt;%@ taglib prefix=&quot;security&quot; uri=&quot;http://www.springframework.org/security/tags&quot; %&gt;
+ &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+ &lt;html&gt;
+     &lt;head&gt;
+         &lt;title&gt;spring-security-demo&lt;/title&gt;
+         &lt;meta charset=&quot;utf-8&quot;&gt;
+         &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+         &lt;!-- materialized css --&gt;
+         &lt;!-- Compiled and minified CSS --&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css&quot;&gt;
+         &lt;!-- Compiled and minified JavaScript --&gt;
+         &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js&quot;&gt;&lt;/script&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;${pageContext.request.contextPath}/resource/css/reset.css&quot;&gt;
+         &lt;link rel=&quot;stylesheet&quot; href=&quot;${pageContext.request.contextPath}/resource/css/home.css&quot;&gt;
+     &lt;/head&gt;
+     &lt;body&gt;
+         &lt;header class=&quot;container row col s12 homeHeader&quot;&gt;
+             &lt;h1 class=&quot;col s12&quot;&gt;welcome, &lt;security:authentication property=&quot;principal.username&quot;/&gt;&lt;/h1&gt;
+             &lt;!-- add a logout button --&gt;
+             &lt;form:form action=&quot;${pageContext.request.contextPath}/logout&quot; method=&quot;post&quot; class=&quot;col&quot;&gt;
+                 &lt;button class=&quot;waves-effect waves-light btn-small&quot; type=&quot;submit&quot; value=&quot;logout&quot;&gt;logout&lt;/button&gt;
+             &lt;/form:form&gt;
+         &lt;/header&gt;
+         &lt;main class=&quot;container row&quot;&gt;
+             &lt;div&gt;
+                 &lt;p class=&quot;col s12 row&quot;&gt;
+                     &lt;security:authentication property=&quot;principal.username&quot;/&gt;, you have the following role(s):
+                     &lt;security:authentication property=&quot;principal.authorities&quot;/&gt;
+                 &lt;/p&gt;
+             &lt;/div&gt;
+             &lt;!-- add a link to point to /leaders.. this is for the owner --&gt;
+             &lt;security:authorize access=&quot;hasRole(&apos;ADMIN&apos;)&quot;&gt;
+                 &lt;p class=&quot;col s12&quot;&gt;
+                     &lt;a href=&quot;${pageContext.request.contextPath}/admin&quot;&gt;admin dashboard&lt;/a&gt;
+                     (only for the admin)
+                 &lt;/p&gt;
+             &lt;/security:authorize&gt;
+             &lt;!-- add a link to point to /leaders.. this is for the managers --&gt;
+             &lt;security:authorize access=&quot;hasRole(&apos;MANAGER&apos;)&quot;&gt;
+                 &lt;p class=&quot;col s12&quot;&gt;
+                     &lt;a href=&quot;${pageContext.request.contextPath}/managers&quot;&gt;manager dashboard&lt;/a&gt;
+                     (only for the managers)
+                 &lt;/p&gt;
+             &lt;/security:authorize&gt;
+
+         &lt;/main&gt;
+     &lt;/body&gt;
+ &lt;/html&gt;
+                                    </pre>
+                                    <p>
+                                        login page
+                                    </p>
+                                    <p>
+                                        <img
+                                                src="img/registration :: login multi roles process pics/login%20page.png"
+                                                alt="login page" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        login failed
+                                    </p>
+                                    <p>
+                                        <img src="img/registration :: login multi roles process pics/login%20failed.png"
+                                             alt="log in failed" class="img-fluid">
+                                    </p>
+                                    <h1>
+                                        login successful
+                                    </h1>
+                                    <p>
+                                        employee view
+                                    </p>
+                                    <p>
+                                        <img src="img/registration :: login multi roles process pics/logged%20in%20(employee).png"
+                                             alt="employee loggedin" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        manager view
+                                    </p>
+                                    <p>
+                                        <img src="img/registration :: login multi roles process pics/logged%20in%20(manager).png"
+                                             alt="manager loggedin" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        admin view
+                                    </p>
+                                    <p>
+                                        <img src="img/registration :: login multi roles process pics/logged%20in%20(admin).png"
+                                             alt="admin logged in" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        successfully logged out
+                                    </p>
+                                    <p>
+                                        <img src="img/registration :: login multi roles process pics/logout.png"
+                                             alt="log out" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        registration page
+                                    </p>
+                                    <p>
+                                        <img src="img/registration :: login multi roles process pics/registration.png"
+                                             alt="registration page" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        <img src="img/registration :: login multi roles process pics/registration%20with%20roles.png"
+                                             alt="registration with roles options out" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        <img src="img/registration :: login multi roles process pics/registration%20error.png"
+                                             alt="registration error" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        <img src="img/registration :: login multi roles process pics/registration%20process.png"
+                                             alt="registration process" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        <img src="img/registration :: login multi roles process pics/registration%20successful.png"
+                                             alt="registration successful" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        database update
+                                    </p>
+                                    <p>
+                                        <img src="img/registration :: login multi roles process pics/user.png"
+                                             alt="user" class="img-fluid">
+                                    </p>
+                                    <p class="img">
+                                        <img src="img/registration :: login multi roles process pics/roles.png"
+                                             alt="roles" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        log in with the new user
+                                    </p>
+                                    <p>
+                                        <img src="img/registration :: login multi roles process pics/log%20in%20with%20new%20user.png"
+                                             alt="log in with new user" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        <img src="img/registration :: login multi roles process pics/log%20in%20with%20new%20user%20successful.png"
+                                             alt="log in with new user successful" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        access-denied example (manually trying to access a page that's not granted to
+                                        employees)
+                                    </p>
+                                    <p>
+                                        <img src="img/registration :: login multi roles process pics/logged%20in%20(employee).png"
+                                             alt="employee logged in" class="img-fluid">
+                                    </p>
+                                    <p>
+                                        <img src="img/registration :: login multi roles process pics/access-denied.png"
+                                             alt="access-denied" class="img-fluid">
+                                    </p>
+                                    <h1>final thoughts</h1>
+                                    <hr>
+                                    <p>
+                                        as you can see, a lot can be accomplished with less lines of code when spring
+                                        mvc, spring security is implemented.
+                                    </p>
+                                    <p>
+                                        spring security provides a lot of security features that can be implemented with
+                                        just few lines of code
+                                    </p>
+                                    <p>
+                                        unlike the first project, the password was encrypted, we were able to give
+                                        authorities to users with specific users, and display certain elements depending
+                                        on authorities with just one configuration class.
+                                    </p>
+                                    <h5>
+                                        things i would like to improve on:
+                                    </h5>
+                                    <p>
+                                        i would like to be able to save more user details on registration, not just the
+                                        username // password.
+                                    </p>
+                                    <p>
+                                        check the next project, 'gym crm app', where i try to implement that while
+                                        mocking a crm app that can be used for a local gym or any small business
+                                    </p>
+                                    <p>
+                                        <a href="https://github.com/danielbyun/spring-login-registration-multiroles" target="_blank">github link to project</a>
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <!-- gym CRM app -->
                 <article>
                     <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#webApp4">
-                        gym CRM app
+                        gym CRM app (coming soon)
                     </button>
                     <div class="modal fade" id="webApp4" tabindex="-1" role="dialog"
                          aria-labelledby="webApp4Label"
@@ -3308,16 +4168,99 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="webApp4Label">
-                                        gym CRM app
+                                        gym CRM app (coming soon)
                                     </h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <p>
-                                        <img src="img/spring%20logo.png" alt="spring logo" class="img-fluid">
+                                    <p class="logoTop">
+                                        <img src="img/spring%20logo.png" alt="spring logo" class="img-fluid logoImg">
                                     </p>
+                                    <p>
+                                        This web app was created using Spring Boot, Spring Security, MySQL, JPA
+                                        (Hibernate), and Thymeleaf was used for the view layer.
+                                    </p>
+                                    <p>
+                                        this app tracks customers, employees, and has a link to the gym's e-commerce
+                                        site.
+                                    </p>
+                                    <ul>
+                                        roles:
+                                        <li>
+                                            - employees: can view customers
+                                        </li>
+                                        <li>
+                                            - managers: can view // add // edit // delete customers, can view employees
+                                        </li>
+                                        <li>
+                                            - admin: can view // add // edit // delete customers and employees
+                                        </li>
+                                    </ul>
+                                    <img class="img-fluid"
+                                         src="https://images.unsplash.com/photo-1493235431945-90c060301e41?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"
+                                         alt="city landscape">
+                                    <p>
+                                        project dependencies (pom.xml) <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <p>
+                                        configurations <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <p>
+                                        mysql query <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <p>
+                                        controllers <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <p>
+                                        dto <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <p>
+                                        entities <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <p>
+                                        repositories <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <p>
+                                        services <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <p>
+                                        validation utilities <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <p>
+                                        view layer using thymeleaf <i class="fas fa-arrow-alt-circle-down"></i>
+                                    </p>
+                                    <p>
+                                        <a href="" target="_blank">github link to project</a>
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <!-- gym e-commerce site -->
+                <article>
+                    <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#webApp7">
+                        gym e-commerce site (coming soon)
+                    </button>
+                    <div class="modal fade" id="webApp7" tabindex="-1" role="dialog"
+                         aria-labelledby="webApp7Label"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-xl" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="webApp7Label">
+                                        gym e-commerce site (coming soon)
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
                                     <p>
                                         This web app was created using Spring Boot, Spring Security, MySQL, JPA
                                         (Hibernate), and Thymeleaf was used for the view layer.

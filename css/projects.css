@@ -3,24 +3,24 @@ html {
   box-sizing: border-box;
   position: relative;
   min-height: 100%;
-  font-size: 16px;
-  font-family: 'lucida console', sans-serif; }
+  font-size: 16px; }
 
 html, body {
   height: 100%; }
 
 body {
+  font-family: 'lucida console', sans-serif;
+  display: flex;
+  flex-direction: column;
   margin: 0;
-  margin-bottom: 60px;
   padding: 0;
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url("https://images.unsplash.com/photo-1515643395264-3f8c19a2dc77?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1961&q=80") no-repeat center center fixed;
-  background-size: cover;
-  display: flex;
-  flex-direction: column; }
+  background-size: cover; }
   body h1, body p {
     margin: 0; }
   body h1 {
-    font-size: 1.5em; }
+    font-size: 1.5em;
+    font-weight: bold; }
 
 *, *:before, *:after {
   box-sizing: inherit; }
@@ -81,48 +81,22 @@ main {
         color: black; }
       main section article .modal {
         -webkit-overflow-scrolling: touch; }
-        main section article .modal h1 {
-          margin: 1rem 0; }
-      main section article #webApp1 div div div.modal-body p:nth-child(1) {
-        text-align: center; }
-        main section article #webApp1 div div div.modal-body p:nth-child(1) img {
-          height: 25%;
-          width: 25%; }
-      main section article #webApp1 div div div.modal-body p:nth-child(7),
-      main section article #webApp1 div div div.modal-body p:nth-child(13) {
-        text-align: center; }
-        main section article #webApp1 div div div.modal-body p:nth-child(7) img,
-        main section article #webApp1 div div div.modal-body p:nth-child(13) img {
+        main section article .modal .modal-dialog .modal-content .logoTop {
+          text-align: center; }
+          main section article .modal .modal-dialog .modal-content .logoTop .logoImg {
+            height: 25%;
+            width: 25%; }
+        main section article .modal .modal-dialog .modal-content .img {
+          margin: 10px auto;
           height: 50%;
           width: 50%; }
-      main section article #webApp2 div div div.modal-body p:nth-child(1) {
-        text-align: center; }
-        main section article #webApp2 div div div.modal-body p:nth-child(1) img {
-          height: 25%;
-          width: 25%; }
-      main section article #webApp3 div div div.modal-body p:nth-child(1) {
-        text-align: center; }
-        main section article #webApp3 div div div.modal-body p:nth-child(1) img {
-          height: 25%;
-          width: 25%; }
-      main section article #webApp4 div div div.modal-body p:nth-child(1) {
-        text-align: center; }
-        main section article #webApp4 div div div.modal-body p:nth-child(1) img {
-          height: 25%;
-          width: 25%; }
-      main section article #webApp5 div div div.modal-body p:nth-child(1) {
-        text-align: center; }
-        main section article #webApp5 div div div.modal-body p:nth-child(1) img {
-          height: 25%;
-          width: 25%; }
+        main section article .modal .modal-dialog .modal-content .modal-body img {
+          margin: 10px 0; }
+        main section article .modal .modal-dialog .modal-content .modal-body h5 {
+          margin: 1rem; }
 
 footer {
   display: none; }
-
-.modal .modal-body p {
-  margin: 10px 0; }
-.modal .modal-body img {
-  margin: 10px 0; }
 
 @media only screen and (max-device-width: 800px) {
   header {
@@ -196,6 +170,9 @@ footer {
             flex: 0 0 calc(100% / 3);
             text-align: center; } }
 @media only screen and (min-device-width: 320px) and (max-device-width: 415px) {
+  body {
+    margin-bottom: 60px; }
+
   main {
     font-size: 14px;
     width: 100%;

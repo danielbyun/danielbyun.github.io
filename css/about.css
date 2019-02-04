@@ -10,7 +10,6 @@ html, body {
 
 body {
   margin: 0;
-  margin-bottom: 60px;
   padding: 0;
   background: #000000;
   background-size: cover;
@@ -153,6 +152,9 @@ footer {
             flex: 0 0 calc(100% / 3);
             text-align: center; } }
 @media only screen and (min-device-width: 320px) and (max-device-width: 415px) {
+  body {
+    margin-bottom: 60px; }
+
   main {
     font-size: 14px;
     width: 100%;
