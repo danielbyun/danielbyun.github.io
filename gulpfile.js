@@ -28,7 +28,7 @@ gulp.task("prefix", function() {
 
 // optimize images
 gulp.task("imageMin", () =>
-    gulp.src("img/*")
+    gulp.src("app/img/*")
         .pipe(imagemin())
         .pipe(gulp.dest("dist/img"))
 );
