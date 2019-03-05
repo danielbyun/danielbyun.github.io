@@ -7,14 +7,14 @@ const concat = require("gulp-concat");
 const browsersync = require("browser-sync");
 
 // autoprefixer
-gulp.task("styles", function() {
+gulp.task("styles", function () {
     gulp.src("css/*.css")
         .pipe(autoprefixer())
         .pipe(gulp.dest("/dist/css"))
 });
 
 // prefixer
-gulp.task("prefix", function() {
+gulp.task("prefix", function () {
     gulp.src("css/*.css")
         .pipe(prefixer())
         .pipe(gulp.dest("/dist/css"))
@@ -47,18 +47,18 @@ gulp.task("scripts", () =>
 gulp.task("default", ["styles", "imageMin", "scripts"]);
 
 // browsersync
-gulp.task('serve', function() {
-   browsersync.init({
-       server:"./app",
-       notify: false
-   });
+gulp.task('serve', function () {
+    browsersync.init({
+        server: "./app",
+        notify: false
+    });
 
-   gulp.watch("app/css/*.css");
-   gulp.watch("app/*.html").on("change", browsersync.reload);
+    gulp.watch("app/css/*.css");
+    gulp.watch("app/*.html").on("change", browsersync.reload);
 });
 
 // watch task
-gulp.task("watch", function(){
+gulp.task("watch", function () {
     gulp.watch("app/js/*.js", ["scripts"]);
     gulp.watch("app/img/*", ["imageMin"]);
     gulp.watch("app/css/*.css", ["styles"]);
