@@ -18,31 +18,31 @@
 
     var WaveSurfer = {
         defaultParams: {
-            height        : 128,
-            waveColor     : '#999',
-            progressColor : '#555',
-            cursorColor   : '#333',
-            cursorWidth   : 1,
-            skipLength    : 2,
-            minPxPerSec   : 20,
-            pixelRatio    : window.devicePixelRatio || screen.deviceXDPI / screen.logicalXDPI,
-            fillParent    : true,
-            scrollParent  : false,
-            hideScrollbar : false,
-            normalize     : false,
-            audioContext  : null,
-            container     : null,
-            dragSelection : true,
-            loopSelection : true,
-            audioRate     : 1,
-            interact      : true,
-            splitChannels : false,
+            height: 128,
+            waveColor: '#999',
+            progressColor: '#555',
+            cursorColor: '#333',
+            cursorWidth: 1,
+            skipLength: 2,
+            minPxPerSec: 20,
+            pixelRatio: window.devicePixelRatio || screen.deviceXDPI / screen.logicalXDPI,
+            fillParent: true,
+            scrollParent: false,
+            hideScrollbar: false,
+            normalize: false,
+            audioContext: null,
+            container: null,
+            dragSelection: true,
+            loopSelection: true,
+            audioRate: 1,
+            interact: true,
+            splitChannels: false,
             mediaContainer: null,
-            mediaControls : false,
-            renderer      : 'Canvas',
-            backend       : 'WebAudio',
-            mediaType     : 'audio',
-            autoCenter    : true
+            mediaControls: false,
+            renderer: 'Canvas',
+            backend: 'WebAudio',
+            mediaType: 'audio',
+            autoCenter: true
         },
 
         init: function (params) {
@@ -132,9 +132,15 @@
             this.backend = Object.create(WaveSurfer[this.params.backend]);
             this.backend.init(this.params);
 
-            this.backend.on('finish', function () { my.fireEvent('finish'); });
-            this.backend.on('play', function () { my.fireEvent('play'); });
-            this.backend.on('pause', function () { my.fireEvent('pause'); });
+            this.backend.on('finish', function () {
+                my.fireEvent('finish');
+            });
+            this.backend.on('play', function () {
+                my.fireEvent('play');
+            });
+            this.backend.on('pause', function () {
+                my.fireEvent('pause');
+            });
 
             this.backend.on('audioprocess', function (time) {
                 my.drawer.progress(my.backend.getPlayedPercents());
@@ -352,8 +358,10 @@
             this.empty();
 
             switch (this.params.backend) {
-                case 'WebAudio': return this.loadBuffer(url, peaks);
-                case 'MediaElement': return this.loadMediaElement(url, peaks, preload);
+                case 'WebAudio':
+                    return this.loadBuffer(url, peaks);
+                case 'MediaElement':
+                    return this.loadMediaElement(url, peaks, preload);
             }
         },
 
@@ -505,7 +513,7 @@
          * The default format is 'image/png'. Other supported types are
          * 'image/jpeg' and 'image/webp'.
          */
-        exportImage: function(format, quality) {
+        exportImage: function (format, quality) {
             if (!format) {
                 format = 'image/png';
             }
@@ -524,7 +532,9 @@
         },
 
         clearTmpEvents: function () {
-            this.tmpEvents.forEach(function (e) { e.un(); });
+            this.tmpEvents.forEach(function (e) {
+                e.un();
+            });
         },
 
         /**
@@ -539,7 +549,7 @@
             this.clearTmpEvents();
             this.drawer.progress(0);
             this.drawer.setWidth(0);
-            this.drawer.drawPeaks({ length: this.drawer.getWidth() }, 0);
+            this.drawer.drawPeaks({length: this.drawer.getWidth()}, 0);
         },
 
         /**
@@ -573,7 +583,7 @@
             return dest;
         },
 
-        min: function(values) {
+        min: function (values) {
             var min = +Infinity;
             for (var i in values) {
                 if (values[i] < min) {
@@ -584,7 +594,7 @@
             return min;
         },
 
-        max: function(values) {
+        max: function (values) {
             var max = -Infinity;
             for (var i in values) {
                 if (values[i] > max) {
@@ -643,7 +653,9 @@
          * Attach a handler function for an event.
          */
         on: function (event, fn) {
-            if (!this.handlers) { this.handlers = {}; }
+            if (!this.handlers) {
+                this.handlers = {};
+            }
 
             var handlers = this.handlers[event];
             if (!handlers) {
@@ -663,7 +675,9 @@
          * Remove an event handler.
          */
         un: function (event, fn) {
-            if (!this.handlers) { return; }
+            if (!this.handlers) {
+                return;
+            }
 
             var handlers = this.handlers[event];
             if (handlers) {
@@ -702,7 +716,9 @@
         },
 
         fireEvent: function (event) {
-            if (!this.handlers) { return; }
+            if (!this.handlers) {
+                return;
+            }
             var handlers = this.handlers[event];
             var args = Array.prototype.slice.call(arguments, 1);
             handlers && handlers.forEach(function (fn) {
@@ -906,7 +922,9 @@
          * of peaks consisting of (max, min) values for each subrange.
          */
         getPeaks: function (length) {
-            if (this.peaks) { return this.peaks; }
+            if (this.peaks) {
+                return this.peaks;
+            }
 
             var sampleSize = this.buffer.length / length;
             var sampleStep = ~~(sampleSize / 10) || 1;
@@ -1007,7 +1025,9 @@
         },
 
         seekTo: function (start, end) {
-            if (!this.buffer) { return; }
+            if (!this.buffer) {
+                return;
+            }
 
             this.scheduledPause = null;
 
@@ -1028,7 +1048,7 @@
                 this.setState(this.PAUSED_STATE);
             }
 
-            return { start: start, end: end };
+            return {start: start, end: end};
         },
 
         getPlayedTime: function () {
@@ -1044,7 +1064,9 @@
          * relative to the beginning of a clip.
          */
         play: function (start, end) {
-            if (!this.buffer) { return; }
+            if (!this.buffer) {
+                return;
+            }
 
             // need to re-create source on each playback
             this.createSource();
@@ -1156,8 +1178,10 @@
                 duration: 0,
                 paused: true,
                 playbackRate: 1,
-                play: function () {},
-                pause: function () {}
+                play: function () {
+                },
+                pause: function () {
+                }
             };
 
             this.mediaType = params.mediaType.toLowerCase();
@@ -1175,7 +1199,9 @@
             var playing = false;
 
             var onAudioProcess = function () {
-                if (my.isPaused()) { return; }
+                if (my.isPaused()) {
+                    return;
+                }
 
                 my.fireEvent('audioprocess', my.getCurrentTime());
 
@@ -1533,7 +1559,9 @@
         },
 
         setHeight: function (height) {
-            if (height == this.height) { return; }
+            if (height == this.height) {
+                return;
+            }
             this.height = height;
             this.style(this.wrapper, {
                 height: ~~(this.height / this.params.pixelRatio) + 'px'
@@ -1566,17 +1594,23 @@
         },
 
         /* Renderer-specific methods */
-        initDrawer: function () {},
+        initDrawer: function () {
+        },
 
-        createElements: function () {},
+        createElements: function () {
+        },
 
-        updateSize: function () {},
+        updateSize: function () {
+        },
 
-        drawWave: function (peaks, max) {},
+        drawWave: function (peaks, max) {
+        },
 
-        clearWave: function () {},
+        clearWave: function () {
+        },
 
-        updateProgress: function (position) {}
+        updateProgress: function (position) {
+        }
     };
 
     WaveSurfer.util.extend(WaveSurfer.Drawer, WaveSurfer.Observer);
@@ -1628,14 +1662,14 @@
 
             this.waveCc.canvas.width = this.width;
             this.waveCc.canvas.height = this.height;
-            this.style(this.waveCc.canvas, { width: width + 'px'});
+            this.style(this.waveCc.canvas, {width: width + 'px'});
 
-            this.style(this.progressWave, { display: 'block'});
+            this.style(this.progressWave, {display: 'block'});
 
             if (this.progressCc) {
                 this.progressCc.canvas.width = this.width;
                 this.progressCc.canvas.height = this.height;
-                this.style(this.progressCc.canvas, { width: width + 'px'});
+                this.style(this.progressCc.canvas, {width: width + 'px'});
             }
 
             this.clearWave();
@@ -1663,9 +1697,13 @@
 
             // Bar wave draws the bottom only as a reflection of the top,
             // so we don't need negative values
-            var hasMinVals = [].some.call(peaks, function (val) { return val < 0; });
+            var hasMinVals = [].some.call(peaks, function (val) {
+                return val < 0;
+            });
             if (hasMinVals) {
-                peaks = [].filter.call(peaks, function (_, index) { return index % 2 == 0; });
+                peaks = [].filter.call(peaks, function (_, index) {
+                    return index % 2 == 0;
+                });
             }
 
             // A half-pixel offset makes lines crisp
@@ -1691,8 +1729,10 @@
                 this.progressCc.fillStyle = this.params.progressColor;
             }
 
-            [ this.waveCc, this.progressCc ].forEach(function (cc) {
-                if (!cc) { return; }
+            [this.waveCc, this.progressCc].forEach(function (cc) {
+                if (!cc) {
+                    return;
+                }
 
                 for (var i = 0; i < width; i += step) {
                     var h = Math.round(peaks[Math.floor(i * scale)] / absmax * halfH);
@@ -1715,7 +1755,9 @@
             }
 
             // Support arrays without negative peaks
-            var hasMinValues = [].some.call(peaks, function (val) { return val < 0; });
+            var hasMinValues = [].some.call(peaks, function (val) {
+                return val < 0;
+            });
             if (!hasMinValues) {
                 var reflectedPeaks = [];
                 for (var i = 0, len = peaks.length; i < len; i++) {
@@ -1749,8 +1791,10 @@
                 this.progressCc.fillStyle = this.params.progressColor;
             }
 
-            [ this.waveCc, this.progressCc ].forEach(function (cc) {
-                if (!cc) { return; }
+            [this.waveCc, this.progressCc].forEach(function (cc) {
+                if (!cc) {
+                    return;
+                }
 
                 cc.beginPath();
                 cc.moveTo($, halfH + offsetY);
@@ -1779,10 +1823,10 @@
             var pos = Math.round(
                 this.width * progress
             ) / this.params.pixelRatio;
-            this.style(this.progressWave, { width: pos + 'px' });
+            this.style(this.progressWave, {width: pos + 'px'});
         },
 
-        getImage: function(type, quality) {
+        getImage: function (type, quality) {
             return this.waveCc.canvas.toDataURL(type, quality);
         }
     });
@@ -1902,14 +1946,14 @@
 
             entry.waveCtx.canvas.width = width;
             entry.waveCtx.canvas.height = height;
-            this.style(entry.waveCtx.canvas, { width: elementWidth + 'px'});
+            this.style(entry.waveCtx.canvas, {width: elementWidth + 'px'});
 
-            this.style(this.progressWave, { display: 'block'});
+            this.style(this.progressWave, {display: 'block'});
 
             if (this.hasProgressCanvas) {
                 entry.progressCtx.canvas.width = width;
                 entry.progressCtx.canvas.height = height;
-                this.style(entry.progressCtx.canvas, { width: elementWidth + 'px'});
+                this.style(entry.progressCtx.canvas, {width: elementWidth + 'px'});
             }
         },
 
@@ -1941,9 +1985,13 @@
 
             // Bar wave draws the bottom only as a reflection of the top,
             // so we don't need negative values
-            var hasMinVals = [].some.call(peaks, function (val) { return val < 0; });
+            var hasMinVals = [].some.call(peaks, function (val) {
+                return val < 0;
+            });
             if (hasMinVals) {
-                peaks = [].filter.call(peaks, function (_, index) { return index % 2 == 0; });
+                peaks = [].filter.call(peaks, function (_, index) {
+                    return index % 2 == 0;
+                });
             }
 
             // A half-pixel offset makes lines crisp
@@ -1983,7 +2031,9 @@
             }
 
             // Support arrays without negative peaks
-            var hasMinValues = [].some.call(peaks, function (val) { return val < 0; });
+            var hasMinValues = [].some.call(peaks, function (val) {
+                return val < 0;
+            });
             if (!hasMinValues) {
                 var reflectedPeaks = [];
                 for (var i = 0, len = peaks.length; i < len; i++) {
@@ -2023,7 +2073,9 @@
         },
 
         drawLineToContext: function (entry, ctx, peaks, absmax, halfH, offsetY) {
-            if (!ctx) { return; }
+            if (!ctx) {
+                return;
+            }
 
             var length = peaks.length / 2;
 
@@ -2085,7 +2137,9 @@
         },
 
         fillRectToContext: function (ctx, x, y, width, height) {
-            if (!ctx) { return; }
+            if (!ctx) {
+                return;
+            }
             ctx.fillRect(x, y, width, height);
         },
 
@@ -2100,7 +2154,7 @@
             var pos = Math.round(
                 this.width * progress
             ) / this.params.pixelRatio;
-            this.style(this.progressWave, { width: pos + 'px' });
+            this.style(this.progressWave, {width: pos + 'px'});
         }
     });
 
